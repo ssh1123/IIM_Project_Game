@@ -13,14 +13,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject choiceGroup;
     [SerializeField] private ChoiceButtonUI[] choiceButtons;
 
+    [Header("Systems")]
+    [SerializeField] private GameState gameState;
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
 
     private void Start()
     {
+        Debug.Log("currentStory: " + currentStory);
+        Debug.Log("nameText: " + nameText);
+        Debug.Log("bodyText: " + bodyText);
+        Debug.Log("choiceGroup: " + choiceGroup);
+        Debug.Log("gameState: " + gameState);
+
         StartStory(currentStory);
     }
-
     public void StartStory(StoryData storyData)
     {
         currentStory = storyData;
@@ -49,14 +56,33 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        currentNode = nodeLookup[nodeId];
+        DialogueNode node = nodeLookup[nodeId];
+
+        if (!gameState.HasAllFlags(node.requiredFlags))
+        {
+            Debug.LogWarning("節點條件不符: " + nodeId);
+            return;
+        }
+
+        currentNode = node;
+
+        ApplyNodeFlags(currentNode);
 
         nameText.text = currentNode.speakerName;
         bodyText.text = currentNode.bodyText;
 
         UpdateChoices();
     }
+    
+    private void ApplyNodeFlags(DialogueNode node)
+    {
+        if (node.setFlags == null) return;
 
+        foreach (string flag in node.setFlags)
+        {
+            gameState.SetFlag(flag);
+        }
+    }
     private void UpdateChoices()
     {
         bool hasChoices = currentNode.choices != null && currentNode.choices.Count > 0;
@@ -76,7 +102,12 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-
+    private void EndDialogue()
+    {
+        nameText.text = "";
+        bodyText.text = "故事結束";
+        choiceGroup.SetActive(false);
+    }
     public void OnClickNext()
     {
         if (currentNode == null) return;
@@ -93,16 +124,14 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
         }
     }
-
-    public void SelectChoice(string nextNodeId)
+    
+    public void SelectChoice(ChoiceData choiceData)
     {
-        ShowNode(nextNodeId);
-    }
+        if (!string.IsNullOrEmpty(choiceData.setFlag))
+        {
+            gameState.SetFlag(choiceData.setFlag);
+        }
 
-    private void EndDialogue()
-    {
-        nameText.text = "";
-        bodyText.text = "故事結束";
-        choiceGroup.SetActive(false);
-    }
+        ShowNode(choiceData.nextNodeId);
+    }   
 }

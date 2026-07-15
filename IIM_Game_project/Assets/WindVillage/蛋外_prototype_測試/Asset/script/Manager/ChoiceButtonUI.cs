@@ -6,7 +6,7 @@ public class ChoiceButtonUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text choiceText;
     private Button button;
-    private string nextNodeId;
+    private ChoiceData currentChoice;
     private DialogueManager dialogueManager;
 
     private void Awake()
@@ -16,8 +16,8 @@ public class ChoiceButtonUI : MonoBehaviour
 
     public void Setup(ChoiceData choiceData, DialogueManager manager)
     {
+        currentChoice = choiceData;
         dialogueManager = manager;
-        nextNodeId = choiceData.nextNodeId;
         choiceText.text = choiceData.choiceText;
 
         button.onClick.RemoveAllListeners();
@@ -26,6 +26,6 @@ public class ChoiceButtonUI : MonoBehaviour
 
     private void OnClickChoice()
     {
-        dialogueManager.SelectChoice(nextNodeId);
+        dialogueManager.SelectChoice(currentChoice);
     }
 }
