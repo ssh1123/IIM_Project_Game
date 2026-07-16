@@ -18,10 +18,10 @@ MonoBehaviour:
   - nodeId: N001
     speakerName: "\u65C1\u767D"
     bodyText: 1231
-    backgroundSprite: {fileID: 0}
+    backgroundSprite: {fileID: -1711492227995112989, guid: 6a18a04a80f776b43a622242043949c5, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
-    rightPortrait: {fileID: 0}
+    rightPortrait: {fileID: 21300000, guid: 99843ef8a79b620478e2f01cbd76609c, type: 3}
     choices: []
     nextNodeId: N002
     setFlags: []
@@ -30,10 +30,10 @@ MonoBehaviour:
   - nodeId: N002
     speakerName: "\u65C1\u767D"
     bodyText: 1232
-    backgroundSprite: {fileID: 0}
-    leftPortrait: {fileID: 0}
-    centerPortrait: {fileID: 0}
-    rightPortrait: {fileID: 0}
+    backgroundSprite: {fileID: -1711492227995112989, guid: 6a18a04a80f776b43a622242043949c5, type: 3}
+    leftPortrait: {fileID: 21300000, guid: 387b306079a42f0459ccb753f1e6fbfb, type: 3}
+    centerPortrait: {fileID: 21300000, guid: 7d390a31ea4c1bc43ba1f218bbd62e70, type: 3}
+    rightPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     choices: []
     nextNodeId: N003
     setFlags: []
@@ -42,7 +42,7 @@ MonoBehaviour:
   - nodeId: N003
     speakerName: "\u65C1\u767D"
     bodyText: 1233
-    backgroundSprite: {fileID: 0}
+    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
@@ -65,8 +65,9 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     choices: []
-    nextNodeId: 
-    setFlags: []
+    nextNodeId: N004
+    setFlags:
+    - yes
     requiredFlags: []
     eventType: 
   - nodeId: N200
@@ -77,7 +78,32 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     choices: []
-    nextNodeId: 
+    nextNodeId: N004
     setFlags: []
     requiredFlags: []
+    eventType: 
+  - nodeId: N004
+    speakerName: "\u65C1\u767D"
+    bodyText: Flag_TEST
+    backgroundSprite: {fileID: -1711492227995112989, guid: 6a18a04a80f776b43a622242043949c5, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    choices: []
+    nextNodeId: N201
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: N201
+    speakerName: "\u65C1\u767D"
+    bodyText: yes_flag
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    choices: []
+    nextNodeId: 
+    setFlags: []
+    requiredFlags:
+    - yes
     eventType: 

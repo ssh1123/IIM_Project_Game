@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameState gameState;
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
-
+    
+    [Header("Visuals")]
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Image characterLeftImage;
+    [SerializeField] private Image characterMidImage;
+    [SerializeField] private Image characterRightImage;
     private void Start()
     {
         Debug.Log("currentStory: " + currentStory);
@@ -50,6 +56,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowNode(string nodeId)
     {
+
         if (!nodeLookup.ContainsKey(nodeId))
         {
             Debug.LogWarning("找不到節點: " + nodeId);
@@ -57,7 +64,10 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueNode node = nodeLookup[nodeId];
-
+        Debug.Log("gameState is null? " + (gameState == null));
+        Debug.Log("requiredFlags is null? " + (node.requiredFlags == null));
+        Debug.Log("node is null? " + (node == null));
+        
         if (!gameState.HasAllFlags(node.requiredFlags))
         {
             Debug.LogWarning("節點條件不符: " + nodeId);
@@ -65,7 +75,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNode = node;
-
+        UpdateVisuals(currentNode);
         ApplyNodeFlags(currentNode);
 
         nameText.text = currentNode.speakerName;
@@ -133,5 +143,56 @@ public class DialogueManager : MonoBehaviour
         }
 
         ShowNode(choiceData.nextNodeId);
-    }   
+    }  
+
+    private void UpdateVisuals(DialogueNode node)
+    {
+        if (backgroundImage != null)
+        {
+            if (node.backgroundSprite != null)
+            {
+                backgroundImage.sprite = node.backgroundSprite;
+                backgroundImage.enabled = true;
+            }
+        }
+
+        if (characterLeftImage != null)
+        {
+            if (node.leftPortrait != null)
+            {
+                characterLeftImage.sprite = node.leftPortrait;
+                characterLeftImage.enabled = true;
+            }
+            else
+            {
+                characterLeftImage.enabled = false;
+            }
+        }
+
+        if (characterRightImage != null)
+        {
+            if (node.rightPortrait != null)
+            {
+                characterRightImage.sprite = node.rightPortrait;
+                characterRightImage.enabled = true;
+            }
+            else
+            {
+                characterRightImage.enabled = false;
+            }
+        }
+        
+        if (characterMidImage != null)
+        {
+            if (node.centerPortrait != null)
+            {
+                characterMidImage.sprite = node.centerPortrait;
+                characterMidImage.enabled = true;
+            }
+            else
+            {
+                characterMidImage.enabled = false;
+            }
+        }
+    } 
 }
