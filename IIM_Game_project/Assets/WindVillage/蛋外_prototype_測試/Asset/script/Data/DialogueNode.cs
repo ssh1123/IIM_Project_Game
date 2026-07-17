@@ -14,6 +14,9 @@ public class DialogueNode
     public Sprite leftPortrait;
     public Sprite centerPortrait;
     public Sprite rightPortrait;
+    public bool showchatboxPortrait;
+
+
 
     public List<ChoiceData> choices = new List<ChoiceData>();
 

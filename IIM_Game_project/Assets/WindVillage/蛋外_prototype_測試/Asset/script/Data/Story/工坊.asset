@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eec1c02a7545a344a14fc9ddae97fd4, type: 3}
+  m_Name: "\u5DE5\u574A"
+  m_EditorClassIdentifier: Assembly-CSharp::StoryData
+  storyId: house
+  startNodeId: H001
+  nodes:
+  - nodeId: H001
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u9019\u88E1\u662F\u5DE5\u574A"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H002
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H002
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u4EBA\u7269\u6E2C\u8A66(\u5DE6)(\u751F\u6C23)"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 21300000, guid: 99843ef8a79b620478e2f01cbd76609c, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H003
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H003
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u4EBA\u7269\u6E2C\u8A66(\u53F3)(\u4E00\u73ED)"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 21300000, guid: fdfbe86dbdb6be944bb3b4b488554dcc, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H004
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H004
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u9078\u64C7\u6E2C\u8A66"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices:
+    - choiceText: YES
+      nextNodeId: H200
+      setFlag: YES
+    - choiceText: NO
+      nextNodeId: H300
+      setFlag: NO
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H200
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u9078\u64C7YES"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H009
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H300
+    speakerName: "\u65C1\u767D"
+    bodyText: "\u9078\u64C7NO"
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H009
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H009
+    speakerName: "\u65C1\u767D"
+    bodyText: 009
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: H010
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: H010
+    speakerName: "\u65C1\u767D"
+    bodyText: YES
+    backgroundSprite: {fileID: 0}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 

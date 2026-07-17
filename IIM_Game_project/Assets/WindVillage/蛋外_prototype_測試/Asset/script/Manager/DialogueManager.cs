@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject choiceGroup;
     [SerializeField] private ChoiceButtonUI[] choiceButtons;
 
+
     [Header("Systems")]
     [SerializeField] private GameState gameState;
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
@@ -24,6 +25,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image characterLeftImage;
     [SerializeField] private Image characterMidImage;
     [SerializeField] private Image characterRightImage;
+    [SerializeField] private Image ChatboxImage;
+
+    [Header("Controls")]
+    [SerializeField] private GameObject dialogueRoot;
+    [SerializeField] private MapFlowController mapFlowController;
+
     private void Start()
     {
         Debug.Log("currentStory: " + currentStory);
@@ -34,11 +41,25 @@ public class DialogueManager : MonoBehaviour
 
         StartStory(currentStory);
     }
-    public void StartStory(StoryData storyData)
+    public void StartStory(StoryData story)
     {
-        currentStory = storyData;
+        if (story == null)
+        {
+            Debug.LogWarning("StoryData 是空的");
+            return;
+        }
+
+        currentStory = story;
         BuildNodeLookup();
-        ShowNode(currentStory.startNodeId);
+
+        if (!string.IsNullOrEmpty(currentStory.startNodeId))
+        {
+            ShowNode(currentStory.startNodeId);
+        }
+        else
+        {
+            Debug.LogWarning("startNodeId 是空的");
+        }
     }
 
     private void BuildNodeLookup()
@@ -70,10 +91,21 @@ public class DialogueManager : MonoBehaviour
         
         if (!gameState.HasAllFlags(node.requiredFlags))
         {
-            Debug.LogWarning("節點條件不符: " + nodeId);
+            Debug.Log("跳過節點: " + nodeId);
+
+            if (!string.IsNullOrEmpty(node.nextNodeId))
+            {
+                ShowNode(node.nextNodeId);
+            }
+            else
+            {
+                Debug.LogWarning("節點條件不符，且沒有 nextNodeId: " + nodeId);
+            }
+
             return;
         }
 
+        
         currentNode = node;
         UpdateVisuals(currentNode);
         ApplyNodeFlags(currentNode);
@@ -117,6 +149,8 @@ public class DialogueManager : MonoBehaviour
         nameText.text = "";
         bodyText.text = "故事結束";
         choiceGroup.SetActive(false);
+        dialogueRoot.SetActive(false);
+        mapFlowController.BackToMap();
     }
     public void OnClickNext()
     {
@@ -147,6 +181,15 @@ public class DialogueManager : MonoBehaviour
 
     private void UpdateVisuals(DialogueNode node)
     {
+        if (node.showchatboxPortrait)
+        {
+            ChatboxImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            ChatboxImage.gameObject.SetActive(false);
+        }
+
         if (backgroundImage != null)
         {
             if (node.backgroundSprite != null)
