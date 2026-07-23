@@ -18,7 +18,7 @@ MonoBehaviour:
   - nodeId: R001
     speakerName: "\u65C1\u767D"
     bodyText: "\u56DE\u6536\u7AD9"
-    backgroundSprite: {fileID: 0}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 21300000, guid: 9531ad44b18b4a14b8b819c22486393c, type: 3}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   - nodeId: R002
     speakerName: "\u65C1\u767D"
     bodyText: "\u4EBA\u7269\u6E2C\u8A66(\u4E2D)\n\u80CC\u666F"
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   - nodeId: R003
     speakerName: "\u65C1\u767D"
     bodyText: "\u9078\u64C7"
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   - nodeId: R200
     speakerName: "\u65C1\u767D"
     bodyText: YES
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   - nodeId: R300
     speakerName: "\u65C1\u767D"
     bodyText: NO
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   - nodeId: R004
     speakerName: "\u65C1\u767D"
     bodyText: "\u7D50\u675F\u9078\u64C7"
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   - nodeId: R005
     speakerName: "\u65C1\u767D"
     bodyText: 12312
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   - nodeId: R006
     speakerName: "\u65C1\u767D"
     bodyText: YES
-    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
     rightPortrait: {fileID: 0}

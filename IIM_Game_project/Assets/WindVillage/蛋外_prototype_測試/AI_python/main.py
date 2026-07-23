@@ -23,6 +23,6 @@ def ask_ai(data: AskRequest):
     user_question = data.question.strip()
 
     if user_question == "":
-        return {"answer": "你還沒有輸入問題。"}
+        return {"answer": "你還沒有輸入問題"}
 
-    return {"answer": f"測試成功，你問的是：{user_question}"}
+    return {"answer": f"測試成功！你問的是{user_question}"}

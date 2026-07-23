@@ -64,7 +64,7 @@ public class AIChatTester : MonoBehaviour
 
         if (string.IsNullOrEmpty(userQuestion))
         {
-            answerText.text = "請先輸入問題。";
+            answerText.text = "請先輸入問題";
             return;
         }
 
