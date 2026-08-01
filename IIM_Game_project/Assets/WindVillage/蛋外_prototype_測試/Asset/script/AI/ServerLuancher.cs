@@ -129,9 +129,18 @@ public class PythonServerLauncher : MonoBehaviour
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
-                    Debug.Log("Python server 已連線成功。");
-                    IsServerReady = true;
-                    yield break;
+                    // 解析 { "status": "ok" } 或 { "status": "loading" }
+                    string body = request.downloadHandler.text;
+                    if (body.Contains("\"ok\""))
+                    {
+                        Debug.Log("Python server 已連線並完成模型載入。");
+                        IsServerReady = true;
+                        yield break;
+                    }
+                    else
+                    {
+                        Debug.Log("Server 已啟動，但模型仍在載入中...");
+                    }
                 }
             }
 
@@ -141,9 +150,6 @@ public class PythonServerLauncher : MonoBehaviour
         }
 
         Debug.LogError("Python server 啟動逾時，無法連線。");
-        if (!string.IsNullOrEmpty(LastServerError))
-            Debug.LogError("最近的 Python 錯誤：" + LastServerError);
-
         IsServerReady = false;
     }
 

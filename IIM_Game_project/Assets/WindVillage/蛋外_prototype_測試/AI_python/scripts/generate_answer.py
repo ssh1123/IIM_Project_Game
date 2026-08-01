@@ -8,12 +8,15 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-import chromadb
-from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+#import chromadb
+#from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+from simple_vector_store import search
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
 from pathlib import Path
+import sys
+import time 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
@@ -144,7 +147,9 @@ def build_system_prompt() -> str:
         "3. 回答要優先使用《風待村》世界觀語氣，但內容仍要清楚、可教學。\n"
         "4. 不可透露未解鎖劇情，不可超出 chapter_gate 限制。\n"
         "5. 不要說你是根據資料庫、檢索結果或 prompt 回答。\n"
-        "6. 你必須只輸出合法 JSON，不要輸出 markdown，不要加 ```json。"
+        "6. 你必須只輸出合法 JSON，不要輸出 markdown，不要加 ```json。" \
+        "7. 盡量不要在回答中使用冒號(、)以及分號(；)" \
+    
     )
 
 
@@ -328,6 +333,7 @@ def normalize_answer_payload(answer_text: str) -> Dict[str, Any]:
 def citation_lookup(citations: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     return {c["label"]: c for c in citations}
 
+from simple_vector_store import search
 
 def main():
     parser = argparse.ArgumentParser(description="Generate structured RAG answer with Gemini API.")
@@ -346,7 +352,7 @@ def main():
     parser.add_argument("--max-tokens", type=int, default=700, help="Max output tokens")
     parser.add_argument("--prompt-only", action="store_true", help="Print prompts without calling Gemini")
     parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
-    args = parser.parse_args()
+    args = parser.parse_args()   # <-- 這一行必須存在！
 
     api_key = os.getenv("GEMINI_API_KEY")
     if not args.prompt_only and not api_key:
@@ -354,20 +360,15 @@ def main():
 
     persist_dir = Path(args.persist_dir)
     where = parse_where_filters(args)
-
-    query_result = query_collection(
-        persist_dir=persist_dir,
-        collection_name=args.collection,
-        embed_model_name=args.embed_model,
-        query_text=args.query,
+    t0 = time.time()  # ---- 開始：向量檢索 ----
+    # 不再用 query_collection / query_result
+    documents, metadatas, distances = search(
+        query=args.query,
         top_k=args.top_k,
-        where=where,
     )
+    t1 = time.time()  # ---- 結束：向量檢索 ----
 
-    documents = query_result.get("documents", [[]])[0]
-    metadatas = query_result.get("metadatas", [[]])[0]
-    distances = query_result.get("distances", [[]])[0]
-
+    # 後面直接用 documents/metadatas/distances
     if not documents:
         output = {
             "question": args.query,
@@ -381,14 +382,17 @@ def main():
             "gemini_model": args.gemini_model,
         }
         print(json.dumps(output, ensure_ascii=False, indent=2 if args.pretty else None))
+        print(f"[TIMING] 檢索耗時: {t1 - t0:.2f}s (無結果，提早結束)", file=sys.stderr)
         return
 
+    # 後面這幾行保持原樣即可
+    t2 = time.time()
     context_blocks = build_context_blocks(documents, metadatas, distances)
     context_text = format_context_for_prompt(context_blocks)
     system_prompt = build_system_prompt()
     user_prompt = build_user_prompt(args.query, context_text)
     citations = build_citations(context_blocks)
-
+    t3 = time.time()
     if args.prompt_only:
         output = {
             "question": args.query,
@@ -398,8 +402,10 @@ def main():
             "retrieved_context": context_blocks,
         }
         print(json.dumps(output, ensure_ascii=False, indent=2 if args.pretty else None))
+        print(f"[TIMING] 檢索耗時: {t1 - t0:.2f}s | Prompt組裝耗時: {t3 - t2:.2f}s", file=sys.stderr)
         return
 
+    t4 = time.time()  # ---- 開始：Gemini 生成 ----
     answer_text = call_gemini_chat(
         api_key=api_key,
         base_url=args.api_base,
@@ -409,7 +415,9 @@ def main():
         temperature=args.temperature,
         max_tokens=args.max_tokens,
     )
+    t5 = time.time()  # ---- 結束：Gemini 生成 ----
 
+    t6 = time.time()  # ---- 開始：後處理 ----
     structured = normalize_answer_payload(answer_text)
     lookup = citation_lookup(citations)
 
@@ -418,6 +426,7 @@ def main():
         for label in structured["citation_labels"]
         if label in lookup
     ]
+    t7 = time.time()  # ---- 結束：後處理 ----
 
     output = {
         "question": args.query,
@@ -435,6 +444,12 @@ def main():
 
     print(json.dumps(output, ensure_ascii=False, indent=2 if args.pretty else None))
 
+    # ---- 統一輸出各階段耗時 ----
+    print(f"[TIMING] 向量檢索: {t1 - t0:.2f}s", file=sys.stderr)
+    print(f"[TIMING] Prompt組裝: {t3 - t2:.2f}s", file=sys.stderr)
+    print(f"[TIMING] Gemini生成: {t5 - t4:.2f}s", file=sys.stderr)
+    print(f"[TIMING] 後處理: {t7 - t6:.2f}s", file=sys.stderr)
+    print(f"[TIMING] 總耗時: {t7 - t0:.2f}s", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

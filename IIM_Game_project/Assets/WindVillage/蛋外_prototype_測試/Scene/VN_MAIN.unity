@@ -6761,7 +6761,7 @@ MonoBehaviour:
   appEntry: main:app
   host: 127.0.0.1
   port: 8000
-  workingDirectory: "D:\\PROJECT\\IIM_Project_Game\\IIM_Game_project\\Assets\\WindVillage\\\u86CB\u5916_prototype_\u6E2C\u8A66\\AI_python"
+  workingDirectory: "D:\\PROJECT\\IIM_Project_Game\\IIM_Game_project\\Assets\\WindVillage\\\u86CB\u5916_prototype_\u6E2C\u8A66\\AI_python\\scripts"
   retryInterval: 1
   maxRetryCount: 10
 --- !u!1 &2128141125
