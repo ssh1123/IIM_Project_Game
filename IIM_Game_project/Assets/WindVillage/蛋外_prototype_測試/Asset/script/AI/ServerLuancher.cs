@@ -16,8 +16,8 @@ public class PythonServerLauncher : MonoBehaviour
     [SerializeField] private string workingDirectory = @"C:\YourProject\ai_test_server";
 
     [Header("Check Settings")]
-    [SerializeField] private float retryInterval = 1f;
-    [SerializeField] private int maxRetryCount = 10;
+    [SerializeField] private float retryInterval = 2f;
+    [SerializeField] private int maxRetryCount = 15;
 
     private Process pythonProcess;
     public bool IsServerReady { get; private set; }
