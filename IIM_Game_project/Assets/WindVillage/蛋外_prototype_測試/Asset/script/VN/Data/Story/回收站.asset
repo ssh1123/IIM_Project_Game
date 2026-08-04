@@ -20,8 +20,8 @@ MonoBehaviour:
     bodyText: "\u56DE\u6536\u7AD9"
     backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 21300000, guid: 9531ad44b18b4a14b8b819c22486393c, type: 3}
-    centerPortrait: {fileID: 0}
-    rightPortrait: {fileID: 0}
+    centerPortrait: {fileID: -8439463989182243597, guid: 5ca4fb9674038e54a85a995953d0da8c, type: 3}
+    rightPortrait: {fileID: -6753749610063675816, guid: ea8b2958fe373b34d848406bce11e500, type: 3}
     showchatboxPortrait: 1
     choices: []
     nextNodeId: R002
@@ -34,7 +34,7 @@ MonoBehaviour:
     backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 21300000, guid: ff0525fc93803c647bd6db1b20c407a9, type: 3}
-    rightPortrait: {fileID: 0}
+    rightPortrait: {fileID: 7149753453476916921, guid: 7932054821bf6684f9e31526f59b3c2e, type: 3}
     showchatboxPortrait: 1
     choices: []
     nextNodeId: R003
