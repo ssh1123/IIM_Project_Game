@@ -6,7 +6,7 @@ IIM_Project_Game
 # 12238867
 112233
 
-µêÀÀÀô¹Ò³B²z:
+è™›æ“¬ç’°å¢ƒ:
 python -m venv env_rag
 .\env_rag\Scripts\python.exe -m pip install --upgrade pip
 .\env_rag\Scripts\python.exe -m pip install fastapi uvicorn chromadb sentence-transformers openai python-dotenv
