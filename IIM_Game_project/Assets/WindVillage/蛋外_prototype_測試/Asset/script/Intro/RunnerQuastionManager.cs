@@ -8,13 +8,14 @@ public class RunnerQuestionManager : MonoBehaviour
     [SerializeField] private GameObject questionPanel;
     [SerializeField] private TMP_Text questionText;
     [SerializeField] private TMP_Text feedbackText;
-
+    [SerializeField] private TMP_Text topText;
+    [SerializeField] private TMP_Text middleText;
+    [SerializeField] private TMP_Text bottomText;
     [Header("Player")]
     [SerializeField] private RunnerPlayerController playerController;
 
-    [Header("Questions")]
-    [SerializeField] private string[] questions;
-    [SerializeField] private LaneType[] correctLanes;
+    [Header("Data")]
+    [SerializeField] private QuestionDatabase questionDatabase;
 
     private int currentQuestionIndex = 0;
     private bool waitingAnswer = false;
@@ -28,16 +29,28 @@ public class RunnerQuestionManager : MonoBehaviour
 
     private void ShowCurrentQuestion()
     {
-        if (currentQuestionIndex >= questions.Length || currentQuestionIndex >= correctLanes.Length)
+        if (questionDatabase == null || questionDatabase.questions.Count == 0)
+        {
+            questionText.text = "沒有題目資料";
+            feedbackText.text = "";
+            waitingAnswer = false;
+            return;
+        }
+
+        if (currentQuestionIndex >= questionDatabase.questions.Count)
         {
             questionText.text = "題目結束";
             feedbackText.text = "";
             waitingAnswer = false;
             return;
         }
+        var q = questionDatabase.questions[currentQuestionIndex];
 
         questionPanel.SetActive(true);
-        questionText.text = questions[currentQuestionIndex];
+        questionText.text = q.questionText;
+        topText.text = q.topText;
+        middleText.text = q.middleText;
+        bottomText.text = q.bottomText;
         feedbackText.text = "";
         waitingAnswer = true;
         isTransitioning = false;
@@ -48,7 +61,9 @@ public class RunnerQuestionManager : MonoBehaviour
     {
         if (!waitingAnswer || isTransitioning) return;
 
-        if (selectedLane == correctLanes[currentQuestionIndex])
+        var q = questionDatabase.questions[currentQuestionIndex];
+
+        if (selectedLane == q.correctLane)
         {
             feedbackText.text = "答對了！";
             waitingAnswer = false;
