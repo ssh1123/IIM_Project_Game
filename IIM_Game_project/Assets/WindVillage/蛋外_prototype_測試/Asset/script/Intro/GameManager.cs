@@ -13,11 +13,14 @@ public class RunnerGameManager : MonoBehaviour
 
     private void Start()
     {
-        if (gameStartPanel != null)
-            gameStartPanel.SetActive(false);
+        if (questionManager != null)
+            questionManager.onAllQuestionsFinished = OnQuestionsFinished;
+    }
 
-        if (gameEndPanel != null)
-            gameEndPanel.SetActive(false);
+    public void OnQuestionsFinished()
+    {
+        Debug.Log("所有題目完成，回到 VN_Main 或下一段流程");
+        // 在這裡切回 VN_Main 或呼叫你的 VN 系統
     }
 
     public void StartGame()

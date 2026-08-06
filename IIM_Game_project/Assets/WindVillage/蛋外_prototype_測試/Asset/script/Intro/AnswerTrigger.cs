@@ -7,6 +7,11 @@ public class AnswerTrigger : MonoBehaviour
 
     private bool used = false;
 
+    public void ResetTrigger()
+    {
+        used = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (used) return;
