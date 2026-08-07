@@ -16,7 +16,6 @@ public class DialogueManager : MonoBehaviour
 
 
     [Header("Systems")]
-    [SerializeField] private GameState gameState;
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
     
@@ -37,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("nameText: " + nameText);
         Debug.Log("bodyText: " + bodyText);
         Debug.Log("choiceGroup: " + choiceGroup);
-        Debug.Log("gameState: " + gameState);
+        Debug.Log("GameState.Instance: " + GameState.Instance);
 
         StartStory(currentStory);
     }
@@ -85,11 +84,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueNode node = nodeLookup[nodeId];
-        Debug.Log("gameState is null? " + (gameState == null));
+        Debug.Log("GameState.Instance is null? " + (GameState.Instance == null));
         Debug.Log("requiredFlags is null? " + (node.requiredFlags == null));
         Debug.Log("node is null? " + (node == null));
         
-        if (!gameState.HasAllFlags(node.requiredFlags))
+        if (!GameState.Instance.HasAllFlags(node.requiredFlags))
         {
             Debug.Log("跳過節點: " + nodeId);
 
@@ -122,7 +121,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string flag in node.setFlags)
         {
-            gameState.SetFlag(flag);
+            GameState.Instance.SetFlag(flag);
         }
     }
     private void UpdateChoices()
@@ -173,7 +172,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(choiceData.setFlag))
         {
-            gameState.SetFlag(choiceData.setFlag);
+            GameState.Instance.SetFlag(choiceData.setFlag);
         }
 
         ShowNode(choiceData.nextNodeId);

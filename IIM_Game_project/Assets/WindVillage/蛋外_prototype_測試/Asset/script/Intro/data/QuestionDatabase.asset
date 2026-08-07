@@ -18,13 +18,19 @@ MonoBehaviour:
     middleText: MID
     bottomText: BOTTON
     correctLane: 0
+    correctExplanation: "\u6B63\u78BA\u89E3\u91CB"
+    wrongExplanation: "\u932F\u8AA4\u89E3\u91CB"
   - questionText: "\u7B2C\u4E8C\u984C"
     topText: TOP
     middleText: MID(123)
     bottomText: BOTTON
     correctLane: 1
+    correctExplanation: 
+    wrongExplanation: 
   - questionText: "\u7B2C\u4E09\u984C"
     topText: "TOP\uFF08\u4E0011233\uFF09"
     middleText: MID
     bottomText: BOTTON
     correctLane: 0
+    correctExplanation: 
+    wrongExplanation: 

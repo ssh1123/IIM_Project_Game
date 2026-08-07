@@ -3,16 +3,22 @@ using UnityEngine;
 [System.Serializable]
 public class QuestionData
 {
-    [TextArea]
+    [Header("Question")]
+    [TextArea(2, 4)]
     public string questionText;
 
+    [Header("Choices")]
     public string topText;
     public string middleText;
     public string bottomText;
 
+    [Header("Answer")]
     public LaneType correctLane;
 
-    [Header("Explanation / Feedback")]
-    [TextArea]
-    public string explanation;   // ★ 答題後顯示的一句說明
+    [Header("Feedback")]
+    [TextArea(2, 4)]
+    public string correctExplanation;
+
+    [TextArea(2, 4)]
+    public string wrongExplanation;
 }

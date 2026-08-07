@@ -18,6 +18,7 @@ public class RunnerQuestionManager : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private RunnerPlayerController playerController;
+    [SerializeField] private RunnerIntroManager runnerIntroManager;
 
     [Header("Data")]
     [SerializeField] private QuestionDatabase questionDatabase;
@@ -64,6 +65,10 @@ public class RunnerQuestionManager : MonoBehaviour
     }
     private void ShowCurrentQuestion()
     {
+        if (explanationText != null)
+        {
+            explanationText.text = "";
+        }
         if (questionDatabase == null || questionDatabase.questions.Count == 0)
         {
             questionPanel.SetActive(true);
@@ -77,8 +82,13 @@ public class RunnerQuestionManager : MonoBehaviour
 
         if (currentQuestionIndex < 0 || currentQuestionIndex >= questionDatabase.questions.Count)
         {
+            Debug.Log(
+                $"所有題目完成：index={currentQuestionIndex}，" +
+                $"total={questionDatabase.questions.Count}，準備呼叫事件。",
+                this
+            );
             questionPanel.SetActive(false);
-            feedbackText.text = "";
+            feedbackText.text = "結束";
             progressText.text = "";
             explanationText.text = "";
             waitingAnswer = false;
@@ -114,12 +124,11 @@ public class RunnerQuestionManager : MonoBehaviour
         isTransitioning = false;
         playerController.SetCanMove(true);
     }
-    
+
 
     public void OnPlayerChooseLane(LaneType selectedLane)
     {
         if (!waitingAnswer || isTransitioning) return;
-
         if (currentQuestionIndex < 0 || currentQuestionIndex >= questionDatabase.questions.Count)
             return;
 
@@ -127,24 +136,30 @@ public class RunnerQuestionManager : MonoBehaviour
 
         if (selectedLane == q.correctLane)
         {
-            // 答對：顯示文字 + 停止移動 + 準備進下一題
             feedbackText.text = "答對了！";
+            runnerIntroManager?.AddCorrectAnswer();
+
+            if (explanationText != null)
+            {
+                explanationText.text = q.correctExplanation;
+            }
+
             waitingAnswer = false;
             isTransitioning = true;
 
             playerController.SetCanMove(false);
-
-            // 這裡是否要立刻往前推判定區，視你設計而定
             PositionAndResetAnswerTriggers();
-
             StartCoroutine(GoNextQuestion());
         }
         else
         {
-            // 答錯：只顯示提示，不停止移動
             feedbackText.text = "答錯了，再試一次。";
 
-            // 目前設計：答錯也往前推判定區，讓玩家在下一個判定區再試
+            if (explanationText != null)
+            {
+                explanationText.text = q.wrongExplanation;
+            }
+
             PositionAndResetAnswerTriggers();
         }
     }
@@ -155,5 +170,12 @@ public class RunnerQuestionManager : MonoBehaviour
 
         currentQuestionIndex++;
         ShowCurrentQuestion();
+    }
+    public int GetQuestionCount()
+    {
+        if (questionDatabase == null || questionDatabase.questions == null)
+            return 0;
+
+        return questionDatabase.questions.Count;
     }
 }

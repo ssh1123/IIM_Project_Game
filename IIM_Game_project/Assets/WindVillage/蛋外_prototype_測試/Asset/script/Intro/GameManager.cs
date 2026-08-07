@@ -14,7 +14,7 @@ public class RunnerGameManager : MonoBehaviour
     private void Start()
     {
         if (questionManager != null)
-            questionManager.onAllQuestionsFinished = OnQuestionsFinished;
+            questionManager.onAllQuestionsFinished += OnQuestionsFinished;
     }
 
     public void OnQuestionsFinished()

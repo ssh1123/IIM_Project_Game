@@ -1,6 +1,8 @@
 using UnityEngine;
 public class RunnerPlayerController : MonoBehaviour
 {
+  
+
     [Header("Move")]
     [SerializeField] private float forwardSpeed = 4f;
     [SerializeField] private float laneChangeSpeed = 12f;
@@ -9,6 +11,7 @@ public class RunnerPlayerController : MonoBehaviour
     [SerializeField] private Transform laneTop;
     [SerializeField] private Transform laneMiddle;
     [SerializeField] private Transform laneBottom;
+
 
     private int currentLaneIndex = 1; // 0=Top, 1=Middle, 2=Bottom
     private float targetY;
