@@ -259,12 +259,16 @@ MonoBehaviour:
   topText: {fileID: 379708072}
   middleText: {fileID: 801703046}
   bottomText: {fileID: 683019269}
+  progressText: {fileID: 0}
+  explanationText: {fileID: 0}
   answerTriggers:
   - {fileID: 1224530707}
   - {fileID: 1517744225}
   - {fileID: 205914315}
   playerController: {fileID: 2091635443}
   questionDatabase: {fileID: 11400000, guid: 9149cc99c59fef24fac41e43b34ce8a8, type: 2}
+  baseJudgeX: 20
+  judgeStepX: 8
 --- !u!1 &330578082
 GameObject:
   m_ObjectHideFlags: 0

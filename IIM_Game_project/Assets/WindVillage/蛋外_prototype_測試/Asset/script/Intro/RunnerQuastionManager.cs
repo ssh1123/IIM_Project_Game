@@ -11,7 +11,8 @@ public class RunnerQuestionManager : MonoBehaviour
     [SerializeField] private TMP_Text topText;
     [SerializeField] private TMP_Text middleText;
     [SerializeField] private TMP_Text bottomText;
-
+    [SerializeField] private TMP_Text progressText;      // 顯示「第幾題 / 共幾題」
+    [SerializeField] private TMP_Text explanationText;   // 顯示答題後的簡短說明
     [Header("Answer Triggers")]
     [SerializeField] private AnswerTrigger[] answerTriggers;
 
@@ -61,7 +62,6 @@ public class RunnerQuestionManager : MonoBehaviour
         // 下一次呼叫時，判定區再往前一格
         judgeZoneIndex += 1;
     }
-
     private void ShowCurrentQuestion()
     {
         if (questionDatabase == null || questionDatabase.questions.Count == 0)
@@ -69,6 +69,8 @@ public class RunnerQuestionManager : MonoBehaviour
             questionPanel.SetActive(true);
             questionText.text = "沒有題目資料";
             feedbackText.text = "";
+            progressText.text = "";
+            explanationText.text = "";
             waitingAnswer = false;
             return;
         }
@@ -77,10 +79,11 @@ public class RunnerQuestionManager : MonoBehaviour
         {
             questionPanel.SetActive(false);
             feedbackText.text = "";
+            progressText.text = "";
+            explanationText.text = "";
             waitingAnswer = false;
 
-            onAllQuestionsFinished?.Invoke();   // ★ 用 null 條件運算子簡化
-
+            onAllQuestionsFinished?.Invoke();
             return;
         }
 
@@ -93,11 +96,25 @@ public class RunnerQuestionManager : MonoBehaviour
         bottomText.text = q.bottomText;
         feedbackText.text = "";
 
+        // ★ 題目進度：「第 x 題 / 共 y 題」
+        if (progressText != null)
+        {
+            int displayIndex = currentQuestionIndex + 1;
+            int total = questionDatabase.questions.Count;
+            progressText.text = $"第 {displayIndex} 題 / 共 {total} 題";
+        }
+
+        // ★ 每題開始時先清空說明文字
+        if (explanationText != null)
+        {
+            explanationText.text = "";
+        }
+
         waitingAnswer = true;
         isTransitioning = false;
         playerController.SetCanMove(true);
-        // ★ 不在這裡 Reset Trigger，統一交給 PositionAndResetAnswerTriggers
     }
+    
 
     public void OnPlayerChooseLane(LaneType selectedLane)
     {
