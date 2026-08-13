@@ -95,7 +95,7 @@ public class AIChatDrawer : MonoBehaviour
 
         while (time < animationDuration)
         {
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             float t = Mathf.Clamp01(time / animationDuration);
             t = EaseOutCubic(t);
 

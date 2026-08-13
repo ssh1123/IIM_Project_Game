@@ -22,8 +22,8 @@ public class RunnerQuestionManager : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] private QuestionDatabase questionDatabase;
-    [SerializeField] private float baseJudgeX = 10f;
-    [SerializeField] private float judgeStepX = 8f; // 每次往前移多少
+    [SerializeField] private float baseJudgeX = 20f;
+    [SerializeField] private float judgeStepX = 20f; // 每次往前移多少
 
     private int currentQuestionIndex = 0;
     private bool waitingAnswer = false;
