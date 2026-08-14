@@ -10,8 +10,12 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
-        // 每次遊戲啟動時，確保不是暫停狀態
-        SetPaused(false);
+        IsPaused = false;
+
+        if (pauseButtonText != null)
+        {
+            pauseButtonText.text = "暫停遊戲及使用AI";
+        }
     }
 
     // 給按鈕 OnClick 呼叫

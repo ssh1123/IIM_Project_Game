@@ -154,7 +154,7 @@ public class RunnerQuestionManager : MonoBehaviour
             int totalQuestionCount = questionDatabase.questions.Count;
 
             progressText.text =
-                $"第 {displayIndex} 題 / 共 {totalQuestionCount} 題";
+                $"第 {displayIndex} 題   共 {totalQuestionCount} 題";
         }
 
         waitingAnswer = true;
