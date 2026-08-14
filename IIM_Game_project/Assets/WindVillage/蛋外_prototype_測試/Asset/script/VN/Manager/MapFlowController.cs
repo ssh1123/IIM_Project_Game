@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class MapFlowController : MonoBehaviour
 {
     [Header("Panels")]
@@ -11,12 +12,16 @@ public class MapFlowController : MonoBehaviour
 
     [Header("Location UI")]
     [SerializeField] private TMP_Text locationTitleText;
+    [SerializeField] private Button enterButton;
 
     [Header("Dialogue")]
     [SerializeField] private DialogueManager dialogueManager;
 
     [Header("Locations")]
     [SerializeField] private LocationData[] locations;
+
+    [Header("MapCompelet")]
+    [SerializeField] private ImageAndFlag[] imageFlag;
 
     private LocationData selectedLocation;
 
@@ -26,9 +31,96 @@ public class MapFlowController : MonoBehaviour
         locationPanel.SetActive(false);
         dialoguePanel.SetActive(false);
         CharactorLayer.SetActive(false);
+        for (int i = 0; i < imageFlag.Length; i++)
+        {
+            if (!imageFlag[i].isset) { imageFlag[i].imageObject.SetActive(false); }
+            
+        }
+    }
+    private void Update()
+    {
+        for (int i = 0; i < imageFlag.Length; i++)
+        {
+            if (GameState.Instance.HasFlag(imageFlag[i].flagName) &&
+                !imageFlag[i].isset)
+            {
+                imageFlag[i].imageObject.SetActive(true);
+                imageFlag[i].isset = true;
+            }
+        }
+    }
+    public void SelectLocation(string locationId)
+    {
+        Debug.Log("SelectLocation 被呼叫，ID: " + locationId);
+
+        selectedLocation = FindLocation(locationId);
+
+        if (selectedLocation == null)
+        {
+            Debug.LogWarning("找不到地點: " + locationId);
+            return;
+        }
+
+        locationTitleText.text = "要前往 " + selectedLocation.displayName + " 嗎";
+
+        locationPanel.SetActive(true);
+        locationPanel.transform.SetAsLastSibling();
+
+        if (enterButton != null)
+        {
+            enterButton.interactable = true;
+            enterButton.gameObject.SetActive(true);
+        }
     }
 
-    public void SelectLocation(string locationId)
+
+    public void EnterSelectedLocation()
+    {
+        Debug.Log("EnterSelectedLocation 被呼叫");
+
+        if (selectedLocation == null)
+        {
+            Debug.LogWarning("尚未選擇地點");
+            return;
+        }
+
+        Debug.Log("準備進入：" + selectedLocation.locationId);
+
+        if (dialogueManager == null)
+        {
+            Debug.LogWarning("DialogueManager 沒有設定");
+            return;
+        }
+
+        if (selectedLocation.storyData == null)
+        {
+            Debug.LogWarning("StoryData 沒有設定：" + selectedLocation.locationId);
+            return;
+        }
+
+        locationPanel.SetActive(false);
+
+        if (selectedLocation.locationId == "L003")
+        {
+            if (dialoguePanel != null)
+                dialoguePanel.SetActive(false);
+
+            if (CharactorLayer != null)
+                CharactorLayer.SetActive(false);
+
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("FirstScene");
+            return;
+        }
+
+        mapPanel.SetActive(false);
+        dialoguePanel.SetActive(true);
+        CharactorLayer.SetActive(true);
+
+        Debug.Log("呼叫 StartStory：" + selectedLocation.storyData.name);
+        dialogueManager.StartStory(selectedLocation.storyData);
+    }
+    /*public void SelectLocation(string locationId)
     {
         selectedLocation = FindLocation(locationId);
 
@@ -40,7 +132,7 @@ public class MapFlowController : MonoBehaviour
 
         locationTitleText.text = "要前往 " + selectedLocation.displayName + " 嗎";
         locationPanel.SetActive(true);
-    }
+    }*/
 
     public void CloseLocationPanel()
     {
@@ -48,6 +140,13 @@ public class MapFlowController : MonoBehaviour
         selectedLocation = null;
     }
 
+    private void ResetTimeScale()
+    {
+        // 避免玩家從暫停狀態回主選單後，
+        // 新場景仍然維持 Time.timeScale = 0。
+        Time.timeScale = 1f;
+    }
+    /*
     public void EnterSelectedLocation()
     {
         if (selectedLocation == null)
@@ -57,19 +156,40 @@ public class MapFlowController : MonoBehaviour
         }
 
         locationPanel.SetActive(false);
-        mapPanel.SetActive(false);
+        
 
         if (dialogueManager != null && selectedLocation.storyData != null)
         {
-            dialoguePanel.SetActive(true);
-            CharactorLayer.SetActive(true);
-            dialogueManager.StartStory(selectedLocation.storyData);
+            if (selectedLocation.locationId == "L003")
+            {
+
+                if (locationPanel != null)
+                    locationPanel.SetActive(false);
+
+                if (dialoguePanel != null)
+                    dialoguePanel.SetActive(false);
+
+                if (CharactorLayer != null)
+                    CharactorLayer.SetActive(false);
+                ResetTimeScale();
+                SceneManager.LoadScene("FirstScene");
+                return;
+
+            }
+            else
+            {
+                mapPanel.SetActive(false);
+                dialoguePanel.SetActive(true);
+                CharactorLayer.SetActive(true);
+                dialogueManager.StartStory(selectedLocation.storyData);
+
+            }
         }
         else
         {
             Debug.LogWarning("DialogueManager 或 StoryData 沒有設定");
         }
-    }
+    }*/
 
     private LocationData FindLocation(string locationId)
     {
@@ -94,4 +214,5 @@ public class MapFlowController : MonoBehaviour
         if (mapPanel != null)
             mapPanel.SetActive(true);
     }
+
 }

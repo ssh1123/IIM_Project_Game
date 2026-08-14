@@ -1,18 +1,28 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
+using UnityEngine.UI;
 
 public class RunnerQuestionManager : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("Question UI")]
     [SerializeField] private GameObject questionPanel;
     [SerializeField] private TMP_Text questionText;
-    [SerializeField] private TMP_Text feedbackText;
     [SerializeField] private TMP_Text topText;
     [SerializeField] private TMP_Text middleText;
     [SerializeField] private TMP_Text bottomText;
-    [SerializeField] private TMP_Text progressText;      // 顯示「第幾題 / 共幾題」
-    [SerializeField] private TMP_Text explanationText;   // 顯示答題後的簡短說明
+    [SerializeField] private TMP_Text progressText;
+
+    [Header("Feedback UI")]
+    [SerializeField] private GameObject feedbackPanel;
+    [SerializeField] private TMP_Text feedbackText;
+    [SerializeField] private TMP_Text explanationText;
+    [SerializeField] private TMP_Text continueHintText;
+
+    [Header("Optional Feedback Images")]
+    [SerializeField] private Image feedbackBackgroundImage;
+    [SerializeField] private Sprite correctFeedbackSprite;
+    [SerializeField] private Sprite wrongFeedbackSprite;
+
     [Header("Answer Triggers")]
     [SerializeField] private AnswerTrigger[] answerTriggers;
 
@@ -23,21 +33,42 @@ public class RunnerQuestionManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private QuestionDatabase questionDatabase;
     [SerializeField] private float baseJudgeX = 20f;
-    [SerializeField] private float judgeStepX = 20f; // 每次往前移多少
+    [SerializeField] private float judgeStepX = 20f;
 
     private int currentQuestionIndex = 0;
-    private bool waitingAnswer = false;
-    private bool isTransitioning = false;
-
-    // 代表「目前是第幾個判定區」，不是第幾題
     private int judgeZoneIndex = 0;
 
+    private bool waitingAnswer = false;
+    private bool waitingForContinue = false;
+    private bool lastAnswerWasCorrect = false;
+
     public System.Action onAllQuestionsFinished;
+
+    private void Update()
+    {
+        // 只有顯示回饋對話框時，Space 才有作用
+        if (!waitingForContinue)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ContinueAfterFeedback();
+        }
+    }
 
     public void StartFirstQuestion()
     {
         currentQuestionIndex = 0;
-        judgeZoneIndex = 0;             // ★ 確保重新開始時判定區從頭算
+        judgeZoneIndex = 0;
+
+        waitingAnswer = false;
+        waitingForContinue = false;
+
+        if (feedbackPanel != null)
+        {
+            feedbackPanel.SetActive(false);
+        }
+
         PositionAndResetAnswerTriggers();
         ShowCurrentQuestion();
     }
@@ -47,7 +78,6 @@ public class RunnerQuestionManager : MonoBehaviour
         if (answerTriggers == null || answerTriggers.Length == 0)
             return;
 
-        // 計算這一次要使用的判定位置
         float judgeX = baseJudgeX + judgeStepX * judgeZoneIndex;
 
         foreach (var trigger in answerTriggers)
@@ -57,120 +87,195 @@ public class RunnerQuestionManager : MonoBehaviour
             Vector3 p = trigger.transform.position;
             p.x = judgeX;
             trigger.transform.position = p;
+
             trigger.ResetTrigger();
         }
 
-        // 下一次呼叫時，判定區再往前一格
-        judgeZoneIndex += 1;
+        judgeZoneIndex++;
     }
+
     private void ShowCurrentQuestion()
     {
-        if (explanationText != null)
+        if (questionDatabase == null ||
+            questionDatabase.questions == null ||
+            questionDatabase.questions.Count == 0)
         {
-            explanationText.text = "";
-        }
-        if (questionDatabase == null || questionDatabase.questions.Count == 0)
-        {
-            questionPanel.SetActive(true);
+            if (questionPanel != null)
+            {
+                questionPanel.SetActive(true);
+            }
+
             questionText.text = "沒有題目資料";
-            feedbackText.text = "";
-            progressText.text = "";
-            explanationText.text = "";
             waitingAnswer = false;
             return;
         }
 
-        if (currentQuestionIndex < 0 || currentQuestionIndex >= questionDatabase.questions.Count)
+        if (currentQuestionIndex >= questionDatabase.questions.Count)
         {
-            Debug.Log(
-                $"所有題目完成：index={currentQuestionIndex}，" +
-                $"total={questionDatabase.questions.Count}，準備呼叫事件。",
-                this
-            );
-            questionPanel.SetActive(false);
-            feedbackText.text = "結束";
-            progressText.text = "";
-            explanationText.text = "";
+            if (questionPanel != null)
+            {
+                questionPanel.SetActive(false);
+            }
+
+            if (feedbackPanel != null)
+            {
+                feedbackPanel.SetActive(false);
+            }
+
             waitingAnswer = false;
+            waitingForContinue = false;
+
+            Debug.Log("所有題目完成，準備呼叫 onAllQuestionsFinished。", this);
 
             onAllQuestionsFinished?.Invoke();
             return;
         }
 
-        var q = questionDatabase.questions[currentQuestionIndex];
+        QuestionData q = questionDatabase.questions[currentQuestionIndex];
 
-        questionPanel.SetActive(true);
+        if (questionPanel != null)
+        {
+            questionPanel.SetActive(true);
+        }
+
+        if (feedbackPanel != null)
+        {
+            feedbackPanel.SetActive(false);
+        }
+
         questionText.text = q.questionText;
         topText.text = q.topText;
         middleText.text = q.middleText;
         bottomText.text = q.bottomText;
-        feedbackText.text = "";
 
-        // ★ 題目進度：「第 x 題 / 共 y 題」
         if (progressText != null)
         {
             int displayIndex = currentQuestionIndex + 1;
-            int total = questionDatabase.questions.Count;
-            progressText.text = $"第 {displayIndex} 題 / 共 {total} 題";
-        }
+            int totalQuestionCount = questionDatabase.questions.Count;
 
-        // ★ 每題開始時先清空說明文字
-        if (explanationText != null)
-        {
-            explanationText.text = "";
+            progressText.text =
+                $"第 {displayIndex} 題 / 共 {totalQuestionCount} 題";
         }
 
         waitingAnswer = true;
-        isTransitioning = false;
-        playerController.SetCanMove(true);
-    }
+        waitingForContinue = false;
 
+        if (playerController != null)
+        {
+            playerController.SetCanMove(true);
+        }
+    }
 
     public void OnPlayerChooseLane(LaneType selectedLane)
     {
-        if (!waitingAnswer || isTransitioning) return;
-        if (currentQuestionIndex < 0 || currentQuestionIndex >= questionDatabase.questions.Count)
+        if (!waitingAnswer || waitingForContinue)
             return;
 
-        var q = questionDatabase.questions[currentQuestionIndex];
+        if (currentQuestionIndex < 0 ||
+            currentQuestionIndex >= questionDatabase.questions.Count)
+            return;
 
-        if (selectedLane == q.correctLane)
+        QuestionData q = questionDatabase.questions[currentQuestionIndex];
+
+        waitingAnswer = false;
+        lastAnswerWasCorrect = selectedLane == q.correctLane;
+
+        if (playerController != null)
+        {
+            playerController.SetCanMove(false);
+        }
+
+        ShowFeedback(q);
+    }
+
+    private void ShowFeedback(QuestionData q)
+    {
+        if (questionPanel != null)
+        {
+            questionPanel.SetActive(false);
+        }
+
+        if (feedbackPanel != null)
+        {
+            feedbackPanel.SetActive(true);
+        }
+
+        if (lastAnswerWasCorrect)
         {
             feedbackText.text = "答對了！";
-            runnerIntroManager?.AddCorrectAnswer();
 
             if (explanationText != null)
             {
                 explanationText.text = q.correctExplanation;
             }
 
-            waitingAnswer = false;
-            isTransitioning = true;
+            if (feedbackBackgroundImage != null &&
+                correctFeedbackSprite != null)
+            {
+                feedbackBackgroundImage.sprite = correctFeedbackSprite;
+            }
 
-            playerController.SetCanMove(false);
-            PositionAndResetAnswerTriggers();
-            StartCoroutine(GoNextQuestion());
+            runnerIntroManager?.AddCorrectAnswer();
         }
         else
         {
-            feedbackText.text = "答錯了，再試一次。";
+            feedbackText.text = "答錯了，再想想看！";
 
             if (explanationText != null)
             {
                 explanationText.text = q.wrongExplanation;
             }
 
+            if (feedbackBackgroundImage != null &&
+                wrongFeedbackSprite != null)
+            {
+                feedbackBackgroundImage.sprite = wrongFeedbackSprite;
+            }
+        }
+
+        if (continueHintText != null)
+        {
+            continueHintText.text = "按下 Space 繼續";
+        }
+
+        waitingForContinue = true;
+    }
+
+    private void ContinueAfterFeedback()
+    {
+        if (!waitingForContinue)
+            return;
+
+        waitingForContinue = false;
+
+        if (feedbackPanel != null)
+        {
+            feedbackPanel.SetActive(false);
+        }
+
+        if (lastAnswerWasCorrect)
+        {
+            // 答對：進入下一題
+            currentQuestionIndex++;
+
+            // 若還有下一題，將 Trigger 搬到下一個判定位置
+            if (currentQuestionIndex < questionDatabase.questions.Count)
+            {
+                PositionAndResetAnswerTriggers();
+            }
+
+            ShowCurrentQuestion();
+        }
+        else
+        {
+            // 答錯：題目不換，但判定區往前移，
+            // 讓 Player 繼續向右後，在下一區重新選答案
             PositionAndResetAnswerTriggers();
+
+            ShowCurrentQuestion();
         }
     }
 
-    private IEnumerator GoNextQuestion()
-    {
-        yield return new WaitForSeconds(0.8f);
-
-        currentQuestionIndex++;
-        ShowCurrentQuestion();
-    }
     public int GetQuestionCount()
     {
         if (questionDatabase == null || questionDatabase.questions == null)

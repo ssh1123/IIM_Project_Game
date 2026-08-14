@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Systems")]
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
-    
+
     [Header("Visuals")]
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image characterLeftImage;
@@ -39,6 +40,26 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("GameState.Instance: " + GameState.Instance);
 
         StartStory(currentStory);
+    }
+    /*private void Update()
+    {
+        // 左鍵或 Space 可以閱讀下一句
+        if (Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetMouseButtonDown(0))
+        {
+            ShowNextNode();
+        }
+    }*/
+    private void Update()
+    {
+        if (dialogueRoot == null || !dialogueRoot.activeInHierarchy)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShowNextNode();
+            return;
+        }
     }
     public void StartStory(StoryData story)
     {
@@ -87,7 +108,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("GameState.Instance is null? " + (GameState.Instance == null));
         Debug.Log("requiredFlags is null? " + (node.requiredFlags == null));
         Debug.Log("node is null? " + (node == null));
-        
+
         if (!GameState.Instance.HasAllFlags(node.requiredFlags))
         {
             Debug.Log("跳過節點: " + nodeId);
@@ -104,7 +125,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        
+
         currentNode = node;
         UpdateVisuals(currentNode);
         ApplyNodeFlags(currentNode);
@@ -114,7 +135,24 @@ public class DialogueManager : MonoBehaviour
 
         UpdateChoices();
     }
-    
+
+    private void ShowNextNode()
+    {
+        if (currentNode == null) return;
+
+        bool hasChoices = currentNode.choices != null && currentNode.choices.Count > 0;
+        if (hasChoices) return;
+
+        if (!string.IsNullOrEmpty(currentNode.nextNodeId))
+        {
+            ShowNode(currentNode.nextNodeId);
+        }
+        else
+        {
+            EndDialogue();
+        }
+
+    }
     private void ApplyNodeFlags(DialogueNode node)
     {
         if (node.setFlags == null) return;
@@ -145,8 +183,12 @@ public class DialogueManager : MonoBehaviour
     }
     private void EndDialogue()
     {
+        currentNode = null;
+        nodeLookup.Clear();
         nameText.text = "";
         bodyText.text = "故事結束";
+
+        currentStory = null;
         choiceGroup.SetActive(false);
         dialogueRoot.SetActive(false);
         mapFlowController.BackToMap();
@@ -167,7 +209,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
         }
     }
-    
+
     public void SelectChoice(ChoiceData choiceData)
     {
         if (!string.IsNullOrEmpty(choiceData.setFlag))
@@ -176,7 +218,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         ShowNode(choiceData.nextNodeId);
-    }  
+    }
 
     private void UpdateVisuals(DialogueNode node)
     {
@@ -223,7 +265,7 @@ public class DialogueManager : MonoBehaviour
                 characterRightImage.enabled = false;
             }
         }
-        
+
         if (characterMidImage != null)
         {
             if (node.centerPortrait != null)
@@ -236,5 +278,5 @@ public class DialogueManager : MonoBehaviour
                 characterMidImage.enabled = false;
             }
         }
-    } 
+    }
 }

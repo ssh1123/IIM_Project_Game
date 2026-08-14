@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f53976ae5e139024389bff214c7cc5be
+guid: a3bdcbcdcd242b54a890837f7081575b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3092608289568810265
-    second: "\u5171\u4EAB\u55AE\u8ECA\u7AD9_0"
+      213: 1363048624465718096
+    second: ocean_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u5171\u4EAB\u55AE\u8ECA\u7AD9_0"
+      name: ocean_1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 12
         y: 0
-        width: 1667
-        height: 943
+        width: 1900
+        height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 173, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9156d21aad62bea20800000000000000
-      internalID: 3092608289568810265
+      spriteID: 05b2dd090858ae210800000000000000
+      internalID: 1363048624465718096
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0523997c23377f240ad6753d77f8cea5
+    spriteID: b1776ba32ced7f84e91e36bd38958fb8
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u5171\u4EAB\u55AE\u8ECA\u7AD9_0": 3092608289568810265
+      ocean_1_0: 1363048624465718096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

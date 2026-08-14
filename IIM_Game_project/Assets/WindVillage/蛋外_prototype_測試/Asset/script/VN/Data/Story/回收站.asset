@@ -172,8 +172,8 @@ MonoBehaviour:
     showchatboxPortrait: 1
     choices:
     - choiceText: "\u82B1\u8CBB\u66F4\u591A\u8CC7\u91D1\uFF0C\u8CB7\u5168\u65B0\u7684\u88DD\u98FE\u54C1\u4F86\u91CD\u65B0\u5E03\u7F6E\uFF0C\u7DAD\u6301\u7DB2\u7F8E\u666F\u9EDE"
-      nextNodeId: R200
-      setFlag: 
+      nextNodeId: 
+      setFlag: "\u88DD\u7F6E\u85DD\u8853"
     - choiceText: "\u627F\u8A8D\u88DD\u98FE\u7121\u6CD5\u9577\u4E45\uFF0C\u628A\u8ECA\u5B50\u62C6\u4E0B\u4F86\uFF0C\u8001\u5BE6\u9032\u884C\u9664\u93FD\u3001\u4FEE\u6210\u53EF\u4EE5\u9A0E\u7684\u8ECA"
       nextNodeId: R200
       setFlag: 
@@ -191,7 +191,7 @@ MonoBehaviour:
     showchatboxPortrait: 1
     choices:
     - choiceText: "\u628A\u9019\u7B46\u73FE\u91D1\u62FF\u53BB\u5411\u57CE\u88E1\u7684\u8ECA\u5546\u300C\u8CB7\u5168\u65B0\u7684\u73FE\u4EE3\u8173\u8E0F\u8ECA\u300D\u56DE\u6751\u5B50"
-      nextNodeId: R200
+      nextNodeId: 
       setFlag: 
     - choiceText: "\u4EE5\u5C0F\u984D\u88DC\u8CBC\u7684\u65B9\u5F0F\uFF0C\u5411\u6BCF\u5BB6\u6BCF\u6236\u52DF\u96C6\u4ED6\u5011\u5BB6\u88E1\u76EE\u524D\u6C92\u5728\u9A0E\u7684\u9592\u7F6E\u55AE\u8ECA"
       nextNodeId: R200
@@ -327,9 +327,10 @@ MonoBehaviour:
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
-    showchatboxPortrait: 0
+    showchatboxPortrait: 1
     choices: []
     nextNodeId: 
-    setFlags: []
+    setFlags:
+    - "\u5171\u4EAB\u55AE\u8ECA"
     requiredFlags: []
     eventType: 
