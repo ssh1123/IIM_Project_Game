@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 public class MapFlowController : MonoBehaviour
 {
     [Header("Panels")]
@@ -22,6 +23,8 @@ public class MapFlowController : MonoBehaviour
 
     [Header("MapCompelet")]
     [SerializeField] private ImageAndFlag[] imageFlag;
+    [Header("Required Flags")]
+    [SerializeField] private List<string> requiredFlags = new List<string>();
 
     private LocationData selectedLocation;
 
@@ -48,6 +51,11 @@ public class MapFlowController : MonoBehaviour
                 imageFlag[i].isset = true;
             }
         }
+        if(GameState.Instance.HasAllFlags(requiredFlags))
+        {
+            SceneManager.LoadScene("FinalScene");
+        }
+
     }
     public void SelectLocation(string locationId)
     {

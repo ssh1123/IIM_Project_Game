@@ -8,6 +8,28 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string vnSceneName = "VN_Main";
     [SerializeField] private string storyDatabaseSceneName = "StoryDatabase";
 
+    [Header("Scene Names")]
+    [SerializeField] private GameObject VNButton;
+    private bool isset_VN = false;
+
+    private void Start()
+    {
+        if(!GameState.Instance.runnerIntroFinished)
+        {
+            VNButton.gameObject.SetActive(false);
+        }
+       
+    }
+
+    private void Update()
+    {
+        // 左鍵或 Space 可以閱讀下一句
+        if (GameState.Instance.runnerIntroFinished && !isset_VN)
+        {
+            VNButton.gameObject.SetActive(true);
+        }
+
+    }
     public void GoToIntro()
     {
         ResetTimeScale();

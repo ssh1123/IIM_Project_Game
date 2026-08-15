@@ -56,7 +56,7 @@ public class RunnerGameManager : MonoBehaviour
     {
         gameStarted = false;
 
-        if (gameEndPanel != null)
+        if (gameEndPanel != null && !gameStarted)
             gameEndPanel.SetActive(true);
     }
 }

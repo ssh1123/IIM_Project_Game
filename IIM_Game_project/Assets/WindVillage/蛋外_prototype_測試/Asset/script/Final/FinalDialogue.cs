@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StoryDatabaseDialogueManager : MonoBehaviour
+public class FinalDialogueManager : MonoBehaviour
 {
     [Header("Story Data")]
     [SerializeField] private StoryData currentStory;
@@ -21,14 +21,12 @@ public class StoryDatabaseDialogueManager : MonoBehaviour
     [SerializeField] private Image characterRightImage;
     [SerializeField] private Image chatboxImage;
 
-    [Header("Scene Settings")]
-    [SerializeField] private string mainMenuSceneName = "MainMenu";
+
 
     private readonly Dictionary<string, DialogueNode> nodeLookup =
         new Dictionary<string, DialogueNode>();
 
     private DialogueNode currentNode;
-
 
     private void Start()
     {
@@ -143,8 +141,8 @@ public class StoryDatabaseDialogueManager : MonoBehaviour
     private void EndStory()
     {
         currentNode = null;
-
-        SceneManager.LoadScene(mainMenuSceneName);
+        //遊戲結束
+       
     }
 
     private void UpdateVisuals(DialogueNode node)

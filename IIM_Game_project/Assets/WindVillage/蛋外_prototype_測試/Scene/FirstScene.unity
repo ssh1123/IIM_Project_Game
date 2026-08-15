@@ -1350,6 +1350,7 @@ MonoBehaviour:
   introSceneName: RUN_MAIN
   vnSceneName: VN_MAIN
   storyDatabaseSceneName: Story
+  VNButton: {fileID: 616045781}
 --- !u!4 &1973965944
 Transform:
   m_ObjectHideFlags: 0

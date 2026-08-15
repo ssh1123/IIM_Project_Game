@@ -28,7 +28,10 @@ public class RunnerIntroManager : MonoBehaviour
 
         Debug.Log("RunnerIntroManager：已訂閱 onAllQuestionsFinished。", this);
 
-        StartRunnerIntro();
+        if (startGameOnStart)
+        {
+            StartRunnerIntro();
+        }
     }
     /* void Start()
     {
