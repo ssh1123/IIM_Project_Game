@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4F7F\u7528\u65B9\u5411\u9375\uFF0FA\u3001D \u63A7\u5236\u89D2\u8272\u79FB\u52D5\n\u907F\u958B\u969C\u7919\u7269\u4E26\u5B8C\u6210\u95DC\u5361"
+  m_text: "\u4F7F\u7528\u65B9\u5411\u9375\u6216W\u3001S \u9375\u63A7\u5236\u89D2\u8272\u79FB\u52D5\n\u907F\u958B\u969C\u7919\u7269\u4E26\u5B8C\u6210\u95DC\u5361\n(\u5DF2\u89E3\u9396\u53F3\u4E0AAI\u529F\u80FD\u3001\u53EF\u66AB\u505C\u8A62\u554F\u6559\u5B78\u5167\u5BB9)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 361be7512dc7cac4bbaf421505c349ad, type: 2}
   m_sharedMaterial: {fileID: -4613827003036186098, guid: 361be7512dc7cac4bbaf421505c349ad, type: 2}
@@ -3769,7 +3769,7 @@ MonoBehaviour:
   playerController: {fileID: 2091635443}
   startGameOnStart: 1
   nextSceneName: FirstScene
-  returnToVNDelay: 2
+  returnToVNDelay: 1
 --- !u!1 &1406898498
 GameObject:
   m_ObjectHideFlags: 0

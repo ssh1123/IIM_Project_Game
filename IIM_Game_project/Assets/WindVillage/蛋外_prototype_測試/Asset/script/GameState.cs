@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,18 @@ public class GameState : MonoBehaviour
     public int runnerIntroScore;
     public int runnerIntroTotalQuestions;
     public bool runnerIntroPassed;
+
+    [Header("Index")]
+    [SerializeField] private int funding = 0;
+    [SerializeField] private int interest = 0;
+    [SerializeField] private int sustainability = 0;
+
+    public int Funding => funding;
+    public int Interest => interest;
+    public int Sustainability => sustainability;
+
+    public event Action<int, int, int> OnIndexChanged;
+
 
     private void Awake()
     {
@@ -89,5 +102,33 @@ public class GameState : MonoBehaviour
         runnerIntroScore = 0;
         runnerIntroTotalQuestions = 0;
         runnerIntroPassed = false;
+    }
+    //========VN index function========
+    public void ResetIndex()
+    {
+        Debug.LogWarning(
+       "ResetIndex 被呼叫：Index 資料將被重設。",
+       this
+        );
+        funding = 0;
+        interest = 0;
+        sustainability = 0;
+        OnIndexChanged?.Invoke(funding,interest,sustainability);
+
+    }
+
+    public void GetScore(int funding_delta , int interest_delta , int sustainability_delta)
+    {
+        Debug.Log(
+       $"資金增加{funding_delta}，好感增加{interest_delta}，永續增加{sustainability_delta}"
+        );
+
+        funding += funding_delta;
+        interest += interest_delta;
+        sustainability += sustainability_delta;
+        Debug.Log(
+      $"目前index:資金 = {funding}，好感 = {interest}，永續 = {sustainability}"
+       );
+        OnIndexChanged?.Invoke(funding, interest, sustainability);
     }
 }

@@ -216,7 +216,7 @@ public class DialogueManager : MonoBehaviour
         {
             GameState.Instance.SetFlag(choiceData.setFlag);
         }
-
+        GameState.Instance.GetScore(choiceData.fundingDelta, choiceData.interestDelta,choiceData.sustainabilityDelta);
         ShowNode(choiceData.nextNodeId);
     }
 

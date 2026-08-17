@@ -7,6 +7,9 @@ public class ChoiceData
     public string choiceText;
     public string nextNodeId;
     public string setFlag;
+    public int fundingDelta;
+    public int interestDelta;
+    public int sustainabilityDelta;
     /*
     choiceText：按鈕上顯示的字。
     nextNodeId：選了這個選項後，跳到哪一個節點。

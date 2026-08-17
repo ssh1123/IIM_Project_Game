@@ -1,0 +1,640 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eec1c02a7545a344a14fc9ddae97fd4, type: 3}
+  m_Name: "\u6D3B\u52D5\u4E2D\u5FC3"
+  m_EditorClassIdentifier: Assembly-CSharp::StoryData
+  storyId: Center
+  startNodeId: C001
+  nodes:
+  - nodeId: C001
+    speakerName: 
+    bodyText: "\u98A8\u5F85\u6751\u7684\u6D3B\u52D5\u4E2D\u5FC3\u5C31\u5728\u5EDF\u53E3\u65C1\u908A\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C002
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C002
+    speakerName: 
+    bodyText: "\u90A3\u662F\u4E00\u68DF\u4E0D\u7B97\u65B0\u7684\u6C34\u6CE5\u5EFA\u7BC9\uFF0C\u7246\u4E0A\u8CBC\u8457\u6CDB\u9EC3\u7684\u5065\u5EB7\u8B1B\u5EA7\u6D77\u5831\uFF0C\u9580\u53E3\u653E\u8457\u5E7E\u5F35\u5851\u81A0\u6905\uFF0C\u65C1\u908A\u7E3D\u662F\u505C\u8457\u5E7E\u53F0\u8001\u8173\u8E0F\u8ECA\u3002\u767D\u5929\u7684\u6642\u5019\uFF0C\u8001\u4EBA\u6703\u4F86\u9019\u88E1\u804A\u5929\u3001\u559D\u8336\u3001\u4E0B\u68CB\uFF0C\u6709\u6642\u4E5F\u6703\u5E36\u8457\u81EA\u5DF1\u6B63\u5728\u505A\u7684\u6771\u897F\u904E\u4F86"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C003
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C003
+    speakerName: 
+    bodyText: "\u9E97\u73E0\u6703\u628A\u525B\u5207\u597D\u7684\u863F\u8514\u653E\u9032\u5927\u76C6\u88E1\uFF0C\u52A0\u9E7D\u3001\u58D3\u77F3\u982D\uFF0C\u6E96\u5099\u9183\u6210\u863F\u8514\u4E7E\u3002\n\u963F\u6F6E\u4F2F\u6703\u62FF\u8457\u66EC\u597D\u7684\u9B5A\u4E7E\uFF0C\u4E00\u908A\u6311\u523A\uFF0C\u4E00\u908A\u8DDF\u4EBA\u8AAA\u4ECA\u5E74\u6D77\u98A8\u4E0D\u5920\u4E7E\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C005
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C005
+    speakerName: 
+    bodyText: "\u4E01\u59E8\u6703\u7E2B\u5E03\u888B\u3001\u505A\u676F\u588A\uFF0C\u6559\u65C1\u908A\u7684\u5C0F\u5B69\u6709\u4EC0\u9EBC\u6280\u5DE7\u3002\n\u6709\u4E9B\u963F\u59E8\u6703\u88DC\u8863\u670D\u3001\u505A\u5973\u5DE5\uFF1B\u6709\u4E9B\u4F2F\u4F2F\u6703\u4FEE\u7AF9\u6905\u3001\u7D81\u7E69\u7D50\u3001\u88DC\u6F01\u7DB2\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C006
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C006
+    speakerName: 
+    bodyText: "\u9019\u4E9B\u4E8B\u5728\u6751\u6C11\u773C\u88E1\u90FD\u5F88\u666E\u901A\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C007
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C007
+    speakerName: 
+    bodyText: "\u4ED6\u5011\u53EA\u662F\u4F86\u6D3B\u52D5\u4E2D\u5FC3\u6253\u767C\u6642\u9593\uFF0C\u9806\u624B\u505A\u4E9B\u81EA\u5DF1\u6703\u505A\u7684\u4E8B\u3002\u6709\u4EBA\u505A\u591A\u4E86\uFF0C\u5C31\u62FF\u53BB\u9001\u9130\u5C45\uFF1B\u6709\u4EBA\u7F3A\u6750\u6599\uFF0C\u5C31\u8DDF\u9694\u58C1\u501F\u4E00\u9EDE\uFF1B\u6709\u4EBA\u4E0D\u6703\u505A\uFF0C\u5C31\u5750\u5728\u65C1\u908A\u770B\uFF0C\u6162\u6162\u5B78\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C008
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C008
+    speakerName: 
+    bodyText: "\u4F46\u4F60\u767C\u73FE\uFF0C\u9019\u88E1\u5176\u5BE6\u4E0D\u53EA\u662F\u804A\u5929\u7684\u5730\u65B9\u3002\r\n\u9019\u88E1\u6709\u5DE5\u5177\uFF0C\u6709\u6750\u6599\uFF0C\u6709\u624B\u85DD\uFF0C\u6709\u6642\u9593\uFF0C\u4E5F\u6709\u4EBA\u8207\u4EBA\u4E4B\u9593\u65E9\u5C31\u5B58\u5728\u7684\u4E92\u76F8\u5E6B\u5FD9\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C009
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C009
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u4F60\u4F86\u5566\uFF1F\u5C0F\u5FC3\u8173\u908A\uFF0C\u90A3\u76C6\u863F\u8514\u525B\u6492\u9E7D\uFF0C\u7B49\u7B49\u8981\u62FF\u53BB\u66EC\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C010
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C010
+    speakerName: "\u963F\u6F6E\u4F2F"
+    bodyText: "\u4F60\u770B\u770B\u9019\u9B5A\u4E7E\u9019~\u9EBC~\u5927! \u523A\u8981\u6311\u4E00\u6311\uFF0C\u4E0D\u7136\u523A\u592A\u591A\uFF0C\u4EBA\u5BB6\u5403\u4E86\u6703\u5ACC\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C011
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C011
+    speakerName: "\u4E01\u59E8"
+    bodyText: "\u4F60\u6709\u6C92\u6709\u8208\u8DA3\u4E00\u8D77\u5B78\u5B78\u5982\u4F55\u505A\u5E03\u888B\u6216\u662F\u676F\u588A\u5462?\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: -1345243646421529390, guid: 086e4bd13e53dd84cb6ef33afc686b2d, type: 3}
+    rightPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C012
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C012
+    speakerName: "\u6751\u9577"
+    bodyText: "\u4F60\u770B\u770B\u4F60\u5011\uFF0C\u5687\u5230\u4ED6\u4E86! \n\u4F86!
+      \u9032\u4F86\u88E1\u9762\u5750\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C013
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C013
+    speakerName: "\u6751\u9577"
+    bodyText: "\u5225\u6015\u5225\u6015\u4ED6\u5011\u53EA\u662F\u592A\u71B1\u60C5\u4E86\uFF0C\u4F46\u6BCF\u500B\u4EBA\u53EF\u90FD\u662F\u61F7\u8457\u4E00\u8EAB\u672C\u9818\u7684\u5462!\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C014
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C014
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u4E5F\u6C92\u6709\u5566\uFF0C\u5C31\u4E5F\u9592\u9592\u6C92\u4E8B\u505A\uFF0C\u5927\u5BB6\u5C31\u805A\u5728\u9019\u88E1\uFF0C\u4E00\u8D77\u908A\u804A\u5929\uFF0C\u908A\u505A\u4E00\u4E9B\u4E8B\u6253\u767C\u6642\u9593\u800C\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C015
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C015
+    speakerName: "\u963F\u6F6E\u4F2F"
+    bodyText: "\u770B\u8457\u5927\u5BB6\u5FD9\uFF0C\u5076\u723E\u9700\u8981\u4EC0\u9EBC\u5C31\u5F7C\u6B64\u5E6B\u52A9\u4E00\u4E0B\uFF0C\u6211\u5011\u7E3D\u662F\u9019\u6A23\u5F7C\u6B64\u5206\u4EAB\u7684!
+      \u55EF\uFF0C\u8981\u4E0D\u8981\u5690\u5690\u9019\u500B\u9B5A\u4E7E\u5594\u53EF\u597D\u5403\u4E86!\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C016
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C016
+    speakerName: "AI\u5BF5\u7269"
+    bodyText: "\u4F60\u4E0D\u89BA\u5F97....\u6D3B\u52D5\u4E2D\u5FC3\u88E1\u9019\u4E9B\u6280\u80FD\u548C\u6750\u6599\u5F88\u6709\u50F9\u503C\u55CE\uFF1F
+      \u4F3C\u4E4E.....\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C100
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C100
+    speakerName: 
+    bodyText: "\u6D3B\u52D5\u4E2D\u5FC3\u88E1\uFF0C\u6751\u6C11\u6703\u9183\u863F\u8514\u3001\u66EC\u9B5A\u4E7E\u3001\u7E2B\u5E03\u888B\u3001\u505A\u676F\u588A\u3001\u88DC\u8863\u670D\u3001\u88DC\u6F01\u7DB2\u3001\u4FEE\u7AF9\u6905\u3001\u7D81\u7E69\u7D50\u3002\u9019\u4E9B\u6280\u80FD\u5E73\u5E38\u90FD\u5206\u6563\u5728\u4E0D\u540C\u4EBA\u8EAB\u4E0A\uFF0C\u4E5F\u5E38\u5E38\u53EA\u662F\u5927\u5BB6\u804A\u5929\u6642\u9806\u624B\u505A\u3002\u4F60\u6703\u600E\u9EBC\u505A\uFF1F"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices:
+    - choiceText: "\u5148\u8ACB\u6751\u9577\u7D71\u4E00\u5B89\u6392\u6BCF\u500B\u4EBA\u7684\u5DE5\u4F5C\uFF0C\u8B93\u5927\u5BB6\u7167\u56FA\u5B9A\u5206\u5DE5\u88FD\u4F5C\uFF0C\u6BD4\u8F03\u6709\u6548\u7387"
+      nextNodeId: C10A
+      setFlag: "C_\u4E0D\u8B8A"
+    - choiceText: "\u5148\u6574\u7406\u4E00\u4EFD\u300C\u6280\u80FD\u3001\u5DE5\u5177\u8207\u6750\u6599\u5171\u4EAB\u8868\u300D\uFF0C\u8A18\u9304\u8AB0\u6703\u4EC0\u9EBC\u3001\u54EA\u4E9B\u5DE5\u5177\u80FD\u501F\u3001\u54EA\u4E9B\u6750\u6599\u80FD\u5171\u540C\u4F7F\u7528"
+      nextNodeId: C101
+      setFlag: 
+    - choiceText: "\u5148\u9080\u8ACB\u5916\u5730\u8001\u5E2B\u4F86\u6D3B\u52D5\u4E2D\u5FC3\u958B\u8AB2\uFF0C\u8B93\u6751\u6C11\u5B78\u7FD2\u6BD4\u8F03\u6D41\u884C\u3001\u6BD4\u8F03\u5BB9\u6613\u8CA9\u552E\u7684\u624B\u4F5C\u6280\u5DE7 "
+      nextNodeId: C10C
+      setFlag: "C_\u4E0D\u8B8A"
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C10A
+    speakerName: 
+    bodyText: "\u6751\u9577\u958B\u59CB\u5B89\u6392\u5927\u5BB6\u56FA\u5B9A\u505A\u4E8B\uFF0C\u6D3B\u52D5\u4E2D\u5FC3\u770B\u8D77\u4F86\u8B8A\u5F97\u6BD4\u8F03\u6709\u79E9\u5E8F\u3002\r\n\u4F46\u6709\u4E9B\u6751\u6C11\u89BA\u5F97\u81EA\u5DF1\u50CF\u662F\u5728\u88AB\u5206\u6D3E\u5DE5\u4F5C\uFF0C\u539F\u672C\u804A\u5929\u3001\u4E92\u76F8\u5E6B\u5FD9\u7684\u6C23\u6C1B\u8B8A\u5C11\u4E86\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C10C
+    speakerName: 
+    bodyText: "\u6D3B\u52D5\u4E2D\u5FC3\u77ED\u6642\u9593\u8B8A\u5F97\u65B0\u9BAE\u71B1\u9B27\uFF0C\u6751\u6C11\u4E5F\u5B78\u5230\u4E00\u4E9B\u65B0\u7684\u505A\u6CD5\u3002\r\n\u4F46\u539F\u672C\u6751\u88E1\u7684\u9183\u83DC\u3001\u66EC\u9B5A\u4E7E\u3001\u7E2B\u5E03\u888B\u7B49\u5728\u5730\u6280\u80FD\uFF0C\u53CD\u800C\u88AB\u653E\u5230\u65C1\u908A\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C101
+    speakerName: "\u4F60"
+    bodyText: "\u5982\u679C\u5148\u628A\u5927\u5BB6\u6703\u7684\u6771\u897F\u8A18\u4E0B\u4F86\uFF0C\u5C31\u77E5\u9053\u8AB0\u53EF\u4EE5\u6559\u3001\u8AB0\u53EF\u4EE5\u5E6B\u5FD9\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C102
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C102
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u90A3\u6211\u7684\u9183\u863F\u8514\u4E5F\u53EF\u4EE5\u767B\u8A18\u55CE\uFF1F\u9019\u7A2E\u6771\u897F\u4E5F\u7B97\u6280\u80FD\uFF1F"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C103
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C103
+    speakerName: "\u6751\u9577"
+    bodyText: "\u7576\u7136\u7B97\u554A\uFF01\u800C\u4E14\u4E0D\u662F\u53EA\u6709\u9183\u863F\u8514\uFF0C\u50CF\u963F\u6F6E\u4F2F\u6703\u770B\u5929\u6C23\u66EC\u9B5A\u4E7E\uFF0C\u4E01\u59E8\u6703\u7E2B\u5E03\u888B\u3001\u505A\u676F\u588A\uFF0C\u9019\u4E9B\u90FD\u662F\u6751\u5B50\u7684\u672C\u4E8B\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C104
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C104
+    speakerName: "\u963F\u6F6E\u4F2F"
+    bodyText: "\u6211\u4EE5\u524D\u53EA\u662F\u9806\u624B\u505A\uFF0C\u6C92\u60F3\u904E\u9019\u9EBC\u6709\u7528\u55CE\uFF1F"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C105
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C105
+    speakerName: "\u4F60"
+    bodyText: "\u90A3\u662F\u7576\u7136\u7684\uFF0C\u800C\u4E14\u5982\u679C\u5927\u5BB6\u9858\u610F\u4E00\u8D77\u5206\u4EAB\uFF0C\u5C31\u4E0D\u53EA\u662F\u8AB0\u6703\u4EC0\u9EBC\uFF0C\u800C\u662F\u6574\u500B\u6751\u5B50\u80FD\u4E00\u8D77\u505A\u4EC0\u9EBC\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C106
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C106
+    speakerName: "\u6751\u9577"
+    bodyText: "\u53EF\u662F......\u5177\u9AD4\u8A72\u600E\u9EBC\u505A\u624D\u597D\u5462?\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C200
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C200
+    speakerName: 
+    bodyText: "\u6D3B\u52D5\u4E2D\u5FC3\u958B\u59CB\u767B\u8A18\u6751\u6C11\u6280\u80FD\u5F8C\uFF0C\u8D8A\u4F86\u8D8A\u591A\u4EBA\u60F3\u5B78\u7FD2\u6216\u4E00\u8D77\u88FD\u4F5C\u3002\u4F46\u5BE6\u969B\u8A72\u600E\u9EBC\u505A\u5462?\u4F60\u6703\u600E\u9EBC\u5B89\u6392\uFF1F\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices:
+    - choiceText: "\u5EFA\u7ACB\u501F\u7528\u8207\u9810\u7D04\u7D00\u9304\uFF0C\u767B\u8A18\u6559\u5B78\u6642\u6BB5\u3001\u5DE5\u5177\u501F\u9084\u3001\u6750\u6599\u4F7F\u7528\u91CF\u8207\u5B8C\u6210\u6210\u679C "
+      nextNodeId: C201
+      setFlag: 
+    - choiceText: "\u628A\u5E38\u7528\u5DE5\u5177\u5206\u7D66\u5E7E\u4F4D\u4E3B\u8981\u88FD\u4F5C\u8005\u4FDD\u7BA1\uFF0C\u5176\u4ED6\u4EBA\u9700\u8981\u6642\u518D\u79C1\u4E0B\u5411\u4ED6\u5011\u501F\u7528"
+      nextNodeId: C20B
+      setFlag: "C_\u4E0D\u8B8A"
+    - choiceText: "\u8A2D\u5B9A\u56FA\u5B9A\u958B\u653E\u6642\u9593\uFF0C\u5DE5\u5177\u7531\u6751\u9577\u4FDD\u7BA1\uFF0C\u6751\u6C11\u9700\u8981\u6642\u518D\u5411\u6751\u9577\u7533\u8ACB\u4F7F\u7528 "
+      nextNodeId: C20C
+      setFlag: "C_\u4E0D\u8B8A"
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C20C
+    speakerName: 
+    bodyText: "\u5DE5\u5177\u53D7\u5230\u59A5\u5584\u4FDD\u7BA1\uFF0C\u4F46\u6BCF\u6B21\u4F7F\u7528\u90FD\u8981\u7B49\u6751\u9577\u540C\u610F\u3002\r\n\u4E45\u4E86\u4E4B\u5F8C\uFF0C\u5927\u5BB6\u5ACC\u9EBB\u7169\uFF0C\u6709\u4EBA\u63D0\u8B70\u9084\u662F\u56DE\u5230\u539F\u672C\u7684\u65B9\u5F0F\u6BD4\u8F03\u8212\u670D\uFF0C\u56E0\u6B64\u4E45\u800C\u4E45\u4E4B\u6D3B\u52D5\u4E2D\u5FC3\u53C8\u56DE\u5230\u4E86\u5F80\u65E5\u7684\u666F\u8C61\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C20B
+    speakerName: 
+    bodyText: "\u5E7E\u4F4D\u719F\u7DF4\u7684\u6751\u6C11\u88FD\u4F5C\u901F\u5EA6\u8B8A\u5FEB\uFF0C\u4F46\u5176\u4ED6\u60F3\u5B78\u7684\u4EBA\u6BD4\u8F03\u96E3\u501F\u5230\u5DE5\u5177\u3002\r\n\u6D3B\u52D5\u4E2D\u5FC3\u6162\u6162\u8B8A\u6210\u5C11\u6578\u4EBA\u7684\u5DE5\u4F5C\u5340\uFF0C\u4F9D\u7136\u53EA\u6709\u6838\u5FC3\u5E7E\u4F4D\u4EBA\u7269\u6BD4\u8F03\u4EAB\u53D7\u5728\u5176\u4E2D\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C201
+    speakerName: "\u6751\u9577"
+    bodyText: "\u9019\u6A23\u5C31\u6E05\u695A\u591A\u4E86\u3002\u8AB0\u8981\u7528\u66EC\u67B6\u3001\u8AB0\u8981\u5B78\u9183\u83DC\u3001\u8AB0\u501F\u4E86\u91DD\u7DDA\uFF0C\u90FD\u53EF\u4EE5\u5148\u767B\u8A18\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C202
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C202
+    speakerName: 
+    bodyText: "\uFF08\u5E7E\u9031\u5F8C\uFF0C\u6D3B\u52D5\u4E2D\u5FC3\u8B8A\u5F97\u66F4\u71B1\u9B27\u4E86\u3002\u6709\u4EBA\u4F86\u5B78\u9183\u83DC\uFF0C\u6709\u4EBA\u4E00\u8D77\u66EC\u9B5A\u4E7E\uFF0C\u6709\u4EBA\u7E2B\u5E03\u888B\uFF0C\u4E5F\u6709\u4EBA\u5E6B\u5FD9\u8A18\u9304\u88FD\u4F5C\u904E\u7A0B\u3002\uFF09"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C203
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C203
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u6628\u5929\u6709\u500B\u8DEF\u904E\u9019\u88E1\u4F11\u606F\u7684\u5E74\u8F15\u5C0F\u5925\uFF0C\u611B\u4E0A\u4E86\u6211\u5011\u7684\u9183\u863F\u8514\uFF0C\u5F88\u8A8D\u771F\u7684\u8981\u8DDF\u6211\u8CB75\u7F50\u56DE\u53BB\uFF0C\u4E00\u9663\u6E9D\u901A\u5F8C\u6211\u610F\u601D\u610F\u601D\u6536\u500B200\u584A\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C204
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C204
+    speakerName: "\u6751\u9577"
+    bodyText: "\u770B\u4F86\u6211\u5011\u7684\u6771\u897F\u4F3C\u4E4E\u5F88\u6709\u770B\u982D\u5462?
+      \u4F60\u5EFA\u8B70\u6211\u5011\u4E0B\u4E00\u6B65\u53EF\u4EE5\u600E\u9EBC\u505A\u5462?"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C300
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C300
+    speakerName: 
+    bodyText: "\u6D3B\u52D5\u4E2D\u5FC3\u88E1\u7684\u863F\u8514\u4E7E\u3001\u9B5A\u4E7E\u3001\u5E03\u888B\u3001\u676F\u588A\u8207\u5176\u4ED6\u624B\u4F5C\u54C1\u9010\u6F38\u53D7\u5230\u6CE8\u610F\u3002\u6751\u6C11\u958B\u59CB\u8A0E\u8AD6\u662F\u5426\u8981\u628A\u6210\u679C\u4ECB\u7D39\u51FA\u53BB\u3002\u4F60\u6703\u5EFA\u8B70\u4ED6\u5011\u600E\u9EBC\u505A\uFF1F"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices:
+    - choiceText: "\u8B93\u6BCF\u4F4D\u6751\u6C11\u4F7F\u7528\u540C\u6A23\u7684\u8CBC\u7D19\u8207\u50F9\u683C\u8868\uFF0C\u518D\u7531\u5E38\u628A\u6F01\u7372\u8CE3\u53BB\u5176\u4ED6\u6751\u5B50\u7684\u963F\u6F6E\u4F2F\u8CE3\u7D66\u5176\u4ED6\u6751\u5B50"
+      nextNodeId: C30A
+      setFlag: "C_\u4E0D\u8B8A"
+    - choiceText: "\u6210\u7ACB\u300C\u98A8\u5F85\u826F\u54C1\u300D\u5171\u540C\u54C1\u724C\uFF0C\u8B93\u6751\u91CC\u7684\u4EBA\u4E00\u540C\u8A2D\u8A08\u54C1\u724C\u540D\u7A31\u3001\u5305\u88DD\u3001\u6545\u4E8B\u4ECB\u7D39\u3001\u92B7\u552E\u901A\u8DEF......"
+      nextNodeId: C301
+      setFlag: "\u98A8\u5F85\u826F\u54C1"
+    - choiceText: "\u627E\u5916\u5730\u516C\u53F8\u5354\u52A9\u8A2D\u8A08\u54C1\u724C\u4E26\u8CA9\u552E\uFF0C\u8B93\u98A8\u5F85\u6751\u7522\u54C1\u8B8A\u5F97\u66F4\u7CBE\u7DFB\uFF0C\u6751\u6C11\u5C08\u5FC3\u88FD\u4F5C\u5C31\u597D "
+      nextNodeId: C30C
+      setFlag: "C_\u4E0D\u8B8A"
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C30A
+    speakerName: 
+    bodyText: "\u7522\u54C1\u770B\u8D77\u4F86\u6BD4\u8F03\u4E00\u81F4\uFF0C\u4E5F\u958B\u59CB\u6709\u4E00\u4E9B\u6536\u5165\u3002\r\n\u4F46\u92B7\u552E\u592A\u4F9D\u8CF4\u963F\u6F6E\u4F2F\uFF0C\u5C0E\u81F4\u6210\u6548\u5176\u5BE6\u6C92\u6709\u5F88\u597D\uFF0C\u7121\u8AD6\u662F\u6536\u76CA\u9084\u662F\u5BA3\u50B3\u4F3C\u4E4E\u90FD\u5DEE\u5F37\u4EBA\u610F\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C30C
+    speakerName: 
+    bodyText: "\u7522\u54C1\u5305\u88DD\u8B8A\u5F97\u7CBE\u7DFB\uFF0C\u4E5F\u5F88\u5FEB\u8CE3\u5230\u5916\u5730\u3002\r\n\u4F46\u6751\u6C11\u53EA\u8CA0\u8CAC\u88FD\u4F5C\uFF0C\u54C1\u724C\u65B9\u5411\u8207\u6536\u76CA\u5206\u914D\u591A\u534A\u7531\u5916\u5730\u516C\u53F8\u6C7A\u5B9A\uFF0C\u5C0E\u81F4\u9019\u500B\u6751\u5B50\u4F3C\u4E4E\u4E0D\u518D\u662F\u66FE\u7D93\u90A3\u6A23\u7684\u6EAB\u6696\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
+  - nodeId: C301
+    speakerName: "\u6751\u9577"
+    bodyText: "\u5982\u679C\u53EB\u300C\u98A8\u5F85\u826F\u54C1\u300D\uFF0C\u5C31\u4E0D\u662F\u67D0\u4E00\u500B\u4EBA\u7684\u5E97\uFF0C\u800C\u662F\u5927\u5BB6\u4E00\u8D77\u7528\u7684\u540D\u5B57\u3002 "
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C302
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C302
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u90A3\u6211\u7684\u863F\u8514\u4E7E\u4E0A\u9762\uFF0C\u53EF\u4EE5\u5BEB\u662F\u5927\u5BB6\u4E00\u8D77\u5728\u6D3B\u52D5\u4E2D\u5FC3\u505A\u7684\u55CE\uFF1F\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C303
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C303
+    speakerName: "\u4F60"
+    bodyText: "\u53EF\u4EE5\uFF0C\u4E5F\u53EF\u4EE5\u5BEB\u8AB0\u63D0\u4F9B\u98DF\u6750\u3001\u8AB0\u6559\u505A\u6CD5\u3001\u8AB0\u5E6B\u5FD9\u5305\u88DD\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C304
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C304
+    speakerName: "\u963F\u6F6E\u4F2F"
+    bodyText: "\u6211\u7684\u9B5A\u4E7E\u4E5F\u8981\u5BEB\u6E05\u695A\uFF0C\u4E0D\u662F\u5DE5\u5EE0\u505A\u7684\uFF0C\u662F\u770B\u98A8\u3001\u770B\u65E5\u982D\u6162\u6162\u66EC\u51FA\u4F86\u7684\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: -6389365526307704870, guid: 1882f23c4eeb0484197732f6913a70de, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C305
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C305
+    speakerName: "\u4E01\u59E8"
+    bodyText: "\u5E03\u888B\u548C\u676F\u588A\u4E5F\u4E00\u6A23\uFF0C\u4E0D\u53EA\u662F\u624B\u4F5C\u54C1\uFF0C\u662F\u5927\u5BB6\u4E00\u8D77\u5B78\u3001\u4E00\u8D77\u505A\u51FA\u4F86\u7684\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: -1345243646421529390, guid: 086e4bd13e53dd84cb6ef33afc686b2d, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C306
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C306
+    speakerName: "\u9E97\u73E0"
+    bodyText: "\u90A3\u8CFA\u7684\u9322\u5462\uFF1F\u7E3D\u8981\u7B97\u6E05\u695A\u5427\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: -1345243646421529390, guid: 086e4bd13e53dd84cb6ef33afc686b2d, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C307
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C307
+    speakerName: "\u6751\u9577"
+    bodyText: "\u53EF\u4EE5\u4F9D\u7167\u6750\u6599\u3001\u6559\u5B78\u3001\u88FD\u4F5C\u3001\u5305\u88DD\u3001\u92B7\u552E\u7684\u8CA2\u737B\u5206\u914D\uFF0C\u4E5F\u63D0\u4E00\u90E8\u5206\u56DE\u6D3B\u52D5\u4E2D\u5FC3\uFF0C\u8CB7\u6750\u6599\u3001\u4FEE\u5DE5\u5177\u3001\u652F\u6301\u5927\u5BB6\u7E7C\u7E8C\u4F7F\u7528\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: -1345243646421529390, guid: 086e4bd13e53dd84cb6ef33afc686b2d, type: 3}
+    rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C308
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C308
+    speakerName: "AI\u5BF5\u7269"
+    bodyText: "\u9019\u6A23\u624D\u662F\u5171\u4EAB\u3002\u4E0D\u662F\u53EA\u6709\u4E00\u8D77\u8CE3\u6771\u897F\uFF0C\u800C\u662F\u4E00\u8D77\u4F7F\u7528\u8CC7\u6E90\u3001\u4E00\u8D77\u5275\u9020\u50F9\u503C\u3001\u4E00\u8D77\u5206\u4EAB\u6210\u679C\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C309
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C309
+    speakerName: "\u6751\u9577"
+    bodyText: "\u539F\u5148\u6211\u5011\u4EE5\u524D\u53EA\u662F\u805A\u5728\u4E00\u8D77\u804A\u5929\uFF0C\u73FE\u5728\u662F\u771F\u7684\u80FD\u4E00\u8D77\u505A\u9EDE\u4E8B\u4E86\u3002"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
+    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C310
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C310
+    speakerName: 
+    bodyText: "\uFF08\u6D3B\u52D5\u4E2D\u5FC3\u9580\u53E3\u639B\u4E0A\u65B0\u7684\u6728\u724C\uFF09\n\u6728\u724C\u4E0A\u5BEB\u8457\uFF1A\r\n\u300C\u98A8\u5F85\u826F\u54C1\u2014\u2014\u7531\u98A8\u5F85\u6751\u5171\u540C\u88FD\u4F5C\u3001\u5171\u540C\u5206\u4EAB\u3002\u300D\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: C311
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: C311
+    speakerName: 
+    bodyText: "\u6D77\u98A8\u5439\u9032\u6D3B\u52D5\u4E2D\u5FC3\uFF0C\u684C\u4E0A\u7684\u540A\u724C\u8F15\u8F15\u6643\u52D5\u3002\r\n\u9019\u4E00\u6B21\uFF0C\u98A8\u5E36\u4F86\u7684\u4E0D\u53EA\u662F\u8A18\u61B6\uFF0C\u4E5F\u5E36\u4F86\u4E86\u91CD\u65B0\u5408\u4F5C\u7684\u53EF\u80FD\u3002\r\n"
+    backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - C_END
+    requiredFlags: []
+    eventType: 
