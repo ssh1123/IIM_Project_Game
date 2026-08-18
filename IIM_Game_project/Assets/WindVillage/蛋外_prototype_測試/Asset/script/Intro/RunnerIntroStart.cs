@@ -3,6 +3,7 @@ using UnityEngine;
 public class RunnerIntroStartPanel : MonoBehaviour
 {
     [SerializeField] private GameObject introPanel;
+    [SerializeField] private GameObject feedbackPanel;
     [SerializeField] private RunnerGameManager gameManager;
 
     private bool hasStarted;
@@ -12,6 +13,10 @@ public class RunnerIntroStartPanel : MonoBehaviour
         Time.timeScale = 0f;
         Debug.Log("Intro 開啟，Time Scale = " + Time.timeScale);
 
+        if (feedbackPanel != null)
+        {
+            feedbackPanel.SetActive(false);
+        }
         if (introPanel != null)
         {
             introPanel.SetActive(true);
