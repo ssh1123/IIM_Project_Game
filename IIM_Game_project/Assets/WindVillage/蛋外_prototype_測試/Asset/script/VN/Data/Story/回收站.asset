@@ -149,13 +149,13 @@ MonoBehaviour:
     showchatboxPortrait: 1
     choices:
     - choiceText: "\u4FDD\u7559\u73FE\u72C0\uFF0C\u6539\u9020\u6210\u88DD\u7F6E\u85DD\u8853"
-      nextNodeId: R10A*
+      nextNodeId: R10A
       setFlag: 
       fundingDelta: -15000
       interestDelta: 10
       sustainabilityDelta: -10
     - choiceText: "\u6574\u6279\u6253\u5305\u8CE3\u7D66\u56DE\u6536\u5546\uFF0C\u63DB\u53D6\u521D\u671F\u61C9\u6025\u8CC7\u91D1"
-      nextNodeId: R10B*
+      nextNodeId: R10B
       setFlag: 
       fundingDelta: 60000
       interestDelta: -35
@@ -170,10 +170,23 @@ MonoBehaviour:
     setFlags: []
     requiredFlags: []
     eventType: 
+  - nodeId: R10A
+    speakerName: 
+    bodyText: "\u55AE\u8ECA\u5237\u4E0A\u5F69\u6F06\u3001\u639B\u4E0A\u4E7E\u71E5\u82B1\uFF0C\u8B8A\u6210\u7DB2\u7F8E\u6253\u5361\u9EDE\u3002\u8D77\u521D\u5438\u5F15\u4E86\u4E0D\u5C11\u904A\u5BA2\u4F86\u62CD\u7167\u3002
+      \u5169\u500B\u6708\u904E\u53BB\u4E86\uFF0C\u6D77\u98A8\u4E00\u5439\uFF0C\u6C92\u9664\u93FD\u7684\u55AE\u8ECA\u958B\u59CB\u6389\u6F06\u3001\u751F\u93FD\uFF0C\u8B8A\u5F97\u6591\u99C1\u96E3\u770B\uFF0C\u6751\u88E1\u7684\u4EA4\u901A\u4F9D\u7136\u4E0D\u4FBF\uFF0C\u8001\u4EBA\u51FA\u9580\u9084\u662F\u53EA\u80FD\u8F9B\u82E6\u8D70\u8DEF\u2026\r\n"
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: R10A*
+    setFlags: []
+    requiredFlags: []
+    eventType: 
   - nodeId: R10A*
     speakerName: 
-    bodyText: "\u55AE\u8ECA\u5237\u4E0A\u5F69\u6F06\u3001\u639B\u4E0A\u4E7E\u71E5\u82B1\uFF0C\u8B8A\u6210\u4E86\u7DB2\u7F8E\u6253\u5361\u9EDE\u3002\u8D77\u521D\u5E7E\u500B\u9031\u672B\u5438\u5F15\u4E86\u4E0D\u5C11\u904A\u5BA2\u4F86\u62CD\u7167\u3002
-      \u5169\u500B\u6708\u904E\u53BB\u4E86\uFF0C\u6D77\u98A8\u4E00\u5439\uFF0C\u6C92\u9664\u93FD\u7684\u55AE\u8ECA\u958B\u59CB\u6389\u6F06\u3001\u751F\u93FD\uFF0C\u8B8A\u5F97\u6591\u99C1\u96E3\u770B\uFF0C\u800C\u4E14\u6751\u88E1\u7684\u4EA4\u901A\u4F9D\u7136\u4E0D\u4FBF\uFF0C\u8001\u4EBA\u51FA\u9580\u9084\u662F\u53EA\u80FD\u8F9B\u82E6\u8D70\u8DEF\u2026\r\n"
+    bodyText: "\u8A72\u5982\u4F55\u8655\u7406\u906D\u92B9\u8755\u7684\u55AE\u8ECA\u85DD\u8853\u54C1......\uFF1F"
     backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
@@ -196,23 +209,22 @@ MonoBehaviour:
     setFlags: []
     requiredFlags: []
     eventType: 
-  - nodeId: RAA
+  - nodeId: R10B
     speakerName: 
-    bodyText: "\u55AE\u8ECA\u56DE\u6536\u5834\u8B8A\u6210\u88DD\u7F6E\u85DD\u8853......"
+    bodyText: "\u4E00\u5927\u7B46\u56DE\u6536\u5EE2\u9435\u7684\u73FE\u91D1\u5165\u5E33\u3002\u4F46\u7576\u56DE\u6536\u8ECA\u628A\u4E00\u6574\u6392\u55AE\u8ECA\u8F09\u8D70\u6642\uFF0C\u6751\u88E1\u7684\u8001\u4EBA\u5011\u9ED8\u9ED8\u7AD9\u5728\u68DA\u5B50\u5916\u770B\u8457\uFF0C\u773C\u795E\u88E1\u6EFF\u662F\u5931\u843D\u3002\u5E7E\u5929\u5F8C\uFF0C\u4F86\u6751\u5B50\u73A9\u7684\u904A\u5BA2\u8B8A\u591A\u4E86\uFF0C\u4F46\u56E0\u70BA\u6751\u8DEF\u592A\u7A84\u3001\u6C7D\u8ECA\u9032\u4E0D\u4F86\uFF0C\u904A\u5BA2\u53EA\u80FD\u9802\u8457\u5927\u592A\u967D\u6CBF\u8DEF\u62B1\u6028\u300C\u98A8\u5F85\u6751\u9023\u500B\u79DF\u8173\u8E0F\u8ECA\u7684\u5730\u65B9\u90FD\u6C92\u6709\uFF0C\u592A\u96E3\u901B\u4E86\uFF01\u300D "
     backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
-    setFlags:
-    - R_END
+    nextNodeId: R10B*
+    setFlags: []
     requiredFlags: []
     eventType: 
   - nodeId: R10B*
     speakerName: 
-    bodyText: "\u4E00\u5927\u7B46\u56DE\u6536\u5EE2\u9435\u7684\u73FE\u91D1\u5165\u5E33\u3002\u4F46\u7576\u56DE\u6536\u8ECA\u628A\u4E00\u6574\u6392\u55AE\u8ECA\u8F09\u8D70\u6642\uFF0C\u6751\u88E1\u7684\u8001\u4EBA\u5011\u9ED8\u9ED8\u7AD9\u5728\u68DA\u5B50\u5916\u770B\u8457\uFF0C\u773C\u795E\u88E1\u6EFF\u662F\u5931\u843D\u3002\u5E7E\u5929\u5F8C\uFF0C\u4F86\u6751\u5B50\u73A9\u7684\u904A\u5BA2\u8B8A\u591A\u4E86\uFF0C\u4F46\u56E0\u70BA\u6751\u8DEF\u592A\u7A84\u3001\u6C7D\u8ECA\u9032\u4E0D\u4F86\uFF0C\u904A\u5BA2\u53EA\u80FD\u9802\u8457\u5927\u592A\u967D\u6CBF\u8DEF\u62B1\u6028\u300C\u98A8\u5F85\u6751\u9023\u500B\u79DF\u8173\u8E0F\u8ECA\u7684\u5730\u65B9\u90FD\u6C92\u6709\uFF0C\u592A\u96E3\u901B\u4E86\uFF01\u300D "
+    bodyText: "\u8981\u5982\u4F55\u4F7F\u7528\u9019\u7B46\u73FE\u91D1\u6539\u5584\u73FE\u6CC1\u5462\uFF1F\n "
     backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}
@@ -233,6 +245,20 @@ MonoBehaviour:
       sustainabilityDelta: 0
     nextNodeId: 
     setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: RAA
+    speakerName: 
+    bodyText: "\u55AE\u8ECA\u56DE\u6536\u5834\u8B8A\u6210\u88DD\u7F6E\u85DD\u8853......"
+    backgroundSprite: {fileID: 612425124757120726, guid: 5b5006aa27d68bf4183447e3f6f7f379, type: 3}
+    leftPortrait: {fileID: 0}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags:
+    - R_END
     requiredFlags: []
     eventType: 
   - nodeId: R200
