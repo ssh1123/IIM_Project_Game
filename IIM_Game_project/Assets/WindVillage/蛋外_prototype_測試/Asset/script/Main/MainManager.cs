@@ -8,15 +8,21 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string vnSceneName = "VN_Main";
     [SerializeField] private string storyDatabaseSceneName = "StoryDatabase";
 
-    [Header("Scene Names")]
+    [Header("Scene TransButton")]
     [SerializeField] private GameObject VNButton;
+    [Header("123")]
+    [SerializeField] private GameObject First;
+    [Header("123_2")]
+    [SerializeField] private GameObject First2;
     private bool isset_VN = false;
-
+    private bool isset_F = true;
     private void Start()
     {
-        if(!GameState.Instance.runnerIntroFinished)
+        First.gameObject.SetActive(true);
+        if (!GameState.Instance.runnerIntroFinished)
         {
             VNButton.gameObject.SetActive(false);
+            First2.gameObject.SetActive(false);
         }
        
     }
@@ -27,6 +33,11 @@ public class MainMenuManager : MonoBehaviour
         if (GameState.Instance.runnerIntroFinished && !isset_VN)
         {
             VNButton.gameObject.SetActive(true);
+            First2.gameObject.SetActive(true);
+        }
+        if (GameState.Instance.runnerIntroFinished && isset_F)
+        {
+            First.gameObject.SetActive(false);
         }
 
     }

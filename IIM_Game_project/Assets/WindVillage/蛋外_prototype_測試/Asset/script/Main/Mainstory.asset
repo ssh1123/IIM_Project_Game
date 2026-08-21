@@ -16,9 +16,9 @@ MonoBehaviour:
   startNodeId: M001
   nodes:
   - nodeId: M001
-    speakerName: "\u65C1\u767D"
-    bodyText: "\u4E00\u958B\u59CB\u6545\u4E8B"
-    backgroundSprite: {fileID: -390771277703335550, guid: abbda15cc96a6e8449810e89cd1e41cf, type: 3}
+    speakerName: "\u5E03\u544A\u6B04"
+    bodyText: "\u98A8\u5F85\u6751\u4F4D\u65BC\u53F0\u7063\u897F\u5357\u6CBF\u6D77\u8207\u5167\u9678\u4EA4\u754C\uFF0C\u662F\u4E00\u5EA7\u4EE5\u6F01\u696D\u7DAD\u751F\u7684\u5C0F\u6751\u843D\u3002\u65E9\u5E74\u6751\u6C11\u9760\u8457\u6D77\u3001\u7AF9\u6797\u751F\u6D3B\uFF0C\u767D\u5929\u6355\u9B5A\u3001\u7DE8\u7AF9\u5668\uFF0C\u508D\u665A\u9A0E\u8457\u8173\u8E0F\u8ECA\u7A7F\u68AD\u7A84\u5DF7\uFF0C\u4E92\u76F8\u9001\u83DC\u3001\u7167\u9867\u9130\u91CC\u3002\r\n"
+    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
     leftPortrait: {fileID: 21300000, guid: af87d6334d9427c45a0ebeb8b44df130, type: 3}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
@@ -29,9 +29,9 @@ MonoBehaviour:
     requiredFlags: []
     eventType: 
   - nodeId: M002
-    speakerName: "\u65C1\u767D"
-    bodyText: "\u4E00\u958B\u59CB\u6545\u4E8B2"
-    backgroundSprite: {fileID: -390771277703335550, guid: abbda15cc96a6e8449810e89cd1e41cf, type: 3}
+    speakerName: "\u5E03\u544A\u6B04"
+    bodyText: "\u6751\u4E2D\u4FDD\u7559\u8457\u65E5\u6CBB\u6642\u671F\u7559\u4E0B\u7684\u6728\u9020\u5BBF\u820D\uFF0C\u6230\u5F8C\u7D93\u7531\u5C45\u6C11\u6539\u5EFA\uFF0C\u9010\u6F38\u5F62\u6210\u65E5\u5F0F\u5EFA\u7BC9\u8207\u53F0\u7063\u751F\u6D3B\u4EA4\u7E54\u7684\u7279\u6B8A\u98A8\u8C8C\u3002"
+    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
     leftPortrait: {fileID: 21300000, guid: af87d6334d9427c45a0ebeb8b44df130, type: 3}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
@@ -42,9 +42,23 @@ MonoBehaviour:
     requiredFlags: []
     eventType: 
   - nodeId: M003
-    speakerName: "\u65C1\u767D"
-    bodyText: "\u4E00\u958B\u59CB\u6545\u4E8B123"
-    backgroundSprite: {fileID: -390771277703335550, guid: abbda15cc96a6e8449810e89cd1e41cf, type: 3}
+    speakerName: "\u5E03\u544A\u6B04"
+    bodyText: "\u7136\u800C\uFF0C\u96A8\u8457\u7522\u696D\u6C92\u843D\u8207\u5E74\u8F15\u4EBA\u96E2\u9109\uFF0C\u6751\u88E1\u53EA\u5269\u8001\u4EBA\u3001\u7A7A\u5C4B\u8207\u9010\u6F38\u88AB\u907A\u5FD8\u7684\u6280\u85DD\u3002"
+    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
+    leftPortrait: {fileID: 21300000, guid: af87d6334d9427c45a0ebeb8b44df130, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: M004
+    setFlags: []
+    requiredFlags: []
+    eventType: 
+  - nodeId: M004
+    speakerName: "\u5E03\u544A\u6B04"
+    bodyText: "\u8001\u4EBA\u5E38\u8AAA\uFF1A\u300C\u98A8\u4F86\u7684\u6642\u5019\uFF0C\u9B5A\u6703\u9032\u6E2F\uFF0C\u7AF9\u6703\u5531\u6B4C\uFF0C\u4EBA\u4E5F\u6703\u56DE\u5BB6\u3002\u300D\u5982\u4ECA\u98A8\u4ECD\u5439\u8457\uFF0C\u98A8\u5F85\u6751\u6B63\u7B49\u5F85\u4EBA\u5011\u518D\u6B21\u56DE\u4F86\u3002
+      \r\n"
+    backgroundSprite: {fileID: 21300000, guid: 3d7c36ba2d8f84549b0cb68e717ec9eb, type: 3}
     leftPortrait: {fileID: 21300000, guid: af87d6334d9427c45a0ebeb8b44df130, type: 3}
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
