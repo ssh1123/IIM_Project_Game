@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/WindVillage/Scenes_old/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/RUN_MAIN.unity"
-    guid: 59743f52918cc82469d5cbfe547b926d
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/MAIN_MENU.unity"
+    guid: 4d45a9818688f724a82a2113b05efd91
   - enabled: 1
-    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/VN_MAIN.unity"
-    guid: f2239aefe9dcedb44ab0a9bc48a7743d
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/StartStory.unity"
+    guid: 43d821bdf5ecc2342907fa9b52dc5183
   - enabled: 1
     path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/FirstScene.unity"
     guid: d7600beefc1baec4aabbf501db945cf9
@@ -21,17 +21,17 @@ EditorBuildSettings:
     path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/Story.unity"
     guid: 6c0f9a843dbacc84987695f18c6269de
   - enabled: 1
-    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/FinalScene.unity"
-    guid: f3489b78c7720d84da0a447a372b5e48
-  - enabled: 1
-    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/StartStory.unity"
-    guid: 43d821bdf5ecc2342907fa9b52dc5183
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/RUN_MAIN.unity"
+    guid: 59743f52918cc82469d5cbfe547b926d
   - enabled: 1
     path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/IntroToVN.unity"
     guid: 237c611161699ed49b1717aa339bb52e
   - enabled: 1
-    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/MAIN_MENU.unity"
-    guid: 4d45a9818688f724a82a2113b05efd91
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/VN_MAIN.unity"
+    guid: f2239aefe9dcedb44ab0a9bc48a7743d
+  - enabled: 1
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/FinalScene.unity"
+    guid: f3489b78c7720d84da0a447a372b5e48
   - enabled: 1
     path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/END_MENU.unity"
     guid: f138e01a09b32ca429444c7b104c1dd2
