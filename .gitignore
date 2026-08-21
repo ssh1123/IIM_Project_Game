@@ -13,6 +13,9 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
+
+# Unity 輸出遊戲
+/[Ww]indows/
 # 不要把虛擬環境和依賴 DLL commit 上去
 env/
 env_rag/
