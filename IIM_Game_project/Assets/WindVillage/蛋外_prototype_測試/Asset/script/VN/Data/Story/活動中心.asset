@@ -225,12 +225,21 @@ MonoBehaviour:
     - choiceText: "\u5148\u8ACB\u6751\u9577\u7D71\u4E00\u5B89\u6392\u6BCF\u500B\u4EBA\u7684\u5DE5\u4F5C\uFF0C\u8B93\u5927\u5BB6\u7167\u56FA\u5B9A\u5206\u5DE5\u88FD\u4F5C\uFF0C\u6BD4\u8F03\u6709\u6548\u7387"
       nextNodeId: C10A
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: 0
+      interestDelta: -15
+      sustainabilityDelta: 5
     - choiceText: "\u5148\u6574\u7406\u4E00\u4EFD\u300C\u6280\u80FD\u3001\u5DE5\u5177\u8207\u6750\u6599\u5171\u4EAB\u8868\u300D\uFF0C\u8A18\u9304\u8AB0\u6703\u4EC0\u9EBC\u3001\u54EA\u4E9B\u5DE5\u5177\u80FD\u501F\u3001\u54EA\u4E9B\u6750\u6599\u80FD\u5171\u540C\u4F7F\u7528"
       nextNodeId: C101
       setFlag: 
+      fundingDelta: -5000
+      interestDelta: 20
+      sustainabilityDelta: 25
     - choiceText: "\u5148\u9080\u8ACB\u5916\u5730\u8001\u5E2B\u4F86\u6D3B\u52D5\u4E2D\u5FC3\u958B\u8AB2\uFF0C\u8B93\u6751\u6C11\u5B78\u7FD2\u6BD4\u8F03\u6D41\u884C\u3001\u6BD4\u8F03\u5BB9\u6613\u8CA9\u552E\u7684\u624B\u4F5C\u6280\u5DE7 "
       nextNodeId: C10C
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: -20000
+      interestDelta: 5
+      sustainabilityDelta: -15
     nextNodeId: 
     setFlags: []
     requiredFlags: []
@@ -353,12 +362,21 @@ MonoBehaviour:
     - choiceText: "\u5EFA\u7ACB\u501F\u7528\u8207\u9810\u7D04\u7D00\u9304\uFF0C\u767B\u8A18\u6559\u5B78\u6642\u6BB5\u3001\u5DE5\u5177\u501F\u9084\u3001\u6750\u6599\u4F7F\u7528\u91CF\u8207\u5B8C\u6210\u6210\u679C "
       nextNodeId: C201
       setFlag: 
+      fundingDelta: -5000
+      interestDelta: 15
+      sustainabilityDelta: 30
     - choiceText: "\u628A\u5E38\u7528\u5DE5\u5177\u5206\u7D66\u5E7E\u4F4D\u4E3B\u8981\u88FD\u4F5C\u8005\u4FDD\u7BA1\uFF0C\u5176\u4ED6\u4EBA\u9700\u8981\u6642\u518D\u79C1\u4E0B\u5411\u4ED6\u5011\u501F\u7528"
       nextNodeId: C20B
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: 0
+      interestDelta: -15
+      sustainabilityDelta: -10
     - choiceText: "\u8A2D\u5B9A\u56FA\u5B9A\u958B\u653E\u6642\u9593\uFF0C\u5DE5\u5177\u7531\u6751\u9577\u4FDD\u7BA1\uFF0C\u6751\u6C11\u9700\u8981\u6642\u518D\u5411\u6751\u9577\u7533\u8ACB\u4F7F\u7528 "
       nextNodeId: C20C
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: 0
+      interestDelta: -10
+      sustainabilityDelta: -20
     nextNodeId: 
     setFlags: []
     requiredFlags: []
@@ -456,12 +474,21 @@ MonoBehaviour:
     - choiceText: "\u8B93\u6BCF\u4F4D\u6751\u6C11\u4F7F\u7528\u540C\u6A23\u7684\u8CBC\u7D19\u8207\u50F9\u683C\u8868\uFF0C\u518D\u7531\u5E38\u628A\u6F01\u7372\u8CE3\u53BB\u5176\u4ED6\u6751\u5B50\u7684\u963F\u6F6E\u4F2F\u8CE3\u7D66\u5176\u4ED6\u6751\u5B50"
       nextNodeId: C30A
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: 10000
+      interestDelta: 0
+      sustainabilityDelta: -10
     - choiceText: "\u6210\u7ACB\u300C\u98A8\u5F85\u826F\u54C1\u300D\u5171\u540C\u54C1\u724C\uFF0C\u8B93\u6751\u91CC\u7684\u4EBA\u4E00\u540C\u8A2D\u8A08\u54C1\u724C\u540D\u7A31\u3001\u5305\u88DD\u3001\u6545\u4E8B\u4ECB\u7D39\u3001\u92B7\u552E\u901A\u8DEF......"
       nextNodeId: C301
       setFlag: "\u98A8\u5F85\u826F\u54C1"
+      fundingDelta: -10000
+      interestDelta: 30
+      sustainabilityDelta: 35
     - choiceText: "\u627E\u5916\u5730\u516C\u53F8\u5354\u52A9\u8A2D\u8A08\u54C1\u724C\u4E26\u8CA9\u552E\uFF0C\u8B93\u98A8\u5F85\u6751\u7522\u54C1\u8B8A\u5F97\u66F4\u7CBE\u7DFB\uFF0C\u6751\u6C11\u5C08\u5FC3\u88FD\u4F5C\u5C31\u597D "
       nextNodeId: C30C
       setFlag: "C_\u4E0D\u8B8A"
+      fundingDelta: 25000
+      interestDelta: -25
+      sustainabilityDelta: -15
     nextNodeId: 
     setFlags: []
     requiredFlags: []

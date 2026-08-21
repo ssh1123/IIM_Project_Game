@@ -2112,6 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentControlBoard
   AIpanel: {fileID: 736638505}
+  AItester: {fileID: 356080969}
 --- !u!4 &694617354
 Transform:
   m_ObjectHideFlags: 0

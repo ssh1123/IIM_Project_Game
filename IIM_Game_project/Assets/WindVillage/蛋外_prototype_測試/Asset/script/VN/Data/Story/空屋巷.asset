@@ -170,12 +170,21 @@ MonoBehaviour:
     - choiceText: "\u5168\u90E8\u51FA\u79DF\u7D66\u5916\u5730\u5546\u5BB6\uFF0C\u8B93\u4ED6\u5011\u81EA\u884C\u6539\u9020"
       nextNodeId: E10A
       setFlag: "\u5546\u5E97\u8857"
+      fundingDelta: 40000
+      interestDelta: -25
+      sustainabilityDelta: -10
     - choiceText: "\u8207\u5C4B\u4E3B\u5354\u8ABF\uFF0C\u6574\u7406\u6210\u53EF\u5171\u4EAB\u4F7F\u7528\u7684\u5C0F\u578B\u7A7A\u9593"
       nextNodeId: E200
       setFlag: 
+      fundingDelta: -20000
+      interestDelta: 25
+      sustainabilityDelta: 30
     - choiceText: "\u62C6\u9664\u5F8C\u6539\u6210\u505C\u8ECA\u5834 "
       nextNodeId: E10C
       setFlag: "\u505C\u8ECA\u5834"
+      fundingDelta: -10000
+      interestDelta: -30
+      sustainabilityDelta: -20
     nextNodeId: 
     setFlags: []
     requiredFlags: []
@@ -286,12 +295,21 @@ MonoBehaviour:
     - choiceText: "\u6BCF\u9593\u90FD\u79DF\u7D66\u51FA\u50F9\u6700\u9AD8\u7684\u5546\u5BB6 "
       nextNodeId: E10A
       setFlag: "\u5546\u5E97\u8857"
+      fundingDelta: 50000
+      interestDelta: -20
+      sustainabilityDelta: -15
     - choiceText: "\u6539\u6210\u5730\u65B9\u6587\u5275\u7279\u8272\u5E02\u96C6\uFF0C\u8B93\u8FB2\u7522\u3001\u7AF9\u7DE8\u3001\u624B\u4F5C\u3001\u5171\u98DF\u9910\u9EDE\u8F2A\u6D41\u9032\u99D0"
       nextNodeId: E300
       setFlag: 
+      fundingDelta: 10000
+      interestDelta: 30
+      sustainabilityDelta: 35
     - choiceText: "\u5168\u90E8\u6539\u6210\u5009\u5EAB\uFF0C\u5E73\u5E38\u4E0D\u958B\u653E"
       nextNodeId: E20C
       setFlag: "\u5009\u5EAB"
+      fundingDelta: -5000
+      interestDelta: -10
+      sustainabilityDelta: -25
     nextNodeId: 
     setFlags: []
     requiredFlags: []
@@ -413,12 +431,21 @@ MonoBehaviour:
     - choiceText: "\u5EFA\u7ACB\u7DDA\u4E0A\u767B\u8A18\u5E73\u53F0\uFF0C\u8B93\u6751\u6C11\u3001\u8FD4\u9109\u9752\u5E74\u3001\u5DE5\u85DD\u5E2B\u8F2A\u6D41\u7533\u8ACB\u6524\u4F4D "
       nextNodeId: E308
       setFlag: "\u6587\u5275\u7279\u5340"
+      fundingDelta: -15000
+      interestDelta: 20
+      sustainabilityDelta: 40
     - choiceText: "\u5168\u90E8\u7D66\u56FA\u5B9A\u5E7E\u5BB6\u5E97\u4F7F\u7528\uFF0C\u6BD4\u8F03\u65B9\u4FBF\u7BA1\u7406"
       nextNodeId: E30B
       setFlag: "\u6587\u5275\u7279\u5340"
+      fundingDelta: 5000
+      interestDelta: -15
+      sustainabilityDelta: -20
     - choiceText: "\u6BCF\u9593\u90FD\u79DF\u7D66\u51FA\u50F9\u6700\u9AD8\u7684\u5546\u5BB6"
       nextNodeId: E30C
       setFlag: "\u6587\u5275\u7279\u5C45"
+      fundingDelta: 30000
+      interestDelta: -20
+      sustainabilityDelta: -15
     nextNodeId: 
     setFlags: []
     requiredFlags: []
