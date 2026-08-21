@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eec1c02a7545a344a14fc9ddae97fd4, type: 3}
+  m_Name: FinalStory3
+  m_EditorClassIdentifier: Assembly-CSharp::StoryData
+  storyId: 
+  startNodeId: F001
+  nodes:
+  - nodeId: F001
+    speakerName: 123
+    bodyText: "\u6700\u5F8C\u4E00\u5E55"
+    backgroundSprite: {fileID: -390771277703335550, guid: abbda15cc96a6e8449810e89cd1e41cf, type: 3}
+    leftPortrait: {fileID: 21300000, guid: 387b306079a42f0459ccb753f1e6fbfb, type: 3}
+    centerPortrait: {fileID: 0}
+    rightPortrait: {fileID: 0}
+    showchatboxPortrait: 1
+    choices: []
+    nextNodeId: 
+    setFlags: []
+    requiredFlags: []
+    eventType: 

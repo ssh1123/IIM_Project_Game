@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eec1c02a7545a344a14fc9ddae97fd4, type: 3}
-  m_Name: FinalStory
+  m_Name: FinalStory2
   m_EditorClassIdentifier: Assembly-CSharp::StoryData
   storyId: 
   startNodeId: F001

@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class FinalDialogueManager : MonoBehaviour
 {
     [Header("Story Data")]
-    [SerializeField] private StoryData currentStory;
+    [SerializeField] private StoryData Story1;
+    [SerializeField] private StoryData Story2;
+    [SerializeField] private StoryData Story3;
 
     [Header("UI References")]
     [SerializeField] private TMP_Text nameText;
@@ -21,7 +23,7 @@ public class FinalDialogueManager : MonoBehaviour
     [SerializeField] private Image characterRightImage;
     [SerializeField] private Image chatboxImage;
 
-
+    private StoryData currentStory;
 
     private readonly Dictionary<string, DialogueNode> nodeLookup =
         new Dictionary<string, DialogueNode>();
@@ -30,6 +32,7 @@ public class FinalDialogueManager : MonoBehaviour
 
     private void Start()
     {
+        currentStory = Story1;
         StartStory(currentStory);
     }
 
