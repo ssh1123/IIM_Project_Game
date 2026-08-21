@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 public class MapFlowController : MonoBehaviour
@@ -26,12 +27,20 @@ public class MapFlowController : MonoBehaviour
     [Header("Required Flags")]
     [SerializeField] private List<string> requiredFlags = new List<string>();
 
+    [Header("轉場設定")]
+    [SerializeField] private CanvasGroup fadeCanvasGroup;
+    [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private string targetSceneName = "FinalScene";
+    [SerializeField] private float delayTime = 2f;
     private LocationData selectedLocation;
+    private bool isLoading = false;
 
     private void Start()
     {
         GameState.Instance.ResetIndex();
         GameState.Instance.SetPreVN(true);
+        fadeCanvasGroup.alpha = 0f;
+        fadeCanvasGroup.blocksRaycasts = false;
         mapPanel.SetActive(true);
         locationPanel.SetActive(false);
         dialoguePanel.SetActive(false);
@@ -55,10 +64,36 @@ public class MapFlowController : MonoBehaviour
         }
         if(GameState.Instance.HasAllFlags(requiredFlags))
         {
-            SceneManager.LoadScene("FinalScene");
+            if (isLoading) return;
+
+            StartCoroutine(FadeOutAndLoadScene());
         }
 
     }
+    private IEnumerator FadeOutAndLoadScene()
+    {
+        isLoading = true;
+        fadeCanvasGroup.blocksRaycasts = true;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float progress = elapsedTime / fadeDuration;
+            fadeCanvasGroup.alpha = Mathf.Lerp(0f, 1f, progress);
+
+            yield return null;
+        }
+
+        fadeCanvasGroup.alpha = 1f;
+
+        SceneManager.LoadScene(targetSceneName);
+    }
+
+
+
     public void SelectLocation(string locationId)
     {
         Debug.Log("SelectLocation 被呼叫，ID: " + locationId);

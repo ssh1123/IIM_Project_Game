@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
     private HashSet<string> flags = new HashSet<string>();
 
     [Header("Runner Intro Result")]
+    public bool runnerIntroStarted;
     public bool runnerIntroFinished;
     public int runnerIntroScore;
     public int runnerIntroTotalQuestions;
@@ -91,6 +92,11 @@ public class GameState : MonoBehaviour
 
     // ===== Runner Intro Methods =====
 
+    public void RunnerIntroStart()
+    {
+        runnerIntroStarted = true;
+    }
+
     public void SaveRunnerIntroResult(int score, int totalQuestions)
     {
         runnerIntroFinished = true;
@@ -112,6 +118,7 @@ public class GameState : MonoBehaviour
         "ResetRunnerIntroResult 被呼叫：Runner 資料即將清空。",
         this
          );
+        runnerIntroStarted = false;
         runnerIntroFinished = false;
         runnerIntroScore = 0;
         runnerIntroTotalQuestions = 0;
@@ -163,7 +170,22 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void ResetGameState()
+    {
+        Debug.LogWarning("ResetGameState 被呼叫：所有遊戲進度將被重設。", this);
 
+        // VN 狀態
+        ClearFlags();
+        pre_VN_Finished = false;
+
+        // 跑酷關卡結果
+        ResetRunnerIntroResult();
+
+        // 三項地方創生指數
+        ResetIndex();
+
+        Debug.Log("GameState 已完成重設。", this);
+    }
 
 
 }

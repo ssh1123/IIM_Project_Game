@@ -13,6 +13,7 @@ public class RunnerGameManager : MonoBehaviour
 
     private void Start()
     {
+        GameState.Instance.RunnerIntroStart();
         if (questionManager != null)
             questionManager.onAllQuestionsFinished += OnQuestionsFinished;
     }

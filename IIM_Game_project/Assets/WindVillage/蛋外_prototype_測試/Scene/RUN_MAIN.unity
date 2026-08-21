@@ -2111,6 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a6603df7cbe8c478de52cf222d98d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentControlBoard
+  AIpanel: {fileID: 736638505}
 --- !u!4 &694617354
 Transform:
   m_ObjectHideFlags: 0
@@ -5915,7 +5916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5dd3098c95df344a582b67b85993af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunnerPlayerController
-  forwardSpeed: 4
+  forwardSpeed: 10
   laneChangeSpeed: 12
   laneTop: {fileID: 660210654}
   laneMiddle: {fileID: 330578083}

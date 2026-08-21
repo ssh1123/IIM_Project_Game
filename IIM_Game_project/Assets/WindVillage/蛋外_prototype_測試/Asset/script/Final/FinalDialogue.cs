@@ -158,8 +158,9 @@ public class FinalDialogueManager : MonoBehaviour
     private void EndStory()
     {
         currentNode = null;
+        SceneManager.LoadScene("END_Menu");
         //遊戲結束
-       
+
     }
 
     private void UpdateVisuals(DialogueNode node)

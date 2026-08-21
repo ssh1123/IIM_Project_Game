@@ -159,4 +159,26 @@ public class AIChatTester : MonoBehaviour
 
         return sb.ToString().Trim();
     }
+    public void ResetPanel()
+    {
+        StopAllCoroutines();
+
+        if (questionInput != null)
+        {
+            questionInput.SetTextWithoutNotify("");
+            questionInput.DeactivateInputField();
+        }
+
+        if (answerText != null)
+        {
+            answerText.text = "請輸入問題後按送出。";
+        }
+
+        if (sendButton != null)
+        {
+            sendButton.interactable = true;
+        }
+
+        Debug.Log("AI 問答面板已重設。", this);
+    }
 }
