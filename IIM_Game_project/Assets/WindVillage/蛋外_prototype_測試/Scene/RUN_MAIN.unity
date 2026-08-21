@@ -597,8 +597,8 @@ MonoBehaviour:
   playerController: {fileID: 2091635443}
   runnerIntroManager: {fileID: 1339017021}
   questionDatabase: {fileID: 11400000, guid: 9149cc99c59fef24fac41e43b34ce8a8, type: 2}
-  baseJudgeX: 30
-  judgeStepX: 18
+  baseJudgeX: 25
+  judgeStepX: 25
 --- !u!1 &273731312
 GameObject:
   m_ObjectHideFlags: 0

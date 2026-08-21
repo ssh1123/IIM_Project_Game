@@ -143,7 +143,7 @@ public class StoryDatabaseDialogueManager : MonoBehaviour
     private void EndStory()
     {
         currentNode = null;
-
+        ResetTimeScale();
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
@@ -173,5 +173,11 @@ public class StoryDatabaseDialogueManager : MonoBehaviour
 
         targetImage.sprite = sprite;
         targetImage.enabled = true;
+    }
+    private void ResetTimeScale()
+    {
+        // 避免玩家從暫停狀態回主選單後，
+        // 新場景仍然維持 Time.timeScale = 0。
+        Time.timeScale = 1f;
     }
 }

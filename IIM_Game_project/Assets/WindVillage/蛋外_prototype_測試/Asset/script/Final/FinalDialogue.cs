@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class FinalDialogueManager : MonoBehaviour
 {
     [Header("Story Data")]
-    [SerializeField] private StoryData Story1;
-    [SerializeField] private StoryData Story2;
-    [SerializeField] private StoryData Story3;
+    [SerializeField] private StoryData Story1;//完美
+    [SerializeField] private StoryData Story2;//破產
+    [SerializeField] private StoryData Story3;//過度商業
 
     [Header("UI References")]
     [SerializeField] private TMP_Text nameText;
@@ -23,7 +23,7 @@ public class FinalDialogueManager : MonoBehaviour
     [SerializeField] private Image characterRightImage;
     [SerializeField] private Image chatboxImage;
 
-    private StoryData currentStory;
+    public  StoryData currentStory;
 
     private readonly Dictionary<string, DialogueNode> nodeLookup =
         new Dictionary<string, DialogueNode>();
@@ -32,7 +32,21 @@ public class FinalDialogueManager : MonoBehaviour
 
     private void Start()
     {
-        currentStory = Story1;
+        switch (GameState.Instance.GetFinalResult())
+        {
+            case 1:
+                currentStory = Story1;
+                break;
+
+            case 2:
+                currentStory = Story2;
+                break;
+
+            case 3:
+                currentStory = Story3;
+                break;
+        }
+        
         StartStory(currentStory);
     }
 

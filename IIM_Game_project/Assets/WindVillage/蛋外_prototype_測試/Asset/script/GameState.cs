@@ -16,13 +16,14 @@ public class GameState : MonoBehaviour
     public bool runnerIntroPassed;
 
     [Header("Index")]
-    [SerializeField] private int funding = 0;
-    [SerializeField] private int interest = 0;
-    [SerializeField] private int sustainability = 0;
+    [SerializeField] private int funding = 50000;
+    [SerializeField] private int interest = 50;
+    [SerializeField] private int sustainability = 30;
 
     public int Funding => funding;
     public int Interest => interest;
     public int Sustainability => sustainability;
+    public bool pre_VN_Finished = false;
 
     public event Action<int, int, int> OnIndexChanged;
 
@@ -39,6 +40,19 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"GameState 已建立並保留：{name}", this);
+    }
+    //=====VN Check ====
+    public bool CheckPreVN()
+    {
+        if(pre_VN_Finished)
+        {
+            return true;
+        }
+        return false;
+    }
+    public void SetPreVN(bool isset)
+    {
+        pre_VN_Finished = isset;
     }
 
     // ===== VN Flag Methods =====
@@ -110,9 +124,9 @@ public class GameState : MonoBehaviour
        "ResetIndex 被呼叫：Index 資料將被重設。",
        this
         );
-        funding = 0;
-        interest = 0;
-        sustainability = 0;
+        funding = 50000;
+        interest = 50;
+        sustainability = 30;
         OnIndexChanged?.Invoke(funding,interest,sustainability);
 
     }
@@ -131,4 +145,25 @@ public class GameState : MonoBehaviour
        );
         OnIndexChanged?.Invoke(funding, interest, sustainability);
     }
+    //========Final result function========
+
+    public int GetFinalResult()
+    {
+        if(Funding >= 33500 && Interest >=80 && Sustainability >=80)
+        {
+            return 1;
+        }
+        else if(Funding <= 0)
+        {
+            return 2;   
+        }
+        else
+        {
+            return 3;
+        }
+    }
+
+
+
+
 }

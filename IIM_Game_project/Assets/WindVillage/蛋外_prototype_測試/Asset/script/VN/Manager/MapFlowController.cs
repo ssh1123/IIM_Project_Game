@@ -31,6 +31,7 @@ public class MapFlowController : MonoBehaviour
     private void Start()
     {
         GameState.Instance.ResetIndex();
+        GameState.Instance.SetPreVN(true);
         mapPanel.SetActive(true);
         locationPanel.SetActive(false);
         dialoguePanel.SetActive(false);

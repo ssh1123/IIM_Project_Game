@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/StartStory.unity"
     guid: 43d821bdf5ecc2342907fa9b52dc5183
+  - enabled: 1
+    path: "Assets/WindVillage/\u86CB\u5916_prototype_\u6E2C\u8A66/Scene/IntroToVN.unity"
+    guid: 237c611161699ed49b1717aa339bb52e
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

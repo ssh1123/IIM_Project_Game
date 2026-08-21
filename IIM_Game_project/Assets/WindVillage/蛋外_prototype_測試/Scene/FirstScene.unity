@@ -1459,6 +1459,7 @@ MonoBehaviour:
   funding: 0
   interest: 0
   sustainability: 0
+  pre_VN_Finished: 0
 --- !u!4 &1683697786
 Transform:
   m_ObjectHideFlags: 0

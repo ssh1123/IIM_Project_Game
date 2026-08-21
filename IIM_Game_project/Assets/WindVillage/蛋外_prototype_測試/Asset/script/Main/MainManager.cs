@@ -49,8 +49,19 @@ public class MainMenuManager : MonoBehaviour
 
     public void GoToVN()
     {
+        
         ResetTimeScale();
-        SceneManager.LoadScene(vnSceneName);
+        if(GameState.Instance.CheckPreVN())
+        {
+            SceneManager.LoadScene(vnSceneName);
+        }
+        else
+        {
+            SceneManager.LoadScene("IntroToVN");
+        }
+
+        
+        
     }
 
     public void GoToStoryDatabase()

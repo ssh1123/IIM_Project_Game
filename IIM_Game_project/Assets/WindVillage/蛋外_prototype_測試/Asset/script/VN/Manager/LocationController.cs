@@ -31,7 +31,7 @@ public class LocationPanelController : MonoBehaviour
         Debug.Log("進入地點: " + selectedLocationId);
 
         locationPanel.SetActive(false);
-
+        /*
         switch (selectedLocationId)
         {
             case "School":
@@ -45,6 +45,6 @@ public class LocationPanelController : MonoBehaviour
             case "Park":
                 Debug.Log("載入公園劇情");
                 break;
-        }
+        }*/
     }
 }
