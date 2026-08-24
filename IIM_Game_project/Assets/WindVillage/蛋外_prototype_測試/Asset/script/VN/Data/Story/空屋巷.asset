@@ -121,7 +121,7 @@ MonoBehaviour:
     eventType: 
   - nodeId: E009
     speakerName: "\u5289\u4F2F"
-    bodyText: "\u9019\u689D\u5DF7\u5B50\u554A\u2026\u2026\u4EE5\u524D\u5F88\u71B1\u9B27\u7684\u3002"
+    bodyText: "\u9019\u689D\u5DF7\u5B50\u554A......\u4EE5\u524D\u5F88\u71B1\u9B27\u7684\u3002"
     backgroundSprite: {fileID: -2467626235712361921, guid: 1cd81e6372f19704aa464a4b57c23600, type: 3}
     leftPortrait: {fileID: -1083526721528233112, guid: de9fedd5edec7a143bff59a84d6e1535, type: 3}
     centerPortrait: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
     nextNodeId: 
     setFlags: []
     requiredFlags: []
-    eventType: 
+    eventType: E203
   - nodeId: E203
     speakerName: "\u6751\u6C11\u963F\u59E8"
     bodyText: "\u623F\u5B50\u662F\u6574\u7406\u597D\u4E86\u5566\uFF0C\u53EF\u662F\u63A5\u4E0B\u4F86\u8981\u505A\u4EC0\u9EBC\uFF1F\r\n\u5289\u4F2F\uFF1A\u7E3D\u4E0D\u80FD\u53C8\u653E\u8457\u5427\u2026\u2026\r\n"
@@ -266,7 +266,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: E203
+    nextNodeId: E204
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -279,7 +279,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: E204
+    nextNodeId: E205
     setFlags: []
     requiredFlags: []
     eventType: 

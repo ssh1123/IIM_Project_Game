@@ -259,7 +259,7 @@ MonoBehaviour:
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: F003
+    nextNodeId: 
     setFlags: []
     requiredFlags: []
     eventType: 

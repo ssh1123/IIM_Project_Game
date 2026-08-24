@@ -17,7 +17,7 @@ MonoBehaviour:
   nodes:
   - nodeId: 100
     speakerName: 
-    bodyText: "\u9019\u88E1\u662F\u54EA\u88E1? \u600E\u9EBC\u9019\u9EBC\u767D.......\r\n"
+    bodyText: "\u9019\u88E1\u662F\u54EA\u88E1\uFF1F\u600E\u9EBC\u9019\u9EBC\u767D.......\r\n"
     backgroundSprite: {fileID: 0}
     leftPortrait: {fileID: 0}
     centerPortrait: {fileID: 0}

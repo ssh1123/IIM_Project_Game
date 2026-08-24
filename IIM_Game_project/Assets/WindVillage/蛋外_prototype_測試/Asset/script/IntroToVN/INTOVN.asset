@@ -44,7 +44,7 @@ MonoBehaviour:
     eventType: 
   - nodeId: S003
     speakerName: "\u5289\u4F2F"
-    bodyText: "\u4F60....\u4F60\u8AAA\u4EC0\u9EBC?"
+    bodyText: "\u4F60....\u4F60\u8AAA\u4EC0\u9EBC\uFF1F"
     backgroundSprite: {fileID: 446466273067857123, guid: ee2968488c0a0d44e979eb9486e45863, type: 3}
     leftPortrait: {fileID: -1083526721528233112, guid: de9fedd5edec7a143bff59a84d6e1535, type: 3}
     centerPortrait: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
     eventType: 
   - nodeId: S008
     speakerName: "\u4F60"
-    bodyText: "\u5443\u2026\u2026\u96D6\u7136\u6211\u4E0D\u592A\u6E05\u695A\u600E\u9EBC\u56DE\u4E8B\uFF0C\u4F46\u6211\u6703\u76E1\u529B\u5E6B\u5FD9\u7684\u3002\u6751\u5B50\u73FE\u5728\u6700\u9700\u8981\u89E3\u6C7A\u4EC0\u9EBC\u554F\u984C\u5462\uFF1F "
+    bodyText: "\u5443......\u96D6\u7136\u6211\u4E0D\u592A\u6E05\u695A\u600E\u9EBC\u56DE\u4E8B\uFF0C\u4F46\u6211\u6703\u76E1\u529B\u5E6B\u5FD9\u7684\u3002\u6751\u5B50\u73FE\u5728\u6700\u9700\u8981\u89E3\u6C7A\u4EC0\u9EBC\u554F\u984C\u5462\uFF1F "
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
     centerPortrait: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
     eventType: 
   - nodeId: S009
     speakerName: "\u6751\u9577"
-    bodyText: "\u592A\u597D\u4E86\uFF01\u90A3\u2026\u2026\u80FD\u4E0D\u80FD\u8ACB\u60A8\u5E6B\u5FD9\u770B\u770B\u6751\u5B50\u90A3\u4E9B\u9592\u7F6E\u5F88\u4E45\u7684\u90A3\u4E9B\u8CC7\u6E90\u55CE?\r\n"
+    bodyText: "\u592A\u597D\u4E86\uFF01\u90A3......\u80FD\u4E0D\u80FD\u8ACB\u60A8\u5E6B\u5FD9\u770B\u770B\u6751\u5B50\u90A3\u4E9B\u9592\u7F6E\u5F88\u4E45\u7684\u90A3\u4E9B\u8CC7\u6E90\u55CE\uFF1F\r\n"
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
     centerPortrait: {fileID: 0}
@@ -135,8 +135,7 @@ MonoBehaviour:
     eventType: 
   - nodeId: S010
     speakerName: "AI\u5BF5\u7269"
-    bodyText: "AI\u5BF5\u7269:\u300C\u6211\u5011\u4F3C\u4E4E\u53EF\u4EE5\u7528\u524D\u4E16\u5B78\u7FD2\u5230\u7684\u77E5\u8B58
-      \u5E6B\u52A9\u9019\u500B\u6751\u5B50\u5730\u65B9\u5275\u751F\u6B38! \u8B93\u6211\u5011\u770B\u770B\u6709\u4EC0\u9EBC\u6211\u5011\u80FD\u5E6B\u5FD9\u7684\u5730\u65B9\u5427!\u300D\r\n"
+    bodyText: "\u6211\u5011\u4F3C\u4E4E\u53EF\u4EE5\u7528\u524D\u4E16\u5B78\u7FD2\u5230\u7684\u77E5\u8B58\uFF0C\u5E6B\u52A9\u9019\u500B\u6751\u5B50\u5730\u65B9\u5275\u751F\u6B38\uFF01\u8B93\u6211\u5011\u770B\u770B\u6709\u4EC0\u9EBC\u6211\u5011\u80FD\u5E6B\u5FD9\u7684\u5730\u65B9\u5427\uFF01\r\n"
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
     centerPortrait: {fileID: -5064401156898091283, guid: 122f295e9a524244f8a2da25e0f4d793, type: 3}
