@@ -95,6 +95,9 @@ public class GameState : MonoBehaviour
     public void RunnerIntroStart()
     {
         runnerIntroStarted = true;
+        Debug.Log(
+           "RunnerIntroStart() has been called"
+       );
     }
 
     public void SaveRunnerIntroResult(int score, int totalQuestions)

@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a6603df7cbe8c478de52cf222d98d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentControlBoard
-  AIpanel: {fileID: 736638505}
+  AIpanel: {fileID: 124447569}
   AItester: {fileID: 356080969}
 --- !u!4 &694617354
 Transform:
