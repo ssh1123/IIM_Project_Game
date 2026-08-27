@@ -161,6 +161,7 @@ public class GameState : MonoBehaviour
 
     public int GetFinalResult()
     {
+        bonusFund = 0;
         if (HasAllFlags(new List<string> { "R1", "R2", "R3" }))
         {
             bonusFund+=20000;
@@ -181,18 +182,21 @@ public class GameState : MonoBehaviour
         funding += bonusFund;
 
 
+        if (Funding <= 0)
+        {
+            return 2;
+        }
+
         if (Funding >= 0 && Interest >=150 && Sustainability >=150)
         {
             return 1;
         }
-        else if(Funding <= 0)
-        {
-            return 2;   
-        }
-        else
-        {
-            return 3;
-        }
+
+
+    
+        
+        return 3;
+        
     }
 
     public void ResetGameState()

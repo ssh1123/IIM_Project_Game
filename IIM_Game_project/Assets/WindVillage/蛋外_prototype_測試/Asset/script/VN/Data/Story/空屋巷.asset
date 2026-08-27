@@ -227,8 +227,7 @@ MonoBehaviour:
     showchatboxPortrait: 1
     choices: []
     nextNodeId: E201
-    setFlags:
-    - E_END
+    setFlags: []
     requiredFlags: []
     eventType: 
   - nodeId: E201
@@ -337,7 +336,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E301
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -350,7 +349,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E302
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -363,7 +362,7 @@ MonoBehaviour:
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E303
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -376,7 +375,7 @@ MonoBehaviour:
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E304
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -389,7 +388,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E305
     setFlags: []
     requiredFlags: []
     eventType: 
@@ -402,7 +401,7 @@ MonoBehaviour:
     rightPortrait: {fileID: -1964267056891129320, guid: c61ab68e6b409f040aa09b43e6a885ce, type: 3}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E306
     setFlags: []
     requiredFlags: []
     eventType: 

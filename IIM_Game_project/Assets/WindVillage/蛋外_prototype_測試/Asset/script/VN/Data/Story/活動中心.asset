@@ -205,7 +205,7 @@ MonoBehaviour:
       \u4F3C\u4E4E.....\r\n"
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: 0}
-    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    centerPortrait: {fileID: -5064401156898091283, guid: 122f295e9a524244f8a2da25e0f4d793, type: 3}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
@@ -618,7 +618,7 @@ MonoBehaviour:
     bodyText: "\u9019\u6A23\u624D\u662F\u5171\u4EAB\u3002\u4E0D\u662F\u53EA\u6709\u4E00\u8D77\u8CE3\u6771\u897F\uFF0C\u800C\u662F\u4E00\u8D77\u4F7F\u7528\u8CC7\u6E90\u3001\u4E00\u8D77\u5275\u9020\u50F9\u503C\u3001\u4E00\u8D77\u5206\u4EAB\u6210\u679C\u3002"
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: 0}
-    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    centerPortrait: {fileID: -5064401156898091283, guid: 122f295e9a524244f8a2da25e0f4d793, type: 3}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []

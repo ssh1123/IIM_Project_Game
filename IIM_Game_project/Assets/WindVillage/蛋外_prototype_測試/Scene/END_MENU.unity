@@ -705,7 +705,7 @@ MonoBehaviour:
   fundingText: {fileID: 1047019210}
   interestText: {fileID: 686246276}
   sustainabilityText: {fileID: 1468511990}
-  bonusFund: {fileID: 0}
+  bonusFund: {fileID: 473112090}
 --- !u!1 &740645700
 GameObject:
   m_ObjectHideFlags: 0

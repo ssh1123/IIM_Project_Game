@@ -13,7 +13,7 @@ public class ENDManager : MonoBehaviour
         switch (GameState.Instance.GetFinalResult())
         {
             case 1:
-                ENDText.text = "完美結局";
+                ENDText.text = "`永續共榮,完美結局";
                 break;
 
             case 2:
@@ -21,7 +21,7 @@ public class ENDManager : MonoBehaviour
                 break;
 
             case 3:
-                ENDText.text = "過度商業";
+                ENDText.text = "一般結局";
                 break;
         }
     }
