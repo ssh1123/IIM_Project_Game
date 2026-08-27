@@ -17,7 +17,7 @@ public class GameState : MonoBehaviour
     public bool runnerIntroPassed;
 
     [Header("Index")]
-    [SerializeField] private int funding = 50000;
+    [SerializeField] private int funding = 100000;
     [SerializeField] private int interest = 50;
     [SerializeField] private int sustainability = 30;
 
@@ -25,8 +25,9 @@ public class GameState : MonoBehaviour
     public int Interest => interest;
     public int Sustainability => sustainability;
     public bool pre_VN_Finished = false;
+    public int bonusFund = 0;
 
-    public event Action<int, int, int> OnIndexChanged;
+    public event Action<int, int, int, int> OnIndexChanged;
 
 
     private void Awake()
@@ -134,10 +135,11 @@ public class GameState : MonoBehaviour
        "ResetIndex 被呼叫：Index 資料將被重設。",
        this
         );
-        funding = 50000;
+        funding = 100000;
         interest = 50;
+        bonusFund = 0;
         sustainability = 30;
-        OnIndexChanged?.Invoke(funding,interest,sustainability);
+        OnIndexChanged?.Invoke(funding,interest,sustainability,bonusFund);
 
     }
 
@@ -153,13 +155,33 @@ public class GameState : MonoBehaviour
         Debug.Log(
       $"目前index:資金 = {funding}，好感 = {interest}，永續 = {sustainability}"
        );
-        OnIndexChanged?.Invoke(funding, interest, sustainability);
+        OnIndexChanged?.Invoke(funding, interest, sustainability, bonusFund);
     }
     //========Final result function========
 
     public int GetFinalResult()
     {
-        if(Funding >= 33500 && Interest >=80 && Sustainability >=80)
+        if (HasAllFlags(new List<string> { "R1", "R2", "R3" }))
+        {
+            bonusFund+=20000;
+        }
+        if (HasAllFlags(new List<string> { "H1", "H2", "H3" }))
+        {
+            bonusFund += 20000;
+        }
+        if (HasAllFlags(new List<string> { "C1", "C2", "C3" }))
+        {
+            bonusFund += 20000;
+        }
+        if (HasAllFlags(new List<string> { "E1", "E2", "E3" }))
+        {
+            bonusFund += 20000;
+        }
+
+        funding += bonusFund;
+
+
+        if (Funding >= 0 && Interest >=150 && Sustainability >=150)
         {
             return 1;
         }

@@ -109,3 +109,16 @@ def ask(req: AskRequest):
     except Exception as e:
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
+
+if __name__ == "__main__":
+    import multiprocessing
+    import uvicorn
+
+    multiprocessing.freeze_support()
+
+    uvicorn.run(
+        app,
+        host="127.0.0.1",
+        port=8000,
+        log_level="info"
+    )

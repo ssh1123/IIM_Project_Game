@@ -7,6 +7,7 @@ public class IndexTextUI : MonoBehaviour
     [SerializeField] private TMP_Text fundingText;
     [SerializeField] private TMP_Text interestText;
     [SerializeField] private TMP_Text sustainabilityText;
+    [SerializeField] private TMP_Text bonusFund;
 
     private void OnEnable()
     {
@@ -17,7 +18,8 @@ public class IndexTextUI : MonoBehaviour
         Refresh(
             GameState.Instance.Funding,
             GameState.Instance.Interest,
-            GameState.Instance.Sustainability
+            GameState.Instance.Sustainability,
+            GameState.Instance.bonusFund
         );
     }
 
@@ -29,7 +31,7 @@ public class IndexTextUI : MonoBehaviour
         GameState.Instance.OnIndexChanged -= Refresh;
     }
 
-    private void Refresh(int funding, int interest, int sustainability)
+    private void Refresh(int funding, int interest, int sustainability ,int bonusfund)
     {
         if (fundingText != null)
         {
@@ -44,6 +46,10 @@ public class IndexTextUI : MonoBehaviour
         if (sustainabilityText != null)
         {
             sustainabilityText.text = "永續值：" + sustainability.ToString();
+        }
+        if (bonusFund != null)
+        {
+            bonusFund.text = "永續值：" + bonusfund.ToString();
         }
     }
 }

@@ -230,7 +230,7 @@ MonoBehaviour:
       sustainabilityDelta: 5
     - choiceText: "\u5148\u6574\u7406\u4E00\u4EFD\u300C\u6280\u80FD\u3001\u5DE5\u5177\u8207\u6750\u6599\u5171\u4EAB\u8868\u300D\uFF0C\u8A18\u9304\u8AB0\u6703\u4EC0\u9EBC\u3001\u54EA\u4E9B\u5DE5\u5177\u80FD\u501F\u3001\u54EA\u4E9B\u6750\u6599\u80FD\u5171\u540C\u4F7F\u7528"
       nextNodeId: C101
-      setFlag: 
+      setFlag: C1
       fundingDelta: -5000
       interestDelta: 20
       sustainabilityDelta: 25
@@ -361,7 +361,7 @@ MonoBehaviour:
     choices:
     - choiceText: "\u5EFA\u7ACB\u501F\u7528\u8207\u9810\u7D04\u7D00\u9304\uFF0C\u767B\u8A18\u6559\u5B78\u6642\u6BB5\u3001\u5DE5\u5177\u501F\u9084\u3001\u6750\u6599\u4F7F\u7528\u91CF\u8207\u5B8C\u6210\u6210\u679C "
       nextNodeId: C201
-      setFlag: 
+      setFlag: C2
       fundingDelta: -5000
       interestDelta: 15
       sustainabilityDelta: 30
@@ -531,7 +531,8 @@ MonoBehaviour:
     showchatboxPortrait: 1
     choices: []
     nextNodeId: C302
-    setFlags: []
+    setFlags:
+    - C3
     requiredFlags: []
     eventType: 
   - nodeId: C302

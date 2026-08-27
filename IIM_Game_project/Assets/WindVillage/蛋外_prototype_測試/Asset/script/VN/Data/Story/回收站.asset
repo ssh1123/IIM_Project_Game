@@ -162,7 +162,7 @@ MonoBehaviour:
       sustainabilityDelta: 0
     - choiceText: "\u7531\u5718\u968A\u81EA\u638F\u8170\u5305\u3001\u8017\u8CBB\u5DE5\u6642\u5C07\u55AE\u8ECA\u62C6\u89E3\u3001\u9664\u93FD\u4E26\u91CD\u65B0\u4FEE\u5FA9"
       nextNodeId: R200
-      setFlag: 
+      setFlag: R1
       fundingDelta: -25000
       interestDelta: 35
       sustainabilityDelta: 10
@@ -323,7 +323,7 @@ MonoBehaviour:
       sustainabilityDelta: -10
     - choiceText: "\u4FDD\u7559\u6240\u6709\u6B0A\uFF0C\u5728\u6751\u982D\u8A2D\u7ACB\u5BE6\u9AD4\u300C\u79DF\u501F\u7AD9\u300D\uFF0C\u4E3B\u6253\u4F7F\u7528\u6B0A\u5171\u4EAB"
       nextNodeId: R300
-      setFlag: 
+      setFlag: R2
       fundingDelta: -10000
       interestDelta: 20
       sustainabilityDelta: 25
@@ -388,7 +388,7 @@ MonoBehaviour:
       sustainabilityDelta: -25
     - choiceText: "\u65A5\u8CC7\u5F15\u5165\u6578\u4F4D\u300C\u7DDA\u4E0A\u6BD4\u50F9\u9810\u7D04\u8207\u79DF\u501F\u5E73\u53F0\u300D\uFF0C\u6574\u5408\u5E97\u5BB6\u5C0E\u89BD"
       nextNodeId: R304
-      setFlag: 
+      setFlag: R3
       fundingDelta: -30000
       interestDelta: -10
       sustainabilityDelta: 40
