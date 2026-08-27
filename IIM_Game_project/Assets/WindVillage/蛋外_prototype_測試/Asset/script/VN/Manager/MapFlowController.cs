@@ -37,7 +37,7 @@ public class MapFlowController : MonoBehaviour
 
     private void Start()
     {
-        GameState.Instance.ResetIndex();
+        
         GameState.Instance.SetPreVN(true);
         fadeCanvasGroup.alpha = 0f;
         fadeCanvasGroup.blocksRaycasts = false;

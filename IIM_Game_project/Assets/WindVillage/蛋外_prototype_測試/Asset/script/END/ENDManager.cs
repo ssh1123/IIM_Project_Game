@@ -28,6 +28,7 @@ public class ENDManager : MonoBehaviour
 
     public void go_MainMenu()
     {
+
         GameState.Instance.ResetGameState();
         SceneManager.LoadScene("Main_Menu");
     }
