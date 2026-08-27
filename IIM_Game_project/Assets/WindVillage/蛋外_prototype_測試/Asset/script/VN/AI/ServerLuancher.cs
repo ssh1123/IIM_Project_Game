@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
@@ -7,19 +8,21 @@ using Debug = UnityEngine.Debug;
 
 public class PythonServerLauncher : MonoBehaviour
 {
-    [Header("Python Settings")]
-    [SerializeField] private string pythonExePath = @"C:\Users\YourName\AppData\Local\Programs\Python\Python311\python.exe";
-    [SerializeField] private string uvicornModule = "uvicorn";
-    [SerializeField] private string appEntry = "main:app";
+    [Header("Server Settings")]
+    [Tooltip("StreamingAssets 內的資料夾名稱")]
+    [SerializeField] private string serverFolder = "AI_Server";
+
+    [Tooltip("打包後的執行檔名稱")]
+    [SerializeField] private string exeName = "AI_Server.exe";
+
     [SerializeField] private string host = "127.0.0.1";
     [SerializeField] private string port = "8000";
-    [SerializeField] private string workingDirectory = @"C:\YourProject\ai_test_server";
 
     [Header("Check Settings")]
-    [SerializeField] private float retryInterval = 2f;
-    [SerializeField] private int maxRetryCount = 15;
+    [SerializeField] private float retryInterval = 1.5f;
+    [SerializeField] private int maxRetryCount = 20;
 
-    private Process pythonProcess;
+    private Process serverProcess;
     public bool IsServerReady { get; private set; }
     public string LastServerError { get; private set; }
 
@@ -36,38 +39,36 @@ public class PythonServerLauncher : MonoBehaviour
 
         if (IsServerReady)
         {
-            Debug.Log("偵測到 Python server 已經在執行。");
+            Debug.Log("偵測到 AI Server 已經在背景執行。");
             yield break;
         }
 
-        StartPythonServer();
+        StartServerProcess();
+
+        if (serverProcess == null)
+        {
+            yield break;
+        }
+
         yield return StartCoroutine(CheckServerReady());
     }
 
-    private void StartPythonServer()
+    private void StartServerProcess()
     {
-        if (!File.Exists(pythonExePath))
-        {
-            Debug.LogError("找不到 Python 執行檔：" + pythonExePath);
-            return;
-        }
+        // 自動組合相對於遊戲執行目錄的路徑
+        string workingDirectory = Path.Combine(Application.streamingAssetsPath, serverFolder);
+        string exePath = Path.Combine(workingDirectory, exeName);
 
-        if (!Directory.Exists(workingDirectory))
+        if (!File.Exists(exePath))
         {
-            Debug.LogError("找不到工作目錄：" + workingDirectory);
-            return;
-        }
-
-        if (pythonProcess != null && !pythonProcess.HasExited)
-        {
-            Debug.Log("Python server 已經在執行中。");
+            LastServerError = $"找不到 AI Server 執行檔：{exePath}";
+            Debug.LogError(LastServerError);
             return;
         }
 
         ProcessStartInfo startInfo = new ProcessStartInfo
         {
-            FileName = pythonExePath,
-            Arguments = $"-m {uvicornModule} {appEntry} --host {host} --port {port}",
+            FileName = exePath,
             WorkingDirectory = workingDirectory,
             UseShellExecute = false,
             CreateNoWindow = true,
@@ -77,34 +78,49 @@ public class PythonServerLauncher : MonoBehaviour
 
         try
         {
-            pythonProcess = new Process();
-            pythonProcess.StartInfo = startInfo;
-
-            pythonProcess.OutputDataReceived += (sender, args) =>
+            serverProcess = new Process
             {
-                if (!string.IsNullOrEmpty(args.Data))
-                    Debug.Log("[Python] " + args.Data);
+                StartInfo = startInfo,
+                EnableRaisingEvents = true
             };
 
-            pythonProcess.ErrorDataReceived += (sender, args) =>
+            serverProcess.OutputDataReceived += (sender, args) =>
+            {
+                if (!string.IsNullOrEmpty(args.Data))
+                    Debug.Log("[AI Server] " + args.Data);
+            };
+
+            serverProcess.ErrorDataReceived += (sender, args) =>
             {
                 if (!string.IsNullOrEmpty(args.Data))
                 {
                     LastServerError = args.Data;
-                    Debug.LogWarning("[Python Error] " + args.Data);
+                    Debug.LogWarning("[AI Server Error] " + args.Data);
                 }
             };
 
-            pythonProcess.Start();
-            pythonProcess.BeginOutputReadLine();
-            pythonProcess.BeginErrorReadLine();
+            serverProcess.Exited += (sender, args) =>
+            {
+                Debug.LogWarning($"AI Server 已結束，ExitCode: {serverProcess.ExitCode}");
+            };
 
-            Debug.Log("已啟動 Python server process。");
+            bool started = serverProcess.Start();
+            if (!started)
+            {
+                LastServerError = "無法啟動 AI Server 行程。";
+                Debug.LogError(LastServerError);
+                return;
+            }
+
+            serverProcess.BeginOutputReadLine();
+            serverProcess.BeginErrorReadLine();
+
+            Debug.Log("已啟動 AI Server 服務。");
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             LastServerError = e.Message;
-            Debug.LogError("啟動 Python server 失敗：" + e.Message);
+            Debug.LogError("啟動 AI Server 失敗：" + e.Message);
         }
     }
 
@@ -112,6 +128,7 @@ public class PythonServerLauncher : MonoBehaviour
     {
         using (UnityWebRequest request = UnityWebRequest.Get(HealthUrl))
         {
+            request.timeout = 2;
             yield return request.SendWebRequest();
             IsServerReady = request.result == UnityWebRequest.Result.Success;
         }
@@ -119,54 +136,68 @@ public class PythonServerLauncher : MonoBehaviour
 
     private IEnumerator CheckServerReady()
     {
-        int count = 0;
-
-        while (count < maxRetryCount)
+        for (int count = 1; count <= maxRetryCount; count++)
         {
+            if (serverProcess != null && serverProcess.HasExited)
+            {
+                Debug.LogError($"AI Server 異常終止，ExitCode: {serverProcess.ExitCode}");
+                IsServerReady = false;
+                yield break;
+            }
+
             using (UnityWebRequest request = UnityWebRequest.Get(HealthUrl))
             {
+                request.timeout = 3;
                 yield return request.SendWebRequest();
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
-                    // 解析 { "status": "ok" } 或 { "status": "loading" }
                     string body = request.downloadHandler.text;
-                    if (body.Contains("\"ok\""))
+                    if (body.Contains("\"status\":\"ok\"") || body.Contains("\"status\": \"ok\""))
                     {
-                        Debug.Log("Python server 已連線並完成模型載入。");
+                        Debug.Log("AI Server 連線成功，模型載入就緒！");
                         IsServerReady = true;
                         yield break;
                     }
                     else
                     {
-                        Debug.Log("Server 已啟動，但模型仍在載入中...");
+                        Debug.Log("Server 已回應，模型載入中...");
                     }
                 }
             }
 
-            count++;
-            Debug.Log("等待 Python server 啟動中... 第 " + count + " 次檢查");
             yield return new WaitForSeconds(retryInterval);
         }
 
-        Debug.LogError("Python server 啟動逾時，無法連線。");
+        Debug.LogError("AI Server 連線逾時。");
         IsServerReady = false;
     }
 
     private void OnApplicationQuit()
     {
+        StopServerProcess();
+    }
+
+    private void OnDestroy()
+    {
+        StopServerProcess();
+    }
+
+    private void StopServerProcess()
+    {
         try
         {
-            if (pythonProcess != null && !pythonProcess.HasExited)
+            if (serverProcess != null && !serverProcess.HasExited)
             {
-                pythonProcess.Kill();
-                pythonProcess.Dispose();
-                Debug.Log("已關閉 Python server process。");
+                serverProcess.Kill();
+                serverProcess.WaitForExit(2000);
+                serverProcess.Dispose();
+                Debug.Log("已關閉 AI Server 行程。");
             }
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
-            Debug.LogWarning("關閉 Python server 時發生問題：" + e.Message);
+            Debug.LogWarning("關閉 AI Server 時發生錯誤：" + e.Message);
         }
     }
 }

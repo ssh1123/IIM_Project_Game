@@ -1136,12 +1136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1053b0f4e5fbd3148a4dc9e8e9dbaeda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PythonServerLauncher
-  pythonExePath: D:\PROJECT\IIM_Project_Game\project_env\Scripts\python.exe
-  uvicornModule: uvicorn
-  appEntry: main:app
+  serverFolder: AI_Server
+  exeName: AI_Server.exe
   host: 127.0.0.1
   port: 8000
-  workingDirectory: "D:\\PROJECT\\IIM_Project_Game\\IIM_Game_project\\Assets\\WindVillage\\\u86CB\u5916_prototype_\u6E2C\u8A66\\AI_python\\scripts"
   retryInterval: 1.5
   maxRetryCount: 20
 --- !u!4 &451149736

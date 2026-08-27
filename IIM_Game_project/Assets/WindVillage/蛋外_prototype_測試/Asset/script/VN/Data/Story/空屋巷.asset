@@ -253,10 +253,10 @@ MonoBehaviour:
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
-    nextNodeId: 
+    nextNodeId: E203
     setFlags: []
     requiredFlags: []
-    eventType: E203
+    eventType: 
   - nodeId: E203
     speakerName: "\u6751\u6C11\u963F\u59E8"
     bodyText: "\u623F\u5B50\u662F\u6574\u7406\u597D\u4E86\u5566\uFF0C\u53EF\u662F\u63A5\u4E0B\u4F86\u8981\u505A\u4EC0\u9EBC\uFF1F\r\n\u5289\u4F2F\uFF1A\u7E3D\u4E0D\u80FD\u53C8\u653E\u8457\u5427\u2026\u2026\r\n"
