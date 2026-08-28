@@ -1452,14 +1452,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead835b94d7886548ae0a2481192551d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
+  runnerIntroStarted: 0
   runnerIntroFinished: 0
   runnerIntroScore: 0
   runnerIntroTotalQuestions: 0
   runnerIntroPassed: 0
-  funding: 0
-  interest: 0
-  sustainability: 0
+  funding: 100000
+  interest: 50
+  sustainability: 30
   pre_VN_Finished: 0
+  bonusFund: 0
 --- !u!4 &1683697786
 Transform:
   m_ObjectHideFlags: 0
