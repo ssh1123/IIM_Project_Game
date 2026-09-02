@@ -23,6 +23,8 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
+    showFeedback: 0
+    feedbackText: 
     choices: []
     nextNodeId: M002
     setFlags: []
@@ -36,6 +38,8 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
+    showFeedback: 0
+    feedbackText: 
     choices: []
     nextNodeId: M003
     setFlags: []
@@ -49,6 +53,8 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
+    showFeedback: 0
+    feedbackText: 
     choices: []
     nextNodeId: M004
     setFlags: []
@@ -63,6 +69,8 @@ MonoBehaviour:
     centerPortrait: {fileID: 0}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
+    showFeedback: 0
+    feedbackText: 
     choices: []
     nextNodeId: 
     setFlags: []

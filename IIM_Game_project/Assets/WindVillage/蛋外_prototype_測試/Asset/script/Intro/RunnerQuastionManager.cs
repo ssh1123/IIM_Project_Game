@@ -208,6 +208,9 @@ public class RunnerQuestionManager : MonoBehaviour
             {
                 explanationText.text = q.correctExplanation;
             }
+            
+            
+
 
             if (feedbackBackgroundImage != null &&
                 correctFeedbackSprite != null)
@@ -231,6 +234,11 @@ public class RunnerQuestionManager : MonoBehaviour
             {
                 feedbackBackgroundImage.sprite = wrongFeedbackSprite;
             }
+        }
+        
+        if (!GameState.Instance.IsFeedbackEnabled)
+        {
+            explanationText.gameObject.SetActive(false);
         }
 
         if (continueHintText != null)

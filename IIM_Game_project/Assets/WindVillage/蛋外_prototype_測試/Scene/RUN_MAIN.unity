@@ -3480,6 +3480,7 @@ MonoBehaviour:
   introPanel: {fileID: 1517087509}
   feedbackPanel: {fileID: 592186664}
   gameManager: {fileID: 424924518}
+  introText: {fileID: 885501990}
 --- !u!1 &1207329502
 GameObject:
   m_ObjectHideFlags: 0

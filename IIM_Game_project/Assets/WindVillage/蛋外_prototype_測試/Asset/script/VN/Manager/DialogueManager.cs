@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text bodyText;
     [SerializeField] private GameObject choiceGroup;
     [SerializeField] private ChoiceButtonUI[] choiceButtons;
+    [SerializeField] private GameObject feedbackPanel;
+    [SerializeField] private TMP_Text feedbackText;
 
 
     [Header("Systems")]
@@ -31,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialogueRoot;
     [SerializeField] private MapFlowController mapFlowController;
 
+
     private void Start()
     {
         Debug.Log("currentStory: " + currentStory);
@@ -38,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("bodyText: " + bodyText);
         Debug.Log("choiceGroup: " + choiceGroup);
         Debug.Log("GameState.Instance: " + GameState.Instance);
-
+        feedbackPanel.SetActive(false);
         StartStory(currentStory);
     }
     /*private void Update()
@@ -55,7 +58,8 @@ public class DialogueManager : MonoBehaviour
         if (dialogueRoot == null || !dialogueRoot.activeInHierarchy)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        bool isActive = feedbackPanel.activeInHierarchy;
+        if (Input.GetKeyDown(KeyCode.Space) && !isActive)
         {
             ShowNextNode();
             return;
@@ -130,12 +134,15 @@ public class DialogueManager : MonoBehaviour
         UpdateVisuals(currentNode);
         ApplyNodeFlags(currentNode);
 
+
         nameText.text = currentNode.speakerName;
         bodyText.text = currentNode.bodyText;
-
         UpdateChoices();
     }
-
+    public void FBClose()
+    {
+        feedbackPanel.SetActive(false);
+    }
     private void ShowNextNode()
     {
         if (currentNode == null) return;
@@ -217,6 +224,15 @@ public class DialogueManager : MonoBehaviour
             GameState.Instance.SetFlag(choiceData.setFlag);
         }
         GameState.Instance.GetScore(choiceData.fundingDelta, choiceData.interestDelta,choiceData.sustainabilityDelta);
+
+        if (choiceData.feedbackText != null && GameState.Instance.IsFeedbackEnabled)
+        {
+
+            feedbackPanel.SetActive(true);
+            feedbackText.text = choiceData.feedbackText;
+        }
+
+
         ShowNode(choiceData.nextNodeId);
     }
 

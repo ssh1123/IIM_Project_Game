@@ -6,6 +6,12 @@ public class GameState : MonoBehaviour
 {
     public static GameState Instance { get; private set; }
 
+
+
+    [Header("因素調整")]
+    public bool IsFeedbackEnabled = true;
+    public bool IsAIEnabled = true;
+
     [Header("VN Flags")]
     private HashSet<string> flags = new HashSet<string>();
 
@@ -42,6 +48,30 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"GameState 已建立並保留：{name}", this);
+
+    }
+    //=====因素====
+    public void SetAIEnabled(bool isEnabled)
+    {
+        IsAIEnabled = isEnabled;
+
+
+        Debug.Log(
+            isEnabled
+                ? "GameState：AI 功能已啟用。"
+                : "GameState：AI 功能已關閉。"
+        );
+    }
+    public void SetFeedbackEnabled(bool isEnabled)
+    {
+        IsFeedbackEnabled = isEnabled;
+
+
+        Debug.Log(
+            isEnabled
+                ? "GameState：feedback 功能已啟用。"
+                : "GameState：feedback 功能已關閉。"
+        );
     }
     //=====VN Check ====
     public bool CheckPreVN()
@@ -213,7 +243,9 @@ public class GameState : MonoBehaviour
         // 三項地方創生指數
         ResetIndex();
 
-        Debug.Log("GameState 已完成重設。", this);
+        IsFeedbackEnabled = true;
+        IsAIEnabled = true;
+    Debug.Log("GameState 已完成重設。", this);
     }
 
 

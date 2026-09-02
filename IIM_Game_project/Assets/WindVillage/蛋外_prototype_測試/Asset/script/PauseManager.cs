@@ -12,10 +12,15 @@ public class PauseManager : MonoBehaviour
     {
         IsPaused = false;
 
-        if (pauseButtonText != null)
+        if (pauseButtonText != null && GameState.Instance.IsAIEnabled)
         {
             pauseButtonText.text = "暫停遊戲及使用AI";
         }
+        else
+        {
+            pauseButtonText.text = "暫停遊戲";
+        }
+        
     }
 
     // 給按鈕 OnClick 呼叫
@@ -41,9 +46,13 @@ public class PauseManager : MonoBehaviour
         {
             Time.timeScale = 1f;
 
-            if (pauseButtonText != null)
+            if (pauseButtonText != null && GameState.Instance.IsAIEnabled)
             {
                 pauseButtonText.text = "暫停遊戲及使用AI";
+            }
+            else
+            {
+                pauseButtonText.text = "暫停遊戲";
             }
         }
     }

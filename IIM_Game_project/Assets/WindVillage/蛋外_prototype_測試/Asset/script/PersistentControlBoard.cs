@@ -20,7 +20,7 @@ public class PersistentControlBoard : MonoBehaviour
     }
     private void Update()
     {
-        if (GameState.Instance.runnerIntroStarted && !isset)
+        if (GameState.Instance.runnerIntroStarted && !isset && GameState.Instance.IsAIEnabled)
         {
             AItester.ResetPanel();
             AIpanel.SetActive(true);
