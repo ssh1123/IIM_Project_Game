@@ -1026,6 +1026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead835b94d7886548ae0a2481192551d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
+  IsFeedbackEnabled: 1
+  IsAIEnabled: 1
   runnerIntroStarted: 0
   runnerIntroFinished: 0
   runnerIntroScore: 0
@@ -1466,7 +1468,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E00\u56E0\u7D20"
+  m_Text: 'FB
+
+'
 --- !u!222 &1776800600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1589,7 +1593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E8C\u56E0\u7D20"
+  m_Text: AS
 --- !u!222 &1973176971
 CanvasRenderer:
   m_ObjectHideFlags: 0
