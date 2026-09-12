@@ -160,7 +160,7 @@ def build_user_prompt(user_question: str, context_text: str) -> str:
         f"{context_text}\n\n"
         "請只輸出一個 JSON 物件，格式如下：\n"
         "{\n"
-        '  "short_answer": "一句到兩句的簡短回答",\n'
+        '  "short_answer": "兩句至四句的簡短回答，依據需求提供簡短解釋，總回答字數不可超過95字",\n'
         '  "detailed_answer": "較完整的解釋",\n'
         '  "citation_labels": ["來源1", "來源2"]\n'
         "}\n\n"

@@ -214,18 +214,18 @@ public class GameState : MonoBehaviour
 
         if (Funding <= 0)
         {
-            return 2;
+            return 1;
         }
 
         if (Funding >= 0 && Interest >=150 && Sustainability >=150)
         {
-            return 1;
+            return 3;
         }
 
 
     
         
-        return 3;
+        return 2;
         
     }
 

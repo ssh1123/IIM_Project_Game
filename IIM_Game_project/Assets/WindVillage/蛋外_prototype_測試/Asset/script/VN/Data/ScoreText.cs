@@ -49,7 +49,7 @@ public class IndexTextUI : MonoBehaviour
         }
         if (bonusFund != null)
         {
-            bonusFund.text = "永續值：" + bonusfund.ToString();
+            bonusFund.text = "額外收益" + bonusfund.ToString();
         }
     }
 }

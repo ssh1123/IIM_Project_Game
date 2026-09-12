@@ -12,15 +12,15 @@ public class ENDManager : MonoBehaviour
     {
         switch (GameState.Instance.GetFinalResult())
         {
-            case 1:
+            case 3:
                 ENDText.text = "`永續共榮,完美結局";
                 break;
 
-            case 2:
+            case 1:
                 ENDText.text = "你破產了";
                 break;
 
-            case 3:
+            case 2:
                 ENDText.text = "一般結局";
                 break;
         }

@@ -640,7 +640,7 @@ MonoBehaviour:
     bodyText: "\u539F\u5148\u6211\u5011\u4EE5\u524D\u53EA\u662F\u805A\u5728\u4E00\u8D77\u804A\u5929\uFF0C\u73FE\u5728\u662F\u771F\u7684\u80FD\u4E00\u8D77\u505A\u9EDE\u4E8B\u4E86\u3002"
     backgroundSprite: {fileID: -2702602041004856649, guid: b3f6d44e442faa34ba0ca98306a56325, type: 3}
     leftPortrait: {fileID: -1628682612147464315, guid: 8226efcdeadf5cf4392b816fcccc9eb7, type: 3}
-    centerPortrait: {fileID: -6904499167591281364, guid: da726aa1b4903fb4cb2acd012c7250b0, type: 3}
+    centerPortrait: {fileID: -5064401156898091283, guid: 122f295e9a524244f8a2da25e0f4d793, type: 3}
     rightPortrait: {fileID: 0}
     showchatboxPortrait: 1
     choices: []
