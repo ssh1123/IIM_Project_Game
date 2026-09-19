@@ -24,13 +24,14 @@ public class GameState : MonoBehaviour
 
     [Header("Index")]
     [SerializeField] private int funding = 100000;
-    [SerializeField] private int interest = 50;
+    [SerializeField] private int interest = 30;
     [SerializeField] private int sustainability = 30;
 
     public int Funding => funding;
     public int Interest => interest;
     public int Sustainability => sustainability;
     public bool pre_VN_Finished = false;
+    public bool AI_used = false;
     public int bonusFund = 0;
 
     public event Action<int, int, int, int> OnIndexChanged;
@@ -166,7 +167,7 @@ public class GameState : MonoBehaviour
        this
         );
         funding = 100000;
-        interest = 50;
+        interest = 30;
         bonusFund = 0;
         sustainability = 30;
         OnIndexChanged?.Invoke(funding,interest,sustainability,bonusFund);
@@ -181,7 +182,24 @@ public class GameState : MonoBehaviour
 
         funding += funding_delta;
         interest += interest_delta;
+        if(interest >= 100)
+        {
+            interest = 100;
+        }
+        if(interest <= 0)
+        {
+            interest = 0;
+        }
         sustainability += sustainability_delta;
+        if(sustainability >= 100)
+        {
+            sustainability = 100;
+        }
+        if(sustainability <= 0)
+        {
+            sustainability = 0;
+        }
+
         Debug.Log(
       $"目前index:資金 = {funding}，好感 = {interest}，永續 = {sustainability}"
        );
@@ -217,7 +235,7 @@ public class GameState : MonoBehaviour
             return 1;
         }
 
-        if (Funding >= 0 && Interest >=150 && Sustainability >=150)
+        if (Funding >= 0 && Interest >=50 && Sustainability >=50)
         {
             return 3;
         }
@@ -247,6 +265,18 @@ public class GameState : MonoBehaviour
         IsAIEnabled = true;
     Debug.Log("GameState 已完成重設。", this);
     }
+    //============ai_data======= for SQL Record
+    public void AIUsed()
+    {
+        AI_used = true;
+    }
 
-
+    public void ResetAIUsed()
+    {
+        AI_used = false;
+    }
+    public bool GetAIUsed()
+    {
+        return AI_used;
+    }
 }

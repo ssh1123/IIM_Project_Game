@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class QuestionData
 {
+    public string Q_id;
     [Header("Question")]
     [TextArea(2, 4)]
     public string questionText;

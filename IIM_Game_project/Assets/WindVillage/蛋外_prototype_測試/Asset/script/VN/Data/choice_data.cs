@@ -6,6 +6,7 @@ public class ChoiceData
 {
     public string choiceText;
     public string nextNodeId;
+    public bool isCorrect;
     public string setFlag;
     public int fundingDelta;
     public int interestDelta;

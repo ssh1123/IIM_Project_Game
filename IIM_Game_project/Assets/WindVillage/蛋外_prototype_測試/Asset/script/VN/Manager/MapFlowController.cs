@@ -27,6 +27,10 @@ public class MapFlowController : MonoBehaviour
     [Header("Required Flags")]
     [SerializeField] private List<string> requiredFlags = new List<string>();
 
+    [Header("Learning Test Recording")]
+    //[SerializeField] private LearningTestResultUploader testResultUploader;
+    private LearningTestResultUploader testResultUploader;
+
     [Header("轉場設定")]
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField] private float fadeDuration = 1f;
@@ -39,6 +43,30 @@ public class MapFlowController : MonoBehaviour
     {
         
         GameState.Instance.SetPreVN(true);
+
+        if (testResultUploader == null)
+        {
+            testResultUploader =
+                FindFirstObjectByType<LearningTestResultUploader>();
+        }
+
+        LearningTestResultUploader uploader = GetTestUploader();
+
+        if (uploader != null)
+        {
+            uploader.StartNewTestSession();
+        }
+        else
+        {
+            Debug.LogError(
+                "找不到 LearningTestResultUploader。"
+                + "請確認它掛在 PersistentControlBoard 下，"
+                + "且 PersistentControlBoard 在之前的場景已建立。",
+                this
+            );
+        }
+
+
         fadeCanvasGroup.alpha = 0f;
         fadeCanvasGroup.blocksRaycasts = false;
         mapPanel.SetActive(true);
@@ -62,7 +90,7 @@ public class MapFlowController : MonoBehaviour
                 imageFlag[i].isset = true;
             }
         }
-        if(GameState.Instance.HasAllFlags(requiredFlags))
+        if(GameState.Instance.HasAllFlags(requiredFlags) && !dialoguePanel.activeInHierarchy)
         {
             if (isLoading) return;
 
@@ -70,9 +98,46 @@ public class MapFlowController : MonoBehaviour
         }
 
     }
+
+    private LearningTestResultUploader GetTestUploader()
+    {
+        if (testResultUploader == null)
+        {
+            testResultUploader =
+                FindFirstObjectByType<LearningTestResultUploader>();
+
+            Debug.Log(
+                "尋找 LearningTestResultUploader 結果："
+                + (testResultUploader != null
+                    ? testResultUploader.gameObject.name
+                    : "找不到"),
+                this
+            );
+        }
+
+        return testResultUploader;
+    }
     private IEnumerator FadeOutAndLoadScene()
     {
         isLoading = true;
+
+        LearningTestResultUploader uploader = GetTestUploader();
+
+        if (uploader != null)
+        {
+            uploader.UploadTestResult(isCompleted: true);
+        }
+        else
+        {
+            Debug.LogError(
+                "找不到 LearningTestResultUploader，"
+                + "無法上傳第二部分測驗資料。",
+                this
+            );
+        }
+
+        // 判斷所有題組完成後，先等待 1 秒
+        yield return new WaitForSecondsRealtime(1f);
         fadeCanvasGroup.blocksRaycasts = true;
 
         float elapsedTime = 0f;
@@ -161,6 +226,11 @@ public class MapFlowController : MonoBehaviour
         mapPanel.SetActive(false);
         dialoguePanel.SetActive(true);
         CharactorLayer.SetActive(true);
+
+        string questionGroup =
+        GetQuestionGroup(selectedLocation.locationId);
+
+        dialogueManager.StartTestGroup(questionGroup);
 
         Debug.Log("呼叫 StartStory：" + selectedLocation.storyData.name);
         dialogueManager.StartStory(selectedLocation.storyData);
@@ -259,5 +329,28 @@ public class MapFlowController : MonoBehaviour
         if (mapPanel != null)
             mapPanel.SetActive(true);
     }
+    private string GetQuestionGroup(string locationId)
+    {
+        switch (locationId)
+        {
+            case "L001":
+                return "group_1";
 
+            case "L002":
+                return "group_2";
+
+            case "L004":
+                return "group_3";
+
+            case "L005":
+                return "group_4";
+
+            default:
+                Debug.LogWarning(
+                    $"地點 {locationId} 沒有設定題組，預設使用 group_1。"
+                );
+
+                return "group_1";
+        }
+    }
 }

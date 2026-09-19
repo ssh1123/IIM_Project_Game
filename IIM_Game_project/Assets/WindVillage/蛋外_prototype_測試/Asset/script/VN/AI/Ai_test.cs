@@ -132,6 +132,7 @@ public class AIChatTester : MonoBehaviour
     private string BuildDisplayText(AskResponse data)
     {
         StringBuilder sb = new StringBuilder();
+        GameState.Instance.AIUsed();
 
         if (!string.IsNullOrEmpty(data.short_answer))
         {

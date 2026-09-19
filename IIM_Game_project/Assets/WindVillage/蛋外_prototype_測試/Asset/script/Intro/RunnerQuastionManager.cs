@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 using UnityEngine.UI;
 
 public class RunnerQuestionManager : MonoBehaviour
@@ -35,7 +36,12 @@ public class RunnerQuestionManager : MonoBehaviour
     [SerializeField] private float baseJudgeX = 20f;
     [SerializeField] private float judgeStepX = 20f;
 
+
+    private DateTimeOffset currentQuestionStartedAt;
+
     private int currentQuestionIndex = 0;
+    private int currentAttemptNumber = 1;
+
     private int judgeZoneIndex = 0;
 
     private bool waitingAnswer = false;
@@ -58,9 +64,20 @@ public class RunnerQuestionManager : MonoBehaviour
 
     public void StartFirstQuestion()
     {
+        LearningGameResultUploader uploader =
+       FindFirstObjectByType<LearningGameResultUploader>();
+
+        if (uploader != null)
+        {
+            uploader.StartNewGameSession();
+        }
+        else
+        {
+            Debug.LogError("找不到 LearningGameResultUploader。", this);
+        }
         currentQuestionIndex = 0;
         judgeZoneIndex = 0;
-
+        currentAttemptNumber = 1;
         waitingAnswer = false;
         waitingForContinue = false;
 
@@ -69,7 +86,13 @@ public class RunnerQuestionManager : MonoBehaviour
             feedbackPanel.SetActive(false);
         }
 
+        currentQuestionStartedAt = DateTimeOffset.Now;
+        
         PositionAndResetAnswerTriggers();
+        if (GameState.Instance != null)
+        {
+            GameState.Instance.ResetAIUsed();
+        }
         ShowCurrentQuestion();
     }
 
@@ -96,6 +119,9 @@ public class RunnerQuestionManager : MonoBehaviour
 
     private void ShowCurrentQuestion()
     {
+        GameState.Instance.ResetAIUsed();
+        currentQuestionStartedAt = DateTimeOffset.Now;
+
         if (questionDatabase == null ||
             questionDatabase.questions == null ||
             questionDatabase.questions.Count == 0)
@@ -126,12 +152,31 @@ public class RunnerQuestionManager : MonoBehaviour
             waitingForContinue = false;
 
             Debug.Log("所有題目完成，準備呼叫 onAllQuestionsFinished。", this);
+            Debug.Log("所有題目完成，準備上傳遊戲紀錄。", this);
+
+            LearningGameResultUploader uploader =
+                FindFirstObjectByType<LearningGameResultUploader>();
+
+            if (uploader != null)
+            {
+                uploader.UploadCurrentGameResult(
+                    isCleared: true,
+                    feedbackQuality: GameState.Instance != null &&
+                     GameState.Instance.IsFeedbackEnabled
+                    ? "high"
+                    : "low"
+                );
+            }
+            else
+            {
+                Debug.LogError("找不到 LearningGameResultUploader，無法上傳資料。", this);
+            }
 
             onAllQuestionsFinished?.Invoke();
             return;
         }
 
-        QuestionData q = questionDatabase.questions[currentQuestionIndex];
+        QuestionData q = questionDatabase.questions[currentQuestionIndex];//Current Q
 
         if (questionPanel != null)
         {
@@ -166,6 +211,7 @@ public class RunnerQuestionManager : MonoBehaviour
         }
     }
 
+
     public void OnPlayerChooseLane(LaneType selectedLane)
     {
         if (!waitingAnswer || waitingForContinue)
@@ -180,6 +226,8 @@ public class RunnerQuestionManager : MonoBehaviour
         waitingAnswer = false;
         lastAnswerWasCorrect = selectedLane == q.correctLane;
 
+        RecordCurrentAnswer(q, selectedLane, lastAnswerWasCorrect);
+
         if (playerController != null)
         {
             playerController.SetCanMove(false);
@@ -187,7 +235,34 @@ public class RunnerQuestionManager : MonoBehaviour
 
         ShowFeedback(q);
     }
+    private void RecordCurrentAnswer(
+    QuestionData question,
+    LaneType selectedLane,
+    bool isCorrect)
+    {
+        LearningGameResultUploader uploader =
+            FindFirstObjectByType<LearningGameResultUploader>();
 
+        if (uploader == null)
+        {
+            Debug.LogWarning(
+                "找不到 LearningGameResultUploader，"
+                + "本題作答時間不會上傳。",
+                this
+            );
+            return;
+        }
+
+        uploader.RecordAnswer(
+            questionId: question.Q_id,
+            questionOrder: currentQuestionIndex + 1,
+            attemptNumber: currentAttemptNumber,
+            selectedAnswer: selectedLane.ToString(),
+            isCorrect: isCorrect,
+            questionStartedAt: currentQuestionStartedAt,
+            usedAiHint: GameState.Instance.GetAIUsed()
+        );
+    }
     private void ShowFeedback(QuestionData q)
     {
         if (questionPanel != null)
@@ -203,7 +278,7 @@ public class RunnerQuestionManager : MonoBehaviour
         if (lastAnswerWasCorrect)
         {
             feedbackText.text = "答對了！";
-
+            
             if (explanationText != null)
             {
                 explanationText.text = q.correctExplanation;
@@ -265,13 +340,16 @@ public class RunnerQuestionManager : MonoBehaviour
         {
             // 答對：進入下一題
             currentQuestionIndex++;
-
+            currentAttemptNumber = 1;
             // 若還有下一題，將 Trigger 搬到下一個判定位置
             if (currentQuestionIndex < questionDatabase.questions.Count)
             {
                 PositionAndResetAnswerTriggers();
             }
-
+            if (GameState.Instance != null)
+            {
+                GameState.Instance.ResetAIUsed();
+            }
             ShowCurrentQuestion();
         }
         else
@@ -279,7 +357,7 @@ public class RunnerQuestionManager : MonoBehaviour
             // 答錯：題目不換，但判定區往前移，
             // 讓 Player 繼續向右後，在下一區重新選答案
             PositionAndResetAnswerTriggers();
-
+            currentAttemptNumber++;
             ShowCurrentQuestion();
         }
     }

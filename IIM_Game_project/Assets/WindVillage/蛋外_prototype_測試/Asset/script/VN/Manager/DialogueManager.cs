@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -21,6 +22,22 @@ public class DialogueManager : MonoBehaviour
     [Header("Systems")]
     private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
+
+    [Header("Learning Test Recording")]
+    //[SerializeField] private LearningTestResultUploader testResultUploader;
+    private LearningTestResultUploader testResultUploader;
+    // 由 MapFlowController 根據玩家進入的地點設定。
+    // 需為 group_1、group_2、group_3、group_4。
+    private string currentQuestionGroup = "";
+
+    // 顯示「有選項的題目」時更新
+    private DateTimeOffset currentQuestionStartedAt;
+
+    // 當前題組內的題號
+    private int groupQuestionOrder = 0;
+
+    // 四組合計的題號
+    private int overallQuestionOrder = 0;
 
     [Header("Visuals")]
     [SerializeField] private Image backgroundImage;
@@ -137,6 +154,31 @@ public class DialogueManager : MonoBehaviour
 
         nameText.text = currentNode.speakerName;
         bodyText.text = currentNode.bodyText;
+        bool hasChoices =
+        currentNode.choices != null &&
+        currentNode.choices.Count > 0;
+
+        if (hasChoices)
+        {
+            if (GameState.Instance != null)
+            {
+                GameState.Instance.ResetAIUsed();
+            }
+            currentQuestionStartedAt = DateTimeOffset.Now;
+            groupQuestionOrder++;
+            overallQuestionOrder++;
+
+            Debug.Log(
+                $"開始記錄題目時間："
+                + $"題組={currentQuestionGroup}，"
+                + $"題目={currentNode.nodeId}，"
+                + $"組內第 {groupQuestionOrder} 題，"
+                + $"全域第 {overallQuestionOrder} 題",
+                this
+            );
+        }
+
+
         UpdateChoices();
     }
     public void FBClose()
@@ -217,7 +259,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void SelectChoice(ChoiceData choiceData)
+    /*public void SelectChoice(ChoiceData choiceData)
     {
         if (!string.IsNullOrEmpty(choiceData.setFlag))
         {
@@ -232,6 +274,92 @@ public class DialogueManager : MonoBehaviour
             feedbackText.text = choiceData.feedbackText;
         }
 
+
+        ShowNode(choiceData.nextNodeId);
+    }*/
+    public void SelectChoice(ChoiceData choiceData)
+    {
+        if (choiceData == null)
+        {
+            Debug.LogWarning("選擇資料為空，無法記錄作答。", this);
+            return;
+        }
+
+        bool currentNodeHasChoices =
+            currentNode != null &&
+            currentNode.choices != null &&
+            currentNode.choices.Count > 0;
+
+        if (currentNodeHasChoices)
+        {
+            if (testResultUploader == null)
+            {
+                testResultUploader =
+                    FindFirstObjectByType<LearningTestResultUploader>();
+            }
+
+            if (testResultUploader == null)
+            {
+                Debug.LogWarning(
+                    "找不到 LearningTestResultUploader，"
+                    + "本題不會記錄到第二部分資料。",
+                    this
+                );
+            }
+            else if (string.IsNullOrWhiteSpace(currentQuestionGroup))
+            {
+                Debug.LogWarning(
+                    "尚未設定 currentQuestionGroup，"
+                    + "本題不會記錄到第二部分資料。",
+                    this
+                );
+            }
+            else
+            {
+                LearningTestResultUploader uploader = GetTestUploader();
+
+                if (uploader == null)
+                {
+                    Debug.LogWarning(
+                        "找不到 LearningTestResultUploader，"
+                        + "本題作答不會記錄。",
+                        this
+                    );
+                }
+                else
+                {
+                    uploader.RecordTestAnswer(
+                        questionGroup: currentQuestionGroup,
+                        questionId: currentNode.nodeId,
+                        questionOrder: groupQuestionOrder,
+                        overallQuestionOrder: overallQuestionOrder,
+                        selectedAnswer: choiceData.choiceText,
+                        isCorrect: choiceData.isCorrect,
+                        questionStartedAt: currentQuestionStartedAt,
+                        usedAiHint: GameState.Instance != null &&
+                         GameState.Instance.GetAIUsed()
+                    );
+                }
+            }
+        }
+
+        if (!string.IsNullOrEmpty(choiceData.setFlag))
+        {
+            GameState.Instance.SetFlag(choiceData.setFlag);
+        }
+
+        GameState.Instance.GetScore(
+            choiceData.fundingDelta,
+            choiceData.interestDelta,
+            choiceData.sustainabilityDelta
+        );
+
+        if (choiceData.feedbackText != null &&
+            GameState.Instance.IsFeedbackEnabled)
+        {
+            feedbackPanel.SetActive(true);
+            feedbackText.text = choiceData.feedbackText;
+        }
 
         ShowNode(choiceData.nextNodeId);
     }
@@ -294,5 +422,35 @@ public class DialogueManager : MonoBehaviour
                 characterMidImage.enabled = false;
             }
         }
+    }
+    public void StartTestGroup(string questionGroup)
+    {
+        if (questionGroup != "group_1" &&
+            questionGroup != "group_2" &&
+            questionGroup != "group_3" &&
+            questionGroup != "group_4")
+        {
+            Debug.LogError(
+                $"無效題組：{questionGroup}。"
+                + "只允許 group_1 到 group_4。",
+                this
+            );
+            return;
+        }
+
+        currentQuestionGroup = questionGroup;
+        groupQuestionOrder = 0;
+
+        Debug.Log($"開始第二部分題組：{currentQuestionGroup}", this);
+    }
+    private LearningTestResultUploader GetTestUploader()
+    {
+        if (testResultUploader == null)
+        {
+            testResultUploader =
+                FindFirstObjectByType<LearningTestResultUploader>();
+        }
+
+        return testResultUploader;
     }
 }

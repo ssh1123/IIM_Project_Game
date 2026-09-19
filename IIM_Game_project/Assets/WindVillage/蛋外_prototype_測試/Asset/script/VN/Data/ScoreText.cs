@@ -35,17 +35,17 @@ public class IndexTextUI : MonoBehaviour
     {
         if (fundingText != null)
         {
-            fundingText.text ="資金：" + funding.ToString();
+            fundingText.text ="資金：" + funding.ToString() ;
         }
 
         if (interestText != null)
         {
-            interestText.text = "好感度：" + interest.ToString();
+            interestText.text = "好感度：" + interest.ToString() + "/100";
         }
 
         if (sustainabilityText != null)
         {
-            sustainabilityText.text = "永續值：" + sustainability.ToString();
+            sustainabilityText.text = "永續值：" + sustainability.ToString() + "/100";
         }
         if (bonusFund != null)
         {
