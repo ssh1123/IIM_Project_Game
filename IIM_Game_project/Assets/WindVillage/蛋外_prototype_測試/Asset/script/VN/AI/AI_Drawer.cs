@@ -22,7 +22,7 @@ public class AIChatDrawer : MonoBehaviour
     [SerializeField] private bool startOpened = false;
 
     private Coroutine currentRoutine;
-    private bool isOpen;
+    private bool isOpen = false;
 
     private void Start()
     {

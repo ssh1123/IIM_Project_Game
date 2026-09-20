@@ -66,8 +66,8 @@ public class AIChatTester : MonoBehaviour
         while (serverLauncher != null && !serverLauncher.IsServerReady)
             yield return null;
 
-        if (aiPanel != null)
-            aiPanel.SetActive(true);
+        //if (aiPanel != null)
+        //    aiPanel.SetActive(true);
     }
 
     public void OnClickSend()

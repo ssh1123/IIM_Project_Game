@@ -1,10 +1,11 @@
 using UnityEngine;
-
+using TMPro;
 public class PersistentControlBoard : MonoBehaviour
 {
     public static PersistentControlBoard Instance { get; private set; }
     [SerializeField] private GameObject AIpanel;
     [SerializeField] private AIChatTester AItester;
+
 
     private bool isset = false;
     private void Awake()
@@ -25,12 +26,13 @@ public class PersistentControlBoard : MonoBehaviour
             AItester.ResetPanel();
             AIpanel.SetActive(true);
             isset = true;
-        }
-        else if(!GameState.Instance.runnerIntroStarted)
+        }//IsAIEnabled.IsAIEnabled
+        else if(isset && (!GameState.Instance.runnerIntroStarted || !GameState.Instance.IsAIEnabled)
+            )
         {
-            
             AIpanel.SetActive(false);
             isset = false;
         }
+    
     }
 }

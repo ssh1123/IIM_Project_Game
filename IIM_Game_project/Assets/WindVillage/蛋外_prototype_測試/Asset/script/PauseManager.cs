@@ -12,6 +12,11 @@ public class PauseManager : MonoBehaviour
     {
         IsPaused = false;
 
+        
+        
+    }
+    private void Update()
+    {
         if (pauseButtonText != null && GameState.Instance.IsAIEnabled)
         {
             pauseButtonText.text = "暫停遊戲及使用AI";
@@ -20,13 +25,13 @@ public class PauseManager : MonoBehaviour
         {
             pauseButtonText.text = "暫停遊戲";
         }
-        
     }
 
     // 給按鈕 OnClick 呼叫
     public void TogglePause()
     {
-        SetPaused(!IsPaused);
+        
+         SetPaused(!IsPaused); 
     }
 
     private void SetPaused(bool shouldPause)
