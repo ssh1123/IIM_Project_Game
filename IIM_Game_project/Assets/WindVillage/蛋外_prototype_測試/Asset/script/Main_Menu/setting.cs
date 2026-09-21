@@ -9,6 +9,7 @@ public class Setting : MonoBehaviour
 
     [SerializeField]
     private TMP_InputField playerID_Input;
+    [SerializeField] private TMP_Text playerIDText;
 
     public void SetAIEnabled(bool isEnabled)
     {
@@ -70,7 +71,7 @@ public class Setting : MonoBehaviour
         }
 
         uploader.SetPlayerId(inputPlayerId);
-
+        playerIDText.text = "PlayerID已設定為：" + inputPlayerId;
         Debug.Log(
             $"已設定 Player ID：{uploader.playerId}",
             this
