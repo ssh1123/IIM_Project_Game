@@ -11,10 +11,18 @@ public class MapFlowController : MonoBehaviour
     [SerializeField] private GameObject locationPanel;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject CharactorLayer;
+    [SerializeField] private GameObject Reminder;
+
 
     [Header("Location UI")]
     [SerializeField] private TMP_Text locationTitleText;
     [SerializeField] private Button enterButton;
+
+    [Header("Reminder")]
+    [SerializeField] private TMP_Text reminderText;
+    [SerializeField] private Button reminderButton;
+
+
 
     [Header("Dialogue")]
     [SerializeField] private DialogueManager dialogueManager;
@@ -39,9 +47,11 @@ public class MapFlowController : MonoBehaviour
     private LocationData selectedLocation;
     private bool isLoading = false;
 
+    private int reminderIndex = 0;
+
     private void Start()
     {
-        
+        StartCoroutine(WaitForMouseRelease());
         GameState.Instance.SetPreVN(true);
 
         if (testResultUploader == null)
@@ -70,6 +80,12 @@ public class MapFlowController : MonoBehaviour
         fadeCanvasGroup.alpha = 0f;
         fadeCanvasGroup.blocksRaycasts = false;
         mapPanel.SetActive(true);
+
+        Reminder.SetActive(true);
+        reminderButton.interactable = false;
+        reminderIndex = 0;
+        ShowReminder(reminderIndex);
+
         locationPanel.SetActive(false);
         dialoguePanel.SetActive(false);
         CharactorLayer.SetActive(false);
@@ -98,6 +114,51 @@ public class MapFlowController : MonoBehaviour
         }
 
     }
+
+    //****Rminder Function****0~3
+    public void ShowReminder(int index)
+    {
+        if(index == 0)
+        {
+            reminderText.text = "在風待村的冒險中，你的每一次選擇都會影響村子的未來。善用曾經學到的知識與技能，協助村民活用空屋、傳統技藝、共享交通與在地資源。";
+        }
+        else if(index == 1)
+        {
+            reminderText.text = "「資金」代表風待村改變所需的經費，可用於修繕老屋、準備材料與維護共享設施。活用在地資源或發展合理收益，能增加村子收益及長期利益。";
+        }
+        else if (index == 2)
+        {
+            reminderText.text = "「居民好感度」代表村民對你的信任。尊重居民生活習慣、善用長者技藝，並讓成果公平分享，都能提升好感度。忽略村民感受，大家可能失去信心，使計畫難以推動。";
+        }
+        else if (index == 3)
+        {
+            reminderText.text = "「永續度」代表村子的改變能否長久運作，而不是只有一時的熱鬧。選擇兼顧環境、文化與居民生活的方案，能提升永續度，並在結算時帶來更多長期收益。";
+            reminderButton.interactable = true;
+        }
+    }
+    public void increaseReminderIndex()
+    {
+        reminderIndex++;
+        if (reminderIndex > 3)
+        {
+            reminderIndex = 3;
+        }
+        ShowReminder(reminderIndex);
+    }
+    public void decreaseReminderIndex()
+    {
+        reminderIndex--;
+        if (reminderIndex < 0)
+        {
+            reminderIndex = 0;
+        }
+        ShowReminder(reminderIndex);
+    }
+    public void CloseReminder()
+    {
+        Reminder.SetActive(false);
+    }
+    //**********************
 
     private LearningTestResultUploader GetTestUploader()
     {
@@ -352,5 +413,17 @@ public class MapFlowController : MonoBehaviour
 
                 return "group_1";
         }
+    }
+    private IEnumerator WaitForMouseRelease()
+    {
+        
+
+        // 等待前一個場景留下的滑鼠點擊放開
+        while (Input.GetMouseButton(0))
+        {
+            yield return null;
+        }
+
+        
     }
 }

@@ -34,6 +34,8 @@ public class GameState : MonoBehaviour
     public bool AI_used = false;
     public int bonusFund = 0;
 
+    public bool resultIsCalculated = false;
+
     public event Action<int, int, int, int> OnIndexChanged;
 
 
@@ -212,19 +214,27 @@ public class GameState : MonoBehaviour
         bonusFund = 0;
         if (HasAllFlags(new List<string> { "R1", "R2", "R3" }))
         {
-            bonusFund+=20000;
+            bonusFund+=15000;
         }
         if (HasAllFlags(new List<string> { "H1", "H2", "H3" }))
         {
-            bonusFund += 20000;
+            bonusFund += 15000;
         }
         if (HasAllFlags(new List<string> { "C1", "C2", "C3" }))
         {
-            bonusFund += 20000;
+            bonusFund += 15000;
         }
         if (HasAllFlags(new List<string> { "E1", "E2", "E3" }))
         {
-            bonusFund += 20000;
+            bonusFund += 15000;
+        }
+
+        if(!resultIsCalculated)
+        {
+            if(interest >= 70 && sustainability >= 70)
+            {
+                bonusFund += interest*sustainability*10;
+            }
         }
 
         funding += bonusFund;
@@ -235,7 +245,7 @@ public class GameState : MonoBehaviour
             return 1;
         }
 
-        if (Funding >= 0 && Interest >=50 && Sustainability >=50)
+        if (Funding >= 60000 && Interest >=60 && Sustainability >=60)
         {
             return 3;
         }
