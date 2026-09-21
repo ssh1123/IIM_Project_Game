@@ -57,11 +57,14 @@ public class LearningGameResultUploader : MonoBehaviour
     [Header("FastAPI")]
     [SerializeField]
     private string apiUrl =
-        "http://127.0.0.1:8000/learning-game-results";
+        "http://127.0.0.1:8001/learning-game-results";
 
     [Header("測試玩家資料")]
     [SerializeField]
-    private string playerId = "unity_player_001";
+
+
+
+    public string playerId = "unknown";
 
     private readonly List<QuestionAnswerData> answers =
         new List<QuestionAnswerData>();
@@ -83,12 +86,15 @@ public class LearningGameResultUploader : MonoBehaviour
         gameStartedAt = DateTimeOffset.Now;
         
         answers.Clear();
-
+        
         Debug.Log(
             $"新遊戲紀錄已開始。Session ID：{currentSessionId}"
         );
     }
-
+    public void SetPlayerId( string InputID )
+    {
+        playerId = InputID;
+    }
 
 
     public void RecordAnswer(

@@ -16,7 +16,7 @@ public class PythonServerLauncher : MonoBehaviour
     [SerializeField] private string exeName = "AI_Server.exe";
 
     [SerializeField] private string host = "127.0.0.1";
-    [SerializeField] private string port = "8000";
+    [SerializeField] private string port = "8001";
 
     [Header("Check Settings")]
     [SerializeField] private float retryInterval = 1.5f;

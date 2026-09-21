@@ -365,8 +365,8 @@ MonoBehaviour:
   playerController: {fileID: 2091635443}
   runnerIntroManager: {fileID: 1339017021}
   questionDatabase: {fileID: 11400000, guid: 9149cc99c59fef24fac41e43b34ce8a8, type: 2}
-  baseJudgeX: 28
-  judgeStepX: 28
+  baseJudgeX: 50
+  judgeStepX: 50
 --- !u!1 &273731312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,6 @@ GameObject:
   - component: {fileID: 836852846}
   - component: {fileID: 836852848}
   - component: {fileID: 836852847}
-  - component: {fileID: 836852849}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1614,21 +1613,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836852845}
   m_CullTransparentMesh: 1
---- !u!114 &836852849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836852845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e9619408c433d439e189be9b08bb51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FloatUpAndDown
-  height: 30
-  speed: 2
-  startOffset: 1.5
 --- !u!1 &883216476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5dd3098c95df344a582b67b85993af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunnerPlayerController
-  forwardSpeed: 4
+  forwardSpeed: 5
   laneChangeSpeed: 12
   laneTop: {fileID: 660210654}
   laneMiddle: {fileID: 330578083}

@@ -28,7 +28,13 @@ public class ENDManager : MonoBehaviour
 
     public void go_MainMenu()
     {
-
+        LearningGameResultUploader uploader =
+           FindFirstObjectByType<LearningGameResultUploader>();
+        uploader.SetPlayerId("unknown");
+        Debug.Log(
+           $"已reset Player ID：{uploader.playerId}",
+           this
+       );
         GameState.Instance.ResetGameState();
         SceneManager.LoadScene("Main_Menu");
     }

@@ -13,7 +13,7 @@ public class AIChatTester : MonoBehaviour
     [SerializeField] private TMP_Text answerText;
 
     [Header("API")]
-    [SerializeField] private string apiUrl = "http://127.0.0.1:8000/ask";
+    [SerializeField] private string apiUrl = "http://127.0.0.1:8001/ask";
 
     [Header("System")]
     [SerializeField] private PythonServerLauncher serverLauncher;

@@ -228,7 +228,7 @@ public class GameState : MonoBehaviour
         }
 
         funding += bonusFund;
-
+        ClearFlags();
 
         if (Funding <= 0)
         {
@@ -260,9 +260,9 @@ public class GameState : MonoBehaviour
 
         // 三項地方創生指數
         ResetIndex();
-
+        ResetAIUsed();
         IsFeedbackEnabled = true;
-        IsAIEnabled = true;
+        //IsAIEnabled = true;
     Debug.Log("GameState 已完成重設。", this);
     }
     //============ai_data======= for SQL Record

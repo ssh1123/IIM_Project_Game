@@ -45,7 +45,7 @@ public class LearningTestResultUploader : MonoBehaviour
     [Header("FastAPI")]
     [SerializeField]
     private string apiUrl =
-        "http://127.0.0.1:8000/learning-test-results";
+        "http://127.0.0.1:8001/learning-test-results";
 
     private readonly List<TestAnswerData> answers =
         new List<TestAnswerData>();
